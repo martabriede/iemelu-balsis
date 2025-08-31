@@ -32,10 +32,10 @@
     section h1,section h2{margin:.2rem 0 .8rem}
     .grid{display:grid;gap:1.25rem}
     .grid.two{grid-template-columns:1fr}
+    @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
     .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem}
     .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff}
     .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
-    .video{aspect-ratio:1/1;max-height:400px;width:100%;border:0;border-radius:14px}
     .link-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none}
     .link-badge:hover{background:#f8fafc}
     .news-grid{display:grid;gap:1rem}
@@ -62,6 +62,27 @@
     .portrait-img{display:block;width:100%;max-width:260px;margin:0 auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
     .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
     .video-wrap{margin-top:1rem;border:1px solid var(--border);border-radius:18px;background:#fff;padding:.5rem}
+
+    /* --- Square YouTube video --- */
+    .square-video{
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin: 0 auto;
+    }
+    .square-video iframe{
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: 177.78%;
+      transform: translateX(-50%);
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -112,14 +133,17 @@
         </div>
         <div class="video-wrap">
           <h3 style="margin:.2rem 0 .6rem;">Youtube video preview</h3>
-          <iframe class="video" src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50" title="Ziemeļu Balsis video" allowfullscreen loading="lazy"></iframe>
+          <div class="square-video">
+            <iframe src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50&modestbranding=1&rel=0"
+              title="Ziemeļu Balsis video" loading="lazy" allowfullscreen></iframe>
+          </div>
         </div>
       </section>
 
       <!-- REHEARSALS -->
       <section id="rehearsals">
         <h2>Rehearsals</h2>
-        <div class="grid two" style="grid-template-columns:1fr 1fr;gap:1.5rem">
+        <div class="grid two">
           <div class="card">
             <h3>Tartu</h3>
             <p><strong>When:</strong> Wednesdays, 18:00</p>
