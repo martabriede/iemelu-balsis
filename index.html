@@ -159,64 +159,56 @@
         </div>
       </section>
 
-      <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery">
-          <img src="images/gallery-1.jpg" alt="Choir photo">
-          <img src="images/gallery-2.jpg" alt="Choir photo">
-          <img src="images/gallery-3.jpg" alt="Choir photo">
-          <img src="images/gallery-4.jpg" alt="Choir photo">
-          <img src="images/gallery-5.jpg" alt="Choir photo">
-          <img src="images/gallery-6.jpg" alt="Choir photo">
-          <img src="images/gallery-7.jpg" alt="Choir photo">
-          <img src="images/gallery-8.jpg" alt="Choir photo">
-          <img src="images/gallery-9.jpg" alt="Choir photo">
-          <img src="images/gallery-10.jpg" alt="Choir photo">
-          <img src="images/gallery-11.jpg" alt="Choir photo">
-          <img src="images/gallery-12.jpg" alt="Choir photo">
-          <img src="images/gallery-13.jpg" alt="Choir photo">
-          <img src="images/gallery-14.jpg" alt="Choir photo">
-          <img src="images/gallery-15.jpg" alt="Choir photo">
-          <img src="images/gallery-16.jpg" alt="Choir photo">
-          <img src="images/gallery-17.jpg" alt="Choir photo">
-          <img src="images/gallery-18.jpg" alt="Choir photo">
-          <img src="images/gallery-19.jpg" alt="Choir photo">
-          <img src="images/gallery-20.jpg" alt="Choir photo">
-          <img src="images/gallery-21.jpg" alt="Choir photo">
-          <img src="images/gallery-22.jpg" alt="Choir photo">
-          <img src="images/gallery-23.jpg" alt="Choir photo">
-          <img src="images/gallery-24.jpg" alt="Choir photo">
-          <img src="images/gallery-25.jpg" alt="Choir photo">
-          <img src="images/gallery-26.jpg" alt="Choir photo">
-          <img src="images/gallery-27.jpg" alt="Choir photo">
-          <img src="images/gallery-28.jpg" alt="Choir photo">
-          <img src="images/gallery-29.jpg" alt="Choir photo">
-          <img src="images/gallery-30.jpg" alt="Choir photo">
-          <img src="images/gallery-31.jpg" alt="Choir photo">
-          <img src="images/gallery-32.jpg" alt="Choir photo">
-          <img src="images/gallery-33.jpg" alt="Choir photo">
-          <img src="images/gallery-34.jpg" alt="Choir photo">
-          <img src="images/gallery-35.jpg" alt="Choir photo">
-          <img src="images/gallery-36.jpg" alt="Choir photo">
-          <img src="images/gallery-37.jpg" alt="Choir photo">
-          <img src="images/gallery-38.jpg" alt="Choir photo">
-          <img src="images/gallery-39.jpg" alt="Choir photo">
-          <img src="images/gallery-40.jpg" alt="Choir photo">
-          <img src="images/gallery-41.jpg" alt="Choir photo">
-          <img src="images/gallery-42.jpg" alt="Choir photo">
-          <img src="images/gallery-43.jpg" alt="Choir photo">
-          <img src="images/gallery-44.jpg" alt="Choir photo">
-          <img src="images/gallery-45.jpg" alt="Choir photo">
-          <img src="images/gallery-46.jpg" alt="Choir photo">
-          <img src="images/gallery-47.jpg" alt="Choir photo">
-          <img src="images/gallery-48.jpg" alt="Choir photo">
-          <img src="images/gallery-49.jpg" alt="Choir photo">
-          <img src="images/gallery-50.jpg" alt="Choir photo">
-          <img src="images/about1.jpg" alt="Choir photo">
-          <img src="images/about2.jpg" alt="Choir photo">
-          <img src="images/hero.jpg" alt="Choir photo">
-        </div>
-      </section>
+    <!-- GALLERY (fixed) -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery" id="gallery-grid" style="display:grid;gap:1rem"></div>
+</section>
+
+<script>
+  // List ONLY the images that actually exist in your repo’s /images/ folder.
+  // You can add/remove filenames here any time.
+  const photos = [
+    "hero.jpg",
+    "about1.jpg",
+    "about2.jpg",
+    "koris-1.jpg",
+    "koris-2.jpg",
+    "koris-3.jpg",
+    "koris-4.jpg",
+    "koris-5.jpg"
+    // If you confirm more files exist, add them like: "gallery-6.jpg", "gallery-7.jpg", ...
+  ];
+
+  const grid = document.getElementById("gallery-grid");
+
+  // 3 columns on wider screens, 1 on mobile
+  const setCols = () => {
+    grid.style.gridTemplateColumns =
+      window.matchMedia("(min-width:700px)").matches ? "repeat(3,1fr)" : "1fr";
+  };
+  setCols(); window.addEventListener("resize", setCols);
+
+  photos.forEach(name => {
+    const fig = document.createElement("figure");
+    fig.style.margin = "0";
+    const img = new Image();
+    img.loading = "lazy";
+    img.alt = "Choir photo";
+    img.style.width = "100%";
+    img.style.borderRadius = "16px";
+    img.style.border = "1px solid #e5e7eb";
+    img.style.aspectRatio = "4 / 3";
+    img.style.objectFit = "cover";
+    img.src = `images/${name}`;
+
+    // If a file is missing (wrong name, etc.), skip it—no empty tiles.
+    img.onerror = () => fig.remove();
+
+    fig.appendChild(img);
+    grid.appendChild(fig);
+  });
+</script>
 
       <footer id="contact">
         <p><strong>Contacts</strong></p>
