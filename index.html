@@ -7,24 +7,11 @@
   <meta name="description" content="Latvian mixed choir in Estonia. Rehearsals in Tartu and Tallinn. Conductors Matīss Briedis and Rihards Zariņš." />
   <link rel="icon" href="images/logo.png">
   <style>
-    :root{
-      --bg:#ffffff; --text:#0f172a;
-      --muted:#475569;
-      --brand:#1e3a8a;
-      --brand-accent:#2563eb;
-      --card:#f8fafc;
-      --border:#e5e7eb;
-      --ring:rgba(37,99,235,.35);
-      --sidebar: #ffffff;
-    }
+    :root{--bg:#ffffff; --text:#0f172a; --muted:#475569; --brand:#1e3a8a; --brand-accent:#2563eb; --card:#f8fafc; --border:#e5e7eb; --ring:rgba(37,99,235,.35); --sidebar:#ffffff;}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
     .layout{display:flex;min-height:100dvh}
-    aside{
-      width:280px;flex:0 0 280px;background:var(--sidebar);
-      border-right:1px solid var(--border);position:sticky;top:0;height:100dvh;
-      padding:1rem;display:flex;flex-direction:column;gap:1rem
-    }
+    aside{width:280px;flex:0 0 280px;background:var(--sidebar);border-right:1px solid var(--border);position:sticky;top:0;height:100dvh;padding:1rem;display:flex;flex-direction:column;gap:1rem}
     .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
     .brand img{width:44px;height:44px;border-radius:10px}
     nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem}
@@ -48,20 +35,17 @@
     .badge{display:inline-block;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;background:#fff;font-size:.8rem}
     .grid{display:grid;gap:1.25rem}
     .grid.two{grid-template-columns:1fr;}
-    .grid.three{grid-template-columns:1fr;}
-    @media(min-width:900px){.grid.two{grid-template-columns:1.2fr .8fr} .grid.three{grid-template-columns:repeat(3,1fr)}}
-    .gallery{display:grid;gap:1rem}
+    @media(min-width:900px){.grid.two{grid-template-columns:1.2fr .8fr}}
+    .photo-strip{display:grid;gap:1rem;margin-top:1rem}
+    @media(min-width:700px){.photo-strip{grid-template-columns:repeat(2,1fr)}}
+    .photo-strip img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
+    .gallery{display:grid;gap:1rem;margin-top:1rem}
     @media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
     .gallery img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
     .map{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
     footer{padding:2rem;color:#475569}
     .small{font-size:.95rem;color:#475569}
-    @media(max-width:900px){
-      aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}
-      .layout{flex-direction:column}
-      nav ul{flex-direction:row;flex-wrap:wrap}
-      nav a{padding:.5rem .6rem}
-    }
+    @media(max-width:900px){aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)} .layout{flex-direction:column} nav ul{flex-direction:row;flex-wrap:wrap} nav a{padding:.5rem .6rem} }
   </style>
 </head>
 <body>
@@ -73,13 +57,10 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#watch">Video</a></li>
+          <li><a href="#about">About us</a></li>
           <li><a href="#rehearsals">Rehearsals</a></li>
-          <li><a href="#concerts">Concerts</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contacts</a></li>
         </ul>
         <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener">Register here</a>
       </nav>
@@ -90,63 +71,49 @@
     </aside>
 
     <main>
-      <section id="home" class="hero">
+      <!-- ABOUT US -->
+      <section id="about" class="hero">
         <div class="hero-inner">
           <span class="badge">Latvian Mixed Choir • Estonia</span>
-          <h1>Sing with Ziemeļu Balsis — connecting voices in Tartu and Tallinn</h1>
-          <p class="muted">We bring together singers of all levels to share music, community, and culture.</p>
+          <h1>About us</h1>
+          <p class="muted">We bring together singers of all levels to share music, community, and culture in Tartu and Tallinn.</p>
           <div class="cta">
             <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener">Register here</a>
-            <a class="btn secondary" href="#watch">Watch a performance</a>
           </div>
         </div>
         <img class="banner" src="images/hero.jpg" alt="Ziemeļu Balsis group photo">
-      </section>
-
-      <section id="about">
-        <div class="grid two">
+        <div class="grid two" style="padding:1.25rem 2rem 2rem;">
           <div>
-            <h2>About the choir</h2>
-            <p><em>Ziemeļu Balsis</em> is a Latvian mixed choir active in Estonia with rehearsals in both Tartu and Tallinn. We gather weekly to celebrate music and Latvian choral traditions, led by our conductors Matīss Briedis and Rihards Zariņš.</p>
-            <ul class="list">
-              <li><strong>Conductors:</strong> Matīss Briedis and Rihards Zariņš</li>
-              <li><strong>Repertoire:</strong> Latvian choir music, world classics, contemporary works</li>
-              <li><strong>Auditions:</strong> Light audition, beginners welcome</li>
-            </ul>
+            <p>The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
+            <p>We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
+            <p>Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.</p>
+            <p>Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.</p>
+            <p>Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
+            <p>Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.</p>
           </div>
-          <div class="card">
-            <h3>Highlights</h3>
-            <p>Performances in Estonia and Latvia, participation in festivals, and cultural events.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="watch">
-        <div class="grid two">
           <div>
-            <h2>Watch a performance</h2>
-            <p>Enjoy a video from our performances.</p>
-            <iframe class="map" src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50" title="Ziemeļu Balsis video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="card">
-            <h3>Follow us</h3>
-            <p>See more videos and photos on our social media.</p>
-            <div class="cta">
-              <a class="btn" href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a>
-              <a class="btn secondary" href="https://www.instagram.com/ziemelu.balsis?igsh=MWtsaXk0NDhvZG5pZw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+            <div class="photo-strip">
+              <img src="images/about1.jpg" alt="Ziemeļu Balsis performing">
+              <img src="images/about2.jpg" alt="Ziemeļu Balsis concert">
+            </div>
+            <div class="card" style="margin-top:1rem">
+              <h3>Watch a performance</h3>
+              <iframe class="map" src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50" title="Ziemeļu Balsis video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- REHEARSALS -->
       <section id="rehearsals">
         <h2>Rehearsals</h2>
         <div class="grid two">
           <div class="card">
             <h3>Tartu</h3>
             <p><strong>When:</strong> Wednesdays, 18:00</p>
+            <p><strong>Address:</strong> Juhan Liivi 2d (Tartu International School)</p>
             <p><a href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">Open in Google Maps</a></p>
-            <iframe class="map" src="https://www.google.com/maps?q=Tartu%2C%20Estonia&output=embed" loading="lazy"></iframe>
+            <iframe class="map" src="https://www.google.com/maps?q=Juhan%20Liivi%202d%2C%20Tartu&output=embed" loading="lazy"></iframe>
           </div>
           <div class="card">
             <h3>Tallinn</h3>
@@ -158,26 +125,20 @@
         </div>
       </section>
 
-      <section id="concerts">
-        <h2>Upcoming concerts</h2>
-        <div class="grid three">
-          <div class="card"><h3>Concert Title — DATE</h3><p>Venue, city. Short description of the program or festival.</p></div>
-          <div class="card"><h3>Past highlights</h3><p>Links to videos or recordings of past concerts.</p></div>
-          <div class="card"><h3>Book us</h3><p>For events and collaborations, email <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a> or call +372 56266439.</p></div>
-        </div>
+      <!-- NEWS -->
+      <section id="news">
+        <h2>News</h2>
+        <ul>
+          <li><a target="_blank" rel="noopener" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu">Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu (Delfi)</a></li>
+          <li><a target="_blank" rel="noopener" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/">Ceļā iz Baltejis valstū dzīsmu svātku “hat trick” (Lakuga)</a></li>
+          <li><a target="_blank" rel="noopener" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/">LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</a></li>
+          <li><a target="_blank" rel="noopener" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu">Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību (TVNET)</a></li>
+        </ul>
       </section>
 
-      <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery">
-          <img src="images/gallery1.jpg" alt="Ziemeļu Balsis performing">
-          <img src="images/gallery2.jpg" alt="Ziemeļu Balsis concert">
-          <img src="images/hero.jpg" alt="Group photo in traditional attire">
-        </div>
-      </section>
-
+      <!-- CONTACTS -->
       <footer id="contact">
-        <p><strong>Contact</strong></p>
+        <p><strong>Contacts</strong></p>
         <p>Email: <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a> • Tel: +372 56266439</p>
         <p>
           <a href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a> •
