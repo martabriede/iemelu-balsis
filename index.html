@@ -159,11 +159,64 @@
         </div>
       </section>
 
-    <!-- GALLERY (fixed) -->
+    <!-- GALLERY (auto-detect existing files) -->
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery" id="gallery-grid" style="display:grid;gap:1rem"></div>
 </section>
+
+<script>
+  const grid = document.getElementById("gallery-grid");
+  const setCols = () => {
+    grid.style.gridTemplateColumns =
+      window.matchMedia("(min-width:700px)").matches ? "repeat(3,1fr)" : "1fr";
+  };
+  setCols(); window.addEventListener("resize", setCols);
+
+  // Common names we’ve used + broad patterns (both .jpg/.JPG/.jpeg)
+  const base = ["hero", "about1", "about2"];
+  const candidates = [];
+
+  // exact known names
+  base.forEach(n => candidates.push(`${n}.jpg`, `${n}.JPG`, `${n}.jpeg`));
+
+  // koris-1.jpg ... koris-100.jpg
+  for (let i = 1; i <= 100; i++) {
+    ["jpg","JPG","jpeg"].forEach(ext => candidates.push(`koris-${i}.${ext}`));
+  }
+  // gallery-1.jpg ... gallery-200.jpg
+  for (let i = 1; i <= 200; i++) {
+    ["jpg","JPG","jpeg"].forEach(ext => candidates.push(`gallery-${i}.${ext}`));
+  }
+
+  // try to load each; only append if it actually exists
+  const showIfExists = (name) => {
+    const fig = document.createElement("figure");
+    fig.style.margin = "0";
+
+    const img = new Image();
+    img.loading = "lazy";
+    img.alt = "Choir photo";
+    img.style.width = "100%";
+    img.style.borderRadius = "16px";
+    img.style.border = "1px solid #e5e7eb";
+    img.style.aspectRatio = "4 / 3";
+    img.style.objectFit = "cover";
+
+    img.onload = () => {
+      grid.appendChild(fig);
+    };
+    img.onerror = () => {
+      fig.remove();
+    };
+
+    img.src = `images/${name}`;
+    fig.appendChild(img);
+  };
+
+  candidates.forEach(showIfExists);
+</script>
+
 
 <script>
   // List ONLY the images that actually exist in your repo’s /images/ folder.
