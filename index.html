@@ -36,7 +36,8 @@
     .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff}
     .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
     .video{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
-    .map{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
+    .link-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none}
+    .link-badge:hover{background:#f8fafc}
     .news-grid{display:grid;gap:1rem}
     @media(min-width:900px){.news-grid{grid-template-columns:repeat(2,1fr)}}
     .news-card{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fff}
@@ -81,6 +82,7 @@
     </aside>
 
     <main>
+      <!-- ABOUT US -->
       <section id="about">
         <h1>About us</h1>
         <p>The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
@@ -92,7 +94,7 @@
         <div class="card">
           <h3>Matīss Briedis</h3>
           <div class="grid two" style="align-items:start">
-            <img class="media" src="images/matiss-briedis.jpg" alt="Matīss Briedis portrait" style="aspect-ratio:3/4;max-width:420px">
+            <img class="media" src="images/matiss-briedis.jpg" alt="Matīss Briedis portrait" style="aspect-ratio:3/4;max-width:320px">
             <p>Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.</p>
           </div>
         </div>
@@ -100,7 +102,7 @@
         <div class="card">
           <h3>Rihards Zariņš</h3>
           <div class="grid two" style="align-items:start">
-            <img class="media" src="images/rihards-zarins.jpg" alt="Rihards Zariņš portrait" style="aspect-ratio:3/4;max-width:420px">
+            <img class="media" src="images/rihards-zarins.jpg" alt="Rihards Zariņš portrait" style="aspect-ratio:3/4;max-width:320px">
             <p>Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
           </div>
         </div>
@@ -113,6 +115,7 @@
         </div>
       </section>
 
+      <!-- REHEARSALS -->
       <section id="rehearsals">
         <h2>Rehearsals</h2>
         <div class="grid two">
@@ -120,19 +123,18 @@
             <h3>Tartu</h3>
             <p><strong>When:</strong> Wednesdays, 18:00</p>
             <p><strong>Address:</strong> Juhan Liivi 2d (Tartu International School)</p>
-            <p><a href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">Open in Google Maps</a></p>
-            <iframe class="map" src="https://www.google.com/maps?q=Juhan%20Liivi%202d%2C%20Tartu&output=embed" loading="lazy"></iframe>
+            <a class="link-badge" href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">🌍 Open in Google Maps</a>
           </div>
           <div class="card">
             <h3>Tallinn</h3>
             <p><strong>When:</strong> Wednesdays, 18:00</p>
             <p><strong>Address:</strong> Tõnismägi 10, 15190 Tallinn</p>
-            <p><a href="https://www.google.com/maps/place/T%C3%B5nism%C3%Agi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">Open in Google Maps</a></p>
-            <iframe class="map" src="https://www.google.com/maps?q=T%C3%B5nism%C3%Agi%2010%2C%2015190%20Tallinn&output=embed" loading="lazy"></iframe>
+            <a class="link-badge" href="https://www.google.com/maps/place/T%C3%B5nism%C3%A3gi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">🌍 Open in Google Maps</a>
           </div>
         </div>
       </section>
 
+      <!-- MEDIA -->
       <section id="news">
         <h2>Media</h2>
         <div class="news-grid">
@@ -159,109 +161,11 @@
         </div>
       </section>
 
-    <!-- GALLERY (auto-detect existing files) -->
-<section id="gallery">
-  <h2>Gallery</h2>
-  <div class="gallery" id="gallery-grid" style="display:grid;gap:1rem"></div>
-</section>
-
-<script>
-  const grid = document.getElementById("gallery-grid");
-  const setCols = () => {
-    grid.style.gridTemplateColumns =
-      window.matchMedia("(min-width:700px)").matches ? "repeat(3,1fr)" : "1fr";
-  };
-  setCols(); window.addEventListener("resize", setCols);
-
-  // Common names we’ve used + broad patterns (both .jpg/.JPG/.jpeg)
-  const base = ["hero", "about1", "about2"];
-  const candidates = [];
-
-  // exact known names
-  base.forEach(n => candidates.push(`${n}.jpg`, `${n}.JPG`, `${n}.jpeg`));
-
-  // koris-1.jpg ... koris-100.jpg
-  for (let i = 1; i <= 100; i++) {
-    ["jpg","JPG","jpeg"].forEach(ext => candidates.push(`koris-${i}.${ext}`));
-  }
-  // gallery-1.jpg ... gallery-200.jpg
-  for (let i = 1; i <= 200; i++) {
-    ["jpg","JPG","jpeg"].forEach(ext => candidates.push(`gallery-${i}.${ext}`));
-  }
-
-  // try to load each; only append if it actually exists
-  const showIfExists = (name) => {
-    const fig = document.createElement("figure");
-    fig.style.margin = "0";
-
-    const img = new Image();
-    img.loading = "lazy";
-    img.alt = "Choir photo";
-    img.style.width = "100%";
-    img.style.borderRadius = "16px";
-    img.style.border = "1px solid #e5e7eb";
-    img.style.aspectRatio = "4 / 3";
-    img.style.objectFit = "cover";
-
-    img.onload = () => {
-      grid.appendChild(fig);
-    };
-    img.onerror = () => {
-      fig.remove();
-    };
-
-    img.src = `images/${name}`;
-    fig.appendChild(img);
-  };
-
-  candidates.forEach(showIfExists);
-</script>
-
-
-<script>
-  // List ONLY the images that actually exist in your repo’s /images/ folder.
-  // You can add/remove filenames here any time.
-  const photos = [
-    "hero.jpg",
-    "about1.jpg",
-    "about2.jpg",
-    "koris-1.jpg",
-    "koris-2.jpg",
-    "koris-3.jpg",
-    "koris-4.jpg",
-    "koris-5.jpg"
-    // If you confirm more files exist, add them like: "gallery-6.jpg", "gallery-7.jpg", ...
-  ];
-
-  const grid = document.getElementById("gallery-grid");
-
-  // 3 columns on wider screens, 1 on mobile
-  const setCols = () => {
-    grid.style.gridTemplateColumns =
-      window.matchMedia("(min-width:700px)").matches ? "repeat(3,1fr)" : "1fr";
-  };
-  setCols(); window.addEventListener("resize", setCols);
-
-  photos.forEach(name => {
-    const fig = document.createElement("figure");
-    fig.style.margin = "0";
-    const img = new Image();
-    img.loading = "lazy";
-    img.alt = "Choir photo";
-    img.style.width = "100%";
-    img.style.borderRadius = "16px";
-    img.style.border = "1px solid #e5e7eb";
-    img.style.aspectRatio = "4 / 3";
-    img.style.objectFit = "cover";
-    img.src = `images/${name}`;
-
-    // If a file is missing (wrong name, etc.), skip it—no empty tiles.
-    img.onerror = () => fig.remove();
-
-    fig.appendChild(img);
-    grid.appendChild(fig);
-  });
-</script>
+      <!-- GALLERY (auto-detect existing files) -->
+      <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery" id="gallery-grid" style="display:grid;gap:1rem"></div>
+      </section>
 
       <footer id="contact">
         <p><strong>Contacts</strong></p>
@@ -272,6 +176,27 @@
       </footer>
     </main>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+
+  <!-- gallery script -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const grid = document.getElementById("gallery-grid");
+    const setCols = () => {
+      grid.style.gridTemplateColumns =
+        window.matchMedia("(min-width:700px)").matches ? "repeat(3,1fr)" : "1fr";
+    };
+    setCols(); window.addEventListener("resize", setCols);
+
+    const base = ["hero", "about1", "about2"];
+    const candidates = [];
+    base.forEach(n => candidates.push(`${n}.jpg`, `${n}.JPG`, `${n}.jpeg`));
+    for (let i = 1; i <= 100; i++) {
+      ["jpg","JPG","jpeg"].forEach(ext => candidates.push(`koris-${i}.${ext}`));
+    }
+    for (let i = 1; i <= 200; i++) {
+      ["jpg","JPG","jpeg"].forEach(ext => candidates.push(`gallery-${i}.${ext}`));
+    }
+
+    const showIfExists = (name) => {
+      const fig =
