@@ -35,7 +35,9 @@
     .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem}
     .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff}
     .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
-    .video{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
+    /* Tighter media sizing */
+.hero-photo { aspect-ratio: 16 / 9; max-height: 300px; }
+.portrait   { aspect-ratio: 3 / 4;  max-width: 260px; }
     .link-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none}
     .link-badge:hover{background:#f8fafc}
     .news-grid{display:grid;gap:1rem}
@@ -96,12 +98,13 @@
         <p>We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
         <p>Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.</p>
 
-        <img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo" style="margin:1rem 0">
+<img class="media hero-photo" src="images/hero.jpg" alt="Ziemeļu Balsis group photo" style="margin:1rem 0">
+
 
         <div class="card">
           <h3>Matīss Briedis</h3>
           <div class="grid two" style="align-items:start">
-            <img class="media" src="images/matiss-briedis.jpg" alt="Matīss Briedis portrait" style="aspect-ratio:3/4;max-width:320px">
+<img class="media portrait" src="images/matiss-briedis.jpg" alt="Matīss Briedis portrait">
             <p>Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.</p>
           </div>
         </div>
@@ -109,7 +112,7 @@
         <div class="card">
           <h3>Rihards Zariņš</h3>
           <div class="grid two" style="align-items:start">
-            <img class="media" src="images/rihards-zarins.jpg" alt="Rihards Zariņš portrait" style="aspect-ratio:3/4;max-width:320px">
+            <img class="media portrait" src="images/rihards-zarins.jpg" alt="Rihards Zariņš portrait">
             <p>Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
           </div>
         </div>
