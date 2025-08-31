@@ -7,7 +7,12 @@
   <meta name="description" content="Latvian mixed choir in Estonia. Rehearsals in Tartu and Tallinn. Conductors Matīss Briedis and Rihards Zariņš." />
   <link rel="icon" href="images/logo.png">
   <style>
-    :root{--bg:#ffffff; --text:#0f172a; --muted:#475569; --brand:#1e3a8a; --brand-accent:#2563eb; --card:#f8fafc; --border:#e5e7eb; --ring:rgba(37,99,235,.35); --sidebar:#ffffff;}
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#475569;
+      --brand:#1e3a8a; --brand-accent:#2563eb;
+      --card:#ffffff; --border:#e5e7eb; --ring:rgba(37,99,235,.35);
+      --sidebar:#ffffff;
+    }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
     .layout{display:flex;min-height:100dvh}
@@ -23,29 +28,37 @@
     .social a{font-size:.95rem;color:var(--brand-accent)}
     main{flex:1;min-width:0}
     section{padding:2rem 2rem;border-bottom:1px solid var(--border)}
-    section h2{font-size:1.6rem;margin:0 0 .6rem}
-    .muted{color:var(--muted)}
-    .cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
+    section h1,section h2{margin:.2rem 0 .8rem}
+    .lead{color:var(--muted);font-size:1.05rem;max-width:70ch}
+    .grid{display:grid;gap:1.25rem}
+    .grid.two{grid-template-columns:1fr}
+    @media(min-width:900px){.grid.two{grid-template-columns:1.15fr .85fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem}
     .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff}
     .btn.secondary{background:#fff;color:var(--brand-accent)}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem}
-    .hero{padding:0;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(37,99,235,.06),transparent)}
-    .hero-inner{padding:2rem 2rem 0}
-    .banner{width:100%;aspect-ratio:16/6;object-fit:cover;display:block;border-top:1px solid var(--border)}
-    .badge{display:inline-block;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;background:#fff;font-size:.8rem}
-    .grid{display:grid;gap:1.25rem}
-    .grid.two{grid-template-columns:1fr;}
-    @media(min-width:900px){.grid.two{grid-template-columns:1.2fr .8fr}}
-    .photo-strip{display:grid;gap:1rem;margin-top:1rem}
-    @media(min-width:700px){.photo-strip{grid-template-columns:repeat(2,1fr)}}
-    .photo-strip img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
-    .gallery{display:grid;gap:1rem;margin-top:1rem}
+    .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
+    .conductors{display:grid;gap:1rem}
+    .conductors .person img{aspect-ratio:3/4}
+    @media(min-width:700px){.conductors{grid-template-columns:repeat(2,1fr)}}
+    .video{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
+    .map{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
+    .news-grid{display:grid;gap:1rem}
+    @media(min-width:900px){.news-grid{grid-template-columns:repeat(2,1fr)}}
+    .news-card{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fff}
+    .news-card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+    .news-card .meta{font-size:.9rem;color:var(--muted)}
+    .news-card .actions{margin-top:.6rem}
+    .gallery{display:grid;gap:1rem}
     @media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
     .gallery img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
-    .map{aspect-ratio:16/9;border:0;width:100%;border-radius:14px}
     footer{padding:2rem;color:#475569}
     .small{font-size:.95rem;color:#475569}
-    @media(max-width:900px){aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)} .layout{flex-direction:column} nav ul{flex-direction:row;flex-wrap:wrap} nav a{padding:.5rem .6rem} }
+    @media(max-width:900px){
+      aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}
+      .layout{flex-direction:column}
+      nav ul{flex-direction:row;flex-wrap:wrap}
+      nav a{padding:.5rem .6rem}
+    }
   </style>
 </head>
 <body>
@@ -60,6 +73,7 @@
           <li><a href="#about">About us</a></li>
           <li><a href="#rehearsals">Rehearsals</a></li>
           <li><a href="#news">News</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contacts</a></li>
         </ul>
         <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener">Register here</a>
@@ -71,40 +85,33 @@
     </aside>
 
     <main>
-      <!-- ABOUT US -->
-      <section id="about" class="hero">
-        <div class="hero-inner">
-          <span class="badge">Latvian Mixed Choir • Estonia</span>
-          <h1>About us</h1>
-          <p class="muted">We bring together singers of all levels to share music, community, and culture in Tartu and Tallinn.</p>
-          <div class="cta">
-            <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener">Register here</a>
-          </div>
-        </div>
-        <img class="banner" src="images/hero.jpg" alt="Ziemeļu Balsis group photo">
-        <div class="grid two" style="padding:1.25rem 2rem 2rem;">
-          <div>
-            <p>The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
-            <p>We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
-            <p>Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.</p>
-            <p>Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.</p>
-            <p>Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
-            <p>Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.</p>
-          </div>
-          <div>
-            <div class="photo-strip">
-              <img src="images/about1.jpg" alt="Ziemeļu Balsis performing">
-              <img src="images/about2.jpg" alt="Ziemeļu Balsis concert">
+      <section id="about">
+        <h1>About us</h1>
+        <p class="lead">The Latvian choir in Estonia <em>Ziemeļu Balsis</em> was founded in 2012. Today we unite singers from many countries and two cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective. We’re the first choir to sing in all three Baltic Song Festivals: Latvian (2013, 2018, 2023), Lithuanian (2024), and Estonian (2025).</p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Conductors</h3>
+            <div class="conductors">
+              <div class="person">
+                <img class="media" src="images/matiss-briedis.jpg" alt="Matīss Briedis portrait">
+                <p><strong>Matīss Briedis</strong> — member since 2013, conductor since 2017; studies at the Estonian Academy of Music and Theatre (MA in conducting).</p>
+              </div>
+              <div class="person">
+                <img class="media" src="images/rihards-zarins.jpg" alt="Rihards Zariņš portrait">
+                <p><strong>Rihards Zariņš</strong> — studied at Riga Cathedral Choir School & Jāzeps Vītols Academy; has led choirs in Latvia, Estonia and Finland.</p>
+              </div>
             </div>
+          </div>
+          <div>
+            <img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo">
             <div class="card" style="margin-top:1rem">
               <h3>Watch a performance</h3>
-              <iframe class="map" src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50" title="Ziemeļu Balsis video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              <iframe class="video" src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50" title="Ziemeļu Balsis video" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- REHEARSALS -->
       <section id="rehearsals">
         <h2>Rehearsals</h2>
         <div class="grid two">
@@ -125,32 +132,50 @@
         </div>
       </section>
 
-      <!-- NEWS -->
       <section id="news">
         <h2>News</h2>
-        <ul>
-          <li><a target="_blank" rel="noopener" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu">Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu (Delfi)</a></li>
-          <li><a target="_blank" rel="noopener" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/">Ceļā iz Baltejis valstū dzīsmu svātku “hat trick” (Lakuga)</a></li>
-          <li><a target="_blank" rel="noopener" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/">LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</a></li>
-          <li><a target="_blank" rel="noopener" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu">Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību (TVNET)</a></li>
-        </ul>
+        <div class="news-grid">
+          <article class="news-card">
+            <h3>Trīs gadi, trīs dziesmusvētki</h3>
+            <div class="meta">Delfi</div>
+            <div class="actions"><a class="btn secondary" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank">Read</a></div>
+          </article>
+          <article class="news-card">
+            <h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3>
+            <div class="meta">Lakuga</div>
+            <div class="actions"><a class="btn secondary" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank">Read</a></div>
+          </article>
+          <article class="news-card">
+            <h3>LR2: Ielīgošana ar Igaunijas latviešu kori</h3>
+            <div class="meta">Latvijas Radio 2</div>
+            <div class="actions"><a class="btn secondary" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank">Read</a></div>
+          </article>
+          <article class="news-card">
+            <h3>Kā koris stiprina Baltijas vienotību</h3>
+            <div class="meta">TVNET</div>
+            <div class="actions"><a class="btn secondary" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank">Read</a></div>
+          </article>
+        </div>
       </section>
 
-      <!-- CONTACTS -->
+      <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <img src="images/about1.jpg" alt="Choir photo">
+          <img src="images/about2.jpg" alt="Choir photo">
+          <img src="images/hero.jpg" alt="Choir photo">
+        </div>
+      </section>
+
       <footer id="contact">
         <p><strong>Contacts</strong></p>
         <p>Email: <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a> • Tel: +372 56266439</p>
-        <p>
-          <a href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a> •
-          <a href="https://www.instagram.com/ziemelu.balsis?igsh=MWtsaXk0NDhvZG5pZw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
-        </p>
+        <p><a href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank">Facebook</a> •
+           <a href="https://www.instagram.com/ziemelu.balsis" target="_blank">Instagram</a></p>
         <p class="small">© <span id="year"></span> Ziemeļu Balsis. All rights reserved.</p>
       </footer>
     </main>
   </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
