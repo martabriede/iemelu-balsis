@@ -286,7 +286,7 @@ main a, #news .read-link{ color:#9E1B34; }
           // Show only first 6 by default
           const cards = Array.from(document.querySelectorAll('#news .news-card'));
           const toggle = document.getElementById('mediaToggle');
-          const initial = 6;
+          const initial = 8;
           function applyClamp(collapsed) {
             cards.forEach((card, i) => { card.style.display = (collapsed && i >= initial) ? 'none' : ''; });
             toggle.textContent = collapsed ? 'Show more' : 'Show less';
