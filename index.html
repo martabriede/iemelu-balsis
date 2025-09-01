@@ -208,87 +208,50 @@
 
 
       <!-- GALLERY -->
-    <!-- GALLERY (super-robust loader) -->
-<section id="gallery">
+    <section id="gallery">
   <h2>Gallery</h2>
-  <div class="gallery" id="gallery-grid" style="display:grid;gap:1rem"></div>
+
+  <!-- Big 16:9 video on top -->
+  <div style="margin:0 0 1rem 0;">
+    <div style="max-width:1000px;">
+      <iframe
+        src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50&modestbranding=1&rel=0"
+        title="Ziemeļu Balsis video"
+        loading="lazy"
+        allowfullscreen
+        style="width:100%; aspect-ratio:16 / 9; border:0; border-radius:14px;"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Photos follow below (keep/add as many as you want) -->
+  <div class="gallery">
+    <img src="images/hero.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/about1.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/about2.jpg" alt="Choir photo" onerror="this.remove()">
+
+    <img src="images/Koris 1.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 2.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 3.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 4.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 5.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 6.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 12.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 13.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 15.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 16.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 18.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 19.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 20.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 21.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 22.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 23.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 24.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 25.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 27.jpg" alt="Choir photo" onerror="this.remove()">
+    <img src="images/Koris 29.jpg" alt="Choir photo" onerror="this.remove()">
+  </div>
 </section>
-
-<script>
-  // === CONFIG: list the base names exactly as your files are named *without extension* ===
-  // (From your ZIP we saw names like "Koris 1", "Koris 2", …)
-  const choirBases = [
-    "Koris 1","Koris 2","Koris 3","Koris 4","Koris 5","Koris 6",
-    "Koris 12","Koris 13","Koris 15","Koris 16",
-    "Koris 18","Koris 19","Koris 20","Koris 21","Koris 22","Koris 23",
-    "Koris 24","Koris 25","Koris 27","Koris 29"
-  ];
-
-  // Always try these site images too (if you have them)
-  const always = ["hero","about1","about2"];
-
-  // We’ll try multiple folders and extensions to catch common upload patterns:
-  const folders = [
-    "images/",                 // expected
-    "Images/",                 // if the folder is capitalized
-    "images/Choir_pictures/",  // if the ZIP created a subfolder
-    "Images/Choir_pictures/",  // capitalized + subfolder
-    "Choir_pictures/",         // if you uploaded at root
-  ];
-  const exts = ["jpg","JPG","jpeg","JPEG","png","PNG","webp","WEBP"];
-
-  // Create the grid
-  const grid = document.getElementById("gallery-grid");
-  const setCols = () => {
-    grid.style.gridTemplateColumns =
-      window.matchMedia("(min-width:700px)").matches ? "repeat(3,1fr)" : "1fr";
-  };
-  setCols(); window.addEventListener("resize", setCols);
-
-  // Helper: try many URL variants; append only if one loads successfully
-  function tryManyAndAppend(basename) {
-    const img = new Image();
-    img.alt = "Choir photo";
-    img.loading = "lazy";
-    img.style.width = "100%";
-    img.style.borderRadius = "16px";
-    img.style.border = "1px solid #e5e7eb";
-    img.style.aspectRatio = "4 / 3";
-    img.style.objectFit = "cover";
-
-    // Build candidate URLs:
-    const candidates = [];
-    folders.forEach(folder => {
-      exts.forEach(ext => {
-        // raw spacing
-        candidates.push(`${folder}${basename}.${ext}`);
-        // URL-encoded spaces
-        const enc = basename.replace(/ /g, "%20");
-        candidates.push(`${folder}${enc}.${ext}`);
-      });
-    });
-
-    let i = 0;
-    const tryNext = () => {
-      if (i >= candidates.length) return; // nothing worked
-      img.src = candidates[i++];
-    };
-    img.onerror = tryNext;
-    img.onload = () => {
-      const fig = document.createElement("figure");
-      fig.style.margin = "0";
-      fig.appendChild(img);
-      grid.appendChild(fig);
-    };
-    tryNext();
-  }
-
-  // Load fixed site images (if present)
-  always.forEach(name => tryManyAndAppend(name));
-
-  // Load choir photos
-  choirBases.forEach(name => tryManyAndAppend(name));
-</script>
 
       <footer id="contact">
         <p><strong>Contacts</strong></p>
