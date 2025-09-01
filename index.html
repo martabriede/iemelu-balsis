@@ -84,6 +84,56 @@
     /* Latvian red enforcement (if any stray styles override variables) */
     .btn, nav a.btn, #mediaToggle { background:#9E1B34 !important; border-color:#9E1B34 !important; color:#fff !important; }
     a, #news .read-link { color:#9E1B34 !important; }
+    /* === Latvian red sidebar + white text (main stays white) === */
+:root{
+  --brand:#9E1B34;            /* Latvian carmine for buttons/links */
+  --brand-accent:#9E1B34;
+  --sidebar:#9E1B34;          /* sidebar background */
+  --border:#E9D3D8;
+}
+
+/* Sidebar container */
+aside{
+  background: var(--sidebar) !important;
+  color:#fff !important;
+  border-right-color:#7F152A !important; /* darker red edge */
+}
+
+/* Brand row (logo + name) */
+aside .brand{ color:#fff; }
+aside .brand img{
+  background:#fff;            /* gives logo a small white tile */
+  border-radius:10px;
+  padding:2px;
+}
+
+/* Sidebar nav links (white text) */
+aside nav a{
+  color:#fff !important;
+  border-color: transparent !important;
+}
+aside nav a:hover{
+  background: rgba(255,255,255,.10) !important;
+  border-color: rgba(255,255,255,.25) !important;
+}
+
+/* Sidebar button: white pill with red text */
+aside nav a.btn{
+  background:#fff !important;
+  color:#9E1B34 !important;
+  border-color:#fff !important;
+}
+aside nav a.btn:hover{ filter:brightness(.96); }
+
+/* Sidebar social links */
+aside .social a{ color:#fff !important; }
+
+/* Focus ring readable on dark background */
+aside a:focus-visible{ outline:3px solid rgba(255,255,255,.6); outline-offset:2px; }
+
+/* Main content keeps white + red accents */
+main a, #news .read-link{ color:#9E1B34; }
+.btn{ background:#9E1B34; border-color:#9E1B34; color:#fff; }
   </style>
 </head>
 
