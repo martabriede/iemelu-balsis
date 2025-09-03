@@ -64,14 +64,14 @@
     box-shadow: var(--shadow);
   }
   nav a.btn:hover{filter:brightness(.96)}
-    /* === Active sidebar link highlight (with tiny logo) === */
+/* === Active sidebar link — logo only, no frame === */
 aside nav a.active{
-  background: rgba(255,255,255,.14);
-  border-color: rgba(255,255,255,.28);
   position: relative;
   font-weight: 700;
-  padding-left: 2.2rem;           /* room for the logo */
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  padding-left: 2.2rem;   /* room for the logo */
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 aside nav a.active::before{
@@ -82,7 +82,6 @@ aside nav a.active::before{
   width:16px; height:16px;
   background:url("images/logo.png") no-repeat center/contain;
   opacity:.95;
-  filter: drop-shadow(0 0 1px rgba(0,0,0,.15));
 }
   .social{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
   .social a{display:inline-flex;gap:.4rem;align-items:center;color:#fff;text-decoration:none}
