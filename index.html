@@ -377,5 +377,26 @@
     // (If you ever re-add the © year)
     // document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+<!-- Simple lightbox -->
+<div class="lightbox" id="lightbox" tabindex="-1" aria-hidden="true">
+  <img alt="">
+</div>
+<script>
+  (function(){
+    const box = document.getElementById('lightbox');
+    const big = box.querySelector('img');
+    document.querySelectorAll('#gallery img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        big.src = img.src;
+        box.classList.add('open');
+        box.focus();
+      });
+    });
+    box.addEventListener('click',()=>box.classList.remove('open'));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape') box.classList.remove('open');
+    });
+  })();
+</script>
 </body>
 </html>
