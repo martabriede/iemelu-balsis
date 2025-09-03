@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ziemeļu Balsis — Latvian Mixed Choir in Estonia</title>
+  <meta name="description" content="Latvian mixed choir in Estonia. Rehearsals in Tartu and Tallinn. Conductors Matīss Briedis and Rihards Zariņš." />
+  <link rel="icon" href="images/logo.png">
+  <style>
+  :root{
+    --bg:#ffffff; --text:#0f172a; --muted:#475569;
+    --brand:#9E1B34; --brand-accent:#9E1B34;
+    --brand-dark:#7F152A;
+    --card:#ffffff;
+    --border:#E9D3D8;
+    --sidebar:#9E1B34;
+    --tint:#FFF6F8;
+    --shadow:0 10px 20px rgba(158,27,52,.06),0 2px 6px rgba(0,0,0,.05);
+    --radius:18px;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+  .layout{display:flex;min-height:100dvh}
+  main{flex:1;min-width:0}
+  .content{max-width:var(--maxw);margin:0 auto}
+  aside{width:280px;flex:0 0 280px;background:var(--sidebar);color:#fff;position:sticky;top:0;height:100dvh;padding:1rem;display:flex;flex-direction:column;gap:1rem}
+  .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
+  .brand img{width:44px;height:44px;border-radius:10px;background:#fff;padding:3px}
+  nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.45rem}
+  nav a{display:block;padding:.55rem .7rem;border-radius:12px;color:#fff;text-decoration:none}
+  nav a.btn{background:#fff;color:var(--brand);margin-top:.4rem;font-weight:700;box-shadow:var(--shadow)}
+  section{padding:2rem 1.25rem;border-bottom:1px solid var(--border)}
+  section h1,section h2{margin:.2rem 0 .8rem}
+  .grid{display:grid;gap:1.25rem}
+  .grid.two{grid-template-columns:1fr}
+  @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+  .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff}
+  .gallery{display:grid;gap:1rem}
+  @media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  .gallery img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
+  .contacts-wrap{display:grid;gap:1.2rem}
+  @media(min-width:900px){.contacts-wrap{grid-template-columns:1fr 1fr}}
+  .contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+  .form-grid{display:grid;gap:.7rem}
+  .form-grid input,.form-grid textarea{width:100%;border:1px solid var(--border);border-radius:12px;padding:.75rem .9rem}
+  .form-grid textarea{min-height:140px;resize:vertical}
+  .form-actions{margin-top:.4rem}
+  .alert{margin-top:.6rem;font-size:.95rem}
+  .alert.ok{color:#166534}.alert.err{color:#991B1B}
+  </style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand"><img src="images/logo.png" alt="Ziemeļu Balsis logo"><div>Ziemeļu Balsis</div></div>
+  <nav>
+    <ul>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#rehearsals">Rehearsals</a></li>
+      <li><a href="#news">Media</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contacts</a></li>
+    </ul>
+    <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank">Register here</a>
+  </nav>
+</aside>
+<main><div class="content">
+  <section id="about"><h1>About us</h1><p>Latvian choir in Estonia...</p></section>
+  <section id="rehearsals"><h2>Rehearsals</h2><div class="grid two"><div class="card"><h3>Tartu</h3><p>Wednesdays 18:00</p></div><div class="card"><h3>Tallinn</h3><p>Wednesdays 18:00</p></div></div></section>
+  <section id="news"><h2>Media</h2><div class="news-grid"><div class="news-card"><h3>Example article</h3></div></div></section>
+  <section id="gallery"><h2>Gallery</h2><div class="gallery"><img src="images/hero.jpg" alt="Choir photo"></div></section>
+  <section id="contact"><h2>Contacts</h2><div class="contacts-wrap">
+    <div class="contact-card"><h3>Get in touch</h3><p>Email: ziemelu.balsis@gmail.com</p><p>Phone: +372 56266439</p></div>
+    <div class="contact-card"><h3>Contact us</h3>
+      <form id="contactForm" class="form-grid" action="https://formspree.io/f/xblazekk" method="POST" novalidate>
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="_replyto" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message…" required></textarea>
+        <div class="form-actions"><button class="btn" type="submit">Send message</button></div>
+        <div id="contactAlert" class="alert" aria-live="polite"></div>
+      </form>
+    </div>
+  </div></section>
+</div></main>
+</div>
+<script>
+const form=document.getElementById('contactForm');const alertBox=document.getElementById('contactAlert');
+form.addEventListener('submit',async e=>{e.preventDefault();alertBox.textContent="";alertBox.className="alert";
+try{const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{"Accept":"application/json"}});
+if(res.ok){form.reset();alertBox.textContent="✅ Thank you! Your message has been sent.";alertBox.classList.add("ok");}
+else{alertBox.textContent="❌ Could not send. Try again.";alertBox.classList.add("err");}}catch(err){alertBox.textContent="❌ Network error.";alertBox.classList.add("err");}});
+</script>
+</body>
+</html>
