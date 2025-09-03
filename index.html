@@ -172,24 +172,23 @@
     nav ul{flex-direction:row;flex-wrap:wrap}
     nav a{padding:.5rem .6rem}
   }
-/* --- Sidebar active link highlight with logo badge (no shadow at all) --- */
+/* --- Sidebar active link highlight: no pill, just logo + thin bar --- */
 aside nav a{
-  position:relative;
-  padding-left:2.1rem;
-  box-shadow:none !important;     /* kill any default shadow */
-  border:1px solid transparent;   /* no border by default */
-  filter:none !important;         /* just in case */
+  position: relative;
+  padding-left: 2.1rem;
+  border: 1px solid transparent;
+  box-shadow: none !important;
 }
 
-/* Active item – keep soft white bg, but NO shadow/border */
+/* REMOVE the light pill completely */
 aside nav a.active{
-  background:rgba(255,255,255,.18) !important;
-  border:none !important;
-  box-shadow:none !important;
-  filter:none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
-/* Tiny logo badge */
+/* Tiny square logo badge */
 aside nav a.active::before{
   content:"";
   position:absolute;
@@ -199,20 +198,29 @@ aside nav a.active::before{
   box-shadow:none !important;
 }
 
-/* Remove focus ring/halo as well */
+/* Thin white bar on the far left */
+aside nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0; top:8px; bottom:8px;
+  width:3px; border-radius:2px;
+  background:#fff;
+}
+
+/* Keep keyboard focus simple (no glow) */
 aside nav a:focus,
 aside nav a:focus-visible{
   outline:none !important;
   box-shadow:none !important;
-  background:rgba(255,255,255,.14); /* optional: softer focus bg, remove if you want none */
+  background:transparent !important;
 }
 
-/* Hover should not add any glow on the active item */
+/* Don’t re-add the pill on hover for the active link */
 aside nav a.active:hover{
-  background:rgba(255,255,255,.18) !important;
+  background:transparent !important;
   border:none !important;
   box-shadow:none !important;
-  filter:none !important;
+}
 }
   </style>
 </head>
