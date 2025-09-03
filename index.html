@@ -8,133 +8,149 @@
   <link rel="icon" href="images/logo.png">
 
   <style>
-    /* ===============================
-       THEME — Latvian red + white
-       =============================== */
-    :root{
-      --bg:#ffffff; --text:#0f172a; --muted:#475569;
-      --brand:#9E1B34;          /* Latvian carmine red */
-      --brand-accent:#9E1B34;   /* same for buttons/links */
-      --card:#ffffff;
-      --border:#E9D3D8;         /* subtle red-tinted border */
-      --ring:rgba(158,27,52,.35);
-      --sidebar:#ffffff;
-    }
+  /* ===============================
+     THEME — Latvian red + white
+     =============================== */
+  :root{
+    --bg:#ffffff; --text:#0f172a; --muted:#475569;
+    --brand:#9E1B34;          /* Latvian carmine red */
+    --brand-accent:#9E1B34;   /* same for buttons/links */
+    --brand-dark:#7F152A;
+    --card:#ffffff;
+    --border:#E9D3D8;         /* subtle red-tinted border */
+    --ring:rgba(158,27,52,.35);
+    --sidebar:#9E1B34;        /* red sidebar */
+    --tint:#FFF6F8;           /* very light red tint */
+    --shadow:0 10px 20px rgba(158,27,52,.06), 0 2px 6px rgba(0,0,0,.05);
+    --radius:18px;
+    --radius-small:12px;
+    --maxw:1100px;            /* nicer readable width */
+  }
 
-    /* Layout + general */
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    .layout{display:flex;min-height:100dvh}
-    aside{width:280px;flex:0 0 280px;background:var(--sidebar);
-      border-right:1px solid var(--border);position:sticky;top:0;height:100dvh;
-      padding:1rem;display:flex;flex-direction:column;gap:1rem}
-    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
-    .brand img{width:44px;height:44px;border-radius:10px}
-    nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem}
-    nav a{display:block;padding:.55rem .7rem;border-radius:12px;color:var(--text);text-decoration:none;border:1px solid transparent}
-    nav a:hover{border-color:var(--border);background:#fff}
-    nav a.btn{background:var(--brand-accent);color:#fff;border-color:var(--brand-accent);text-align:center;margin-top:.4rem}
-    nav a.btn:hover{filter:brightness(.95)}
-    .social{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
-    .social a{display:inline-flex;gap:.4rem;align-items:center;color:var(--brand-accent);text-decoration:none}
-    .icon{width:18px;height:18px;display:inline-block}
-    main{flex:1;min-width:0}
-    section{padding:2rem 2rem;border-bottom:1px solid var(--border)}
-    section h1,section h2{margin:.2rem 0 .8rem}
-    .grid{display:grid;gap:1.25rem}
-    .grid.two{grid-template-columns:1fr}
-    @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem}
-    .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff}
-    .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;padding:0;background:var(--bg);color:var(--text);
+    font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
 
-    /* Link badge (maps) */
-    .link-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none}
-    .link-badge:hover{background:#FFF5F7}
+  .layout{display:flex;min-height:100dvh}
+  main{flex:1;min-width:0}
+  .content{max-width:var(--maxw);margin:0 auto}
 
-    /* News grid */
-    .news-grid{display:grid;gap:1rem}
-    @media(min-width:900px){.news-grid{grid-template-columns:repeat(2,1fr)}}
-    .news-card{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fff}
-    .news-card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
-    .news-card .meta{font-size:.9rem;color:var(--muted)}
-    .news-card .actions{margin-top:.6rem}
+  /* ===== Sidebar (Latvian red with subtle Lielvārde-like pattern) ===== */
+  aside{
+    width:280px;flex:0 0 280px;background:var(--sidebar);color:#fff;
+    border-right:1px solid #7F152A;position:sticky;top:0;height:100dvh;
+    padding:1rem;display:flex;flex-direction:column;gap:1rem;
+    /* ornament: tiny white geometric tile, very subtle */
+    background-image:
+      radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><g fill='none' stroke='white' stroke-opacity='.18' stroke-width='1'><path d='M8 0L0 8M16 0L0 16M24 0L0 24M32 0L0 32'/><path d='M32 8L8 32M32 16L16 32M32 24L24 32'/></g></svg>");
+    background-size:16px 16px, 32px 32px;
+    background-blend-mode:overlay;
+  }
+  .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
+  .brand img{width:44px;height:44px;border-radius:10px;background:#fff;padding:3px}
+  nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.45rem}
+  nav a{
+    display:block;padding:.55rem .7rem;border-radius:12px;
+    color:#fff;text-decoration:none;border:1px solid transparent;
+    transition:.2s ease;
+  }
+  nav a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25)}
+  nav a.btn{
+    background:#fff;color:var(--brand);border-color:#fff;text-align:center;margin-top:.4rem;font-weight:700;
+    box-shadow: var(--shadow);
+  }
+  nav a.btn:hover{filter:brightness(.96)}
+  .social{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .social a{display:inline-flex;gap:.4rem;align-items:center;color:#fff;text-decoration:none}
 
-    /* Gallery */
-    .gallery{display:grid;gap:1rem}
-    @media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
-    .gallery img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
+  /* ===== Sections, typography, accents ===== */
+  section{padding:2rem 1.25rem;border-bottom:1px solid var(--border)}
+  .content section{padding:2rem 0}
+  section h1,section h2{margin:.2rem 0 .8rem;letter-spacing:.2px}
+  section h1, section h2{position:relative}
+  section h1::after, section h2::after{
+    content:"";display:block;width:64px;height:4px;margin-top:.45rem;border-radius:999px;background:var(--brand);
+  }
 
-    footer{padding:2rem;color:#475569}
-    .small{font-size:.95rem;color:#475569}
+  .grid{display:grid;gap:1.25rem}
+  .grid.two{grid-template-columns:1fr}
+  @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
 
-    /* About-us layout refinements */
-    .about-hero img{aspect-ratio:16/9;max-height:300px}
-    .about-text p{margin:.5rem 0}
-    .dotted-panel{padding:1rem;border:1px solid var(--border);border-radius:18px;
-      background-image:radial-gradient(#f0e3e6 1px,transparent 1px);background-size:16px 16px;background-color:#fff;margin-top:1rem}
-    .about-grid{display:grid;gap:1.25rem}
-    @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
-    .portrait-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:.75rem}
-    .portrait-img{display:block;width:100%;max-width:260px;margin:0 auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
-    .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
-    .video-wrap{margin-top:1rem;border:1px solid var(--border);border-radius:18px;background:#fff;padding:.5rem}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:1rem;box-shadow:var(--shadow)
+  }
+  .btn{
+    display:inline-block;padding:.8rem 1.1rem;border-radius:12px;
+    border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff;
+    box-shadow:var(--shadow);transition:.15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);filter:brightness(.97)}
 
-    /* Latvian red enforcement (if any stray styles override variables) */
-    .btn, nav a.btn, #mediaToggle { background:#9E1B34 !important; border-color:#9E1B34 !important; color:#fff !important; }
-    a, #news .read-link { color:#9E1B34 !important; }
-    /* === Latvian red sidebar + white text (main stays white) === */
-:root{
-  --brand:#9E1B34;            /* Latvian carmine for buttons/links */
-  --brand-accent:#9E1B34;
-  --sidebar:#9E1B34;          /* sidebar background */
-  --border:#E9D3D8;
-}
+  a{ color: var(--brand); }
+  a:hover{ text-decoration: underline; }
 
-/* Sidebar container */
-aside{
-  background: var(--sidebar) !important;
-  color:#fff !important;
-  border-right-color:#7F152A !important; /* darker red edge */
-}
+  /* Link badge (maps) */
+  .link-badge{
+    display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:1px solid var(--border);
+    border-radius:999px;font-size:.95rem;text-decoration:none;background:#fff;box-shadow:var(--shadow)
+  }
+  .link-badge:hover{background:var(--tint)}
 
-/* Brand row (logo + name) */
-aside .brand{ color:#fff; }
-aside .brand img{
-  background:#fff;            /* gives logo a small white tile */
-  border-radius:10px;
-  padding:2px;
-}
+  /* Media compact (you already have it, refined colours) */
+  #news .news-grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  #news .news-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:.85rem .9rem;box-shadow:var(--shadow)}
+  #news .news-card h3{font-size:1rem;line-height:1.35;margin:0 0 .45rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  #news .meta-row{display:flex;align-items:center;gap:.45rem;color:#64748b;font-size:.9rem;margin-bottom:.45rem}
+  #news .meta-row img{width:16px;height:16px;border-radius:4px;flex:0 0 16px}
+  #news .actions{margin-top:.25rem}
+  #news .read-link{font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .55rem;border:1px solid var(--border);border-radius:999px;color:var(--brand);background:#fff}
+  #news .read-link:hover{background:var(--tint)}
+  #news .toggle-wrap{text-align:center;margin-top:.8rem}
+  #news .toggle-btn{background:var(--brand);color:#fff;border:1px solid var(--brand);padding:.5rem .9rem;border-radius:999px;cursor:pointer;font-size:.95rem;box-shadow:var(--shadow)}
 
-/* Sidebar nav links (white text) */
-aside nav a{
-  color:#fff !important;
-  border-color: transparent !important;
-}
-aside nav a:hover{
-  background: rgba(255,255,255,.10) !important;
-  border-color: rgba(255,255,255,.25) !important;
-}
+  /* Media & images */
+  .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
+  .about-hero img{aspect-ratio:16/9;max-height:300px}
+  .about-text p{margin:.5rem 0}
+  .dotted-panel{
+    padding:1rem;border:1px solid var(--border);border-radius:var(--radius);
+    background-image:radial-gradient(#f0e3e6 1px,transparent 1px);
+    background-size:16px 16px;background-color:#fff;margin-top:1rem;box-shadow:var(--shadow)
+  }
+  .about-grid{display:grid;gap:1.25rem}
+  @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
+  .portrait-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:.75rem;box-shadow:var(--shadow)}
+  .portrait-img{display:block;width:100%;max-width:260px;margin:0 auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
+  .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
+  .video-wrap{margin-top:1rem;border:1px solid var(--border);border-radius:var(--radius);background:#fff;padding:.5rem;box-shadow:var(--shadow)}
 
-/* Sidebar button: white pill with red text */
-aside nav a.btn{
-  background:#fff !important;
-  color:#9E1B34 !important;
-  border-color:#fff !important;
-}
-aside nav a.btn:hover{ filter:brightness(.96); }
+  /* Gallery */
+  .gallery{display:grid;gap:1rem}
+  @media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  .gallery img{width:100%;border-radius:16px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover;cursor:pointer;transition:.15s ease}
+  .gallery img:hover{transform:scale(1.01)}
 
-/* Sidebar social links */
-aside .social a{ color:#fff !important; }
+  /* Lightbox (for richer feel) */
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:50}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:92vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .lightbox:focus{outline:none}
 
-/* Focus ring readable on dark background */
-aside a:focus-visible{ outline:3px solid rgba(255,255,255,.6); outline-offset:2px; }
+  footer{padding:2rem;color:#475569}
 
-/* Main content keeps white + red accents */
-main a, #news .read-link{ color:#9E1B34; }
-.btn{ background:#9E1B34; border-color:#9E1B34; color:#fff; }
-  </style>
+  /* Mobile tweaks */
+  @media(max-width:900px){
+    aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}
+    .layout{flex-direction:column}
+    nav ul{flex-direction:row;flex-wrap:wrap}
+    nav a{padding:.5rem .6rem}
+  }
+</style>
 </head>
 
 <body>
