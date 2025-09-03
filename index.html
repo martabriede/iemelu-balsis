@@ -505,5 +505,46 @@ aside nav a:focus-visible{
       });
     })();
   </script>
+  <script>
+(function(){
+  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
+  const byId = new Map(links.map(a => [decodeURIComponent(a.getAttribute('href').slice(1)), a]));
+
+  function setActive(id){
+    links.forEach(a => a.classList.remove('active'));
+    const link = byId.get(id);
+    if(link) link.classList.add('active');
+  }
+
+  const sections = Array.from(document.querySelectorAll('main section[id]'));
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        setActive(entry.target.id);
+      }
+    });
+  },{
+    rootMargin: '-45% 0px -50% 0px',
+    threshold: 0.01
+  });
+  sections.forEach(sec => observer.observe(sec));
+
+  links.forEach(a=>{
+    a.addEventListener('click', () => {
+      const id = decodeURIComponent(a.getAttribute('href').slice(1));
+      setActive(id);
+    });
+  });
+
+  setTimeout(()=>{
+    const current = sections.find(sec => {
+      const r = sec.getBoundingClientRect();
+      const mid = window.innerHeight * 0.5;
+      return r.top <= mid && r.bottom >= mid;
+    });
+    setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)));
+  }, 0);
+})();
+</script>
 </body>
 </html>
