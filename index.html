@@ -584,141 +584,145 @@ aside nav a.active:hover{
         </section>
 
         <footer>
-        </footer>
+</footer>
       </div>
     </main>
   </div>
 
- <script>
-/* LIGHTBOX with next/prev navigation */
-(function(){
-  // Build the lightbox with arrows
-  const box = document.createElement('div');
-  box.className = 'lightbox';
-  box.id = 'lightbox';
-  box.tabIndex = -1;
-  box.innerHTML = `
-    <button class="nav prev" aria-label="Previous image">‹</button>
-    <img alt="">
-    <button class="nav next" aria-label="Next image">›</button>
-  `;
-  document.body.appendChild(box);
+  <!-- LIGHTBOX with next/prev navigation -->
+  <script>
+  (function(){
+    // Build the lightbox with arrows
+    const box = document.createElement('div');
+    box.className = 'lightbox';
+    box.id = 'lightbox';
+    box.tabIndex = -1;
+    box.innerHTML = `
+      <button class="nav prev" aria-label="Previous image">‹</button>
+      <img alt="">
+      <button class="nav next" aria-label="Next image">›</button>
+    `;
+    document.body.appendChild(box);
 
-  const thumbs = Array.from(document.querySelectorAll('#gallery img'));
-  if (!thumbs.length) return;
+    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+    if (!thumbs.length) return;
 
-  const big     = box.querySelector('img');
-  const prevBtn = box.querySelector('.prev');
-  const nextBtn = box.querySelector('.next');
-  let i = 0; // current index
+    const big     = box.querySelector('img');
+    const prevBtn = box.querySelector('.prev');
+    const nextBtn = box.querySelector('.next');
+    let i = 0; // current index
 
-  function updateArrows(){
-    prevBtn.style.display = i > 0 ? 'grid' : 'none';
-    nextBtn.style.display = i < thumbs.length - 1 ? 'grid' : 'none';
-  }
-  function openAt(idx){
-    i = idx;
-    big.src = thumbs[i].src;
-    box.classList.add('open');
-    box.focus();
-    updateArrows();
-  }
-  function close(){ box.classList.remove('open'); }
-  function next(){ if (i < thumbs.length - 1) openAt(i + 1); }
-  function prev(){ if (i > 0) openAt(i - 1); }
+    function updateArrows(){
+      prevBtn.style.display = i > 0 ? 'grid' : 'none';
+      nextBtn.style.display = i < thumbs.length - 1 ? 'grid' : 'none';
+    }
+    function openAt(idx){
+      i = idx;
+      big.src = thumbs[i].src;
+      box.classList.add('open');
+      box.focus();
+      updateArrows();
+    }
+    function close(){ box.classList.remove('open'); }
+    function next(){ if (i < thumbs.length - 1) openAt(i + 1); }
+    function prev(){ if (i > 0) openAt(i - 1); }
 
-  // Clicking a thumbnail opens the lightbox at that index
-  thumbs.forEach((img, idx) => {
-    img.addEventListener('click', () => openAt(idx));
-  });
+    // Clicking a thumbnail opens the lightbox at that index
+    thumbs.forEach((img, idx) => {
+      img.addEventListener('click', () => openAt(idx));
+    });
 
-  // Click backdrop to close (but not when clicking the image or buttons)
-  box.addEventListener('click', (e) => {
-    if (e.target === box) close();
-  });
-  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
-  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+    // Click backdrop to close (but not when clicking the image or buttons)
+    box.addEventListener('click', (e) => {
+      if (e.target === box) close();
+    });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
 
-  // Keyboard support
-  document.addEventListener('keydown', (e) => {
-    if (!box.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft')  prev();
-  });
-})();
-</script>
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft')  prev();
+    });
+  })();
+  </script>
 
-    // Contact form (Formspree)
-    (function(){
-      const form = document.getElementById('contactForm');
-      const alertBox = document.getElementById('contactAlert');
-      if(!form) return;
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        alertBox.textContent = ''; alertBox.className = 'alert';
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-          if (res.ok) {
-            form.reset();
-            alertBox.textContent = '✅ Thank you! Your message has been sent.';
-            alertBox.classList.add('ok');
-          } else {
-            alertBox.textContent = '❌ Could not send. Please try again.';
-            alertBox.classList.add('err');
-          }
-        } catch (err) {
-          alertBox.textContent = '❌ Network error. Please try again.';
+  <!-- Contact form (Formspree) -->
+  <script>
+  (function(){
+    const form = document.getElementById('contactForm');
+    const alertBox = document.getElementById('contactAlert');
+    if(!form || !alertBox) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.textContent = '';
+      alertBox.className = 'alert';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          alertBox.textContent = '✅ Thank you! Your message has been sent.';
+          alertBox.classList.add('ok');
+        } else {
+          alertBox.textContent = '❌ Could not send. Please try again.';
           alertBox.classList.add('err');
         }
-      });
-    })();
-  </script>
-  <script>
-(function(){
-  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
-  const byId = new Map(links.map(a => [decodeURIComponent(a.getAttribute('href').slice(1)), a]));
-
-  function setActive(id){
-    links.forEach(a => a.classList.remove('active'));
-    const link = byId.get(id);
-    if(link) link.classList.add('active');
-  }
-
-  const sections = Array.from(document.querySelectorAll('main section[id]'));
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        setActive(entry.target.id);
+      } catch (err) {
+        alertBox.textContent = '❌ Network error. Please try again.';
+        alertBox.classList.add('err');
       }
     });
-  },{
-    rootMargin: '-45% 0px -50% 0px',
-    threshold: 0.01
-  });
-  sections.forEach(sec => observer.observe(sec));
+  })();
+  </script>
 
-  links.forEach(a=>{
-    a.addEventListener('click', () => {
-      const id = decodeURIComponent(a.getAttribute('href').slice(1));
-      setActive(id);
-    });
-  });
+  <!-- Sidebar active link (scroll spy) -->
+  <script>
+  (function(){
+    const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
+    const byId = new Map(links.map(a => [decodeURIComponent(a.getAttribute('href').slice(1)), a]));
 
-  setTimeout(()=>{
-    const current = sections.find(sec => {
-      const r = sec.getBoundingClientRect();
-      const mid = window.innerHeight * 0.5;
-      return r.top <= mid && r.bottom >= mid;
+    function setActive(id){
+      links.forEach(a => a.classList.remove('active'));
+      const link = byId.get(id);
+      if(link) link.classList.add('active');
+    }
+
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          setActive(entry.target.id);
+        }
+      });
+    },{
+      rootMargin: '-45% 0px -50% 0px',
+      threshold: 0.01
     });
-    setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)));
-  }, 0);
-})();
-</script>
-<script>
+    sections.forEach(sec => observer.observe(sec));
+
+    links.forEach(a=>{
+      a.addEventListener('click', () => {
+        const id = decodeURIComponent(a.getAttribute('href').slice(1));
+        setActive(id);
+      });
+    });
+
+    setTimeout(()=>{
+      const current = sections.find(sec => {
+        const r = sec.getBoundingClientRect();
+        const mid = window.innerHeight * 0.5;
+        return r.top <= mid && r.bottom >= mid;
+      });
+      setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)));
+    }, 0);
+  })();
+  </script>
 </body>
 </html>
