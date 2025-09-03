@@ -306,6 +306,51 @@ aside nav a.active:hover{
   border:none !important;
   box-shadow:none !important;
 }
+    /* About hero split */
+.about-hero-split{
+  display:grid;
+  gap:1.25rem;
+  align-items:center;
+}
+@media(min-width:900px){
+  .about-hero-split{
+    grid-template-columns: 1.1fr 1fr; /* text a bit wider than image */
+  }
+}
+.about-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1rem 1.1rem;
+  box-shadow:var(--shadow);
+}
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.85rem;
+  color:var(--muted);
+  margin:0 0 .25rem;
+}
+.about-headline{
+  margin:.15rem 0 .6rem;
+  line-height:1.25;
+}
+.about-highlights{
+  display:flex; flex-wrap:wrap; gap:.45rem .6rem;
+  list-style:none; padding:0; margin:.2rem 0 .7rem;
+}
+.about-highlights li{
+  padding:.35rem .6rem; border:1px solid var(--border);
+  background:#fff; border-radius:999px; font-size:.95rem;
+}
+.about-intro{ margin:.4rem 0 .8rem; }
+
+.about-cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+.about-photo img{ aspect-ratio:16/11; object-fit:cover; }
+
+/* Optional: tighten paragraph measure inside #about for readability */
+#about .about-body{ max-width: 72ch; margin-top: .6rem; }
   </style>
 </head>
 
