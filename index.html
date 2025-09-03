@@ -45,7 +45,22 @@ aside{
   background: var(--sidebar);
   color:#fff;
 
-  /* --- Sidebar content: brand + nav links --- */
+  /* no hard border line */
+  border-right:none;
+
+  position:sticky;
+  top:0;
+  height:100dvh;
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+
+  /* soft inner shadow toward the content */
+  box-shadow: inset -14px 0 18px -14px rgba(0,0,0,.28);
+}
+
+/* Brand row */
 .brand{
   display:flex; align-items:center; gap:.75rem; font-weight:800;
 }
@@ -53,7 +68,7 @@ aside{
   width:44px; height:44px; border-radius:10px; background:#fff; padding:3px;
 }
 
-/* Nav list + links on red sidebar */
+/* Nav list + links */
 aside nav ul{
   list-style:none;
   padding:0; margin:0;
@@ -68,7 +83,7 @@ aside nav a:hover{
   background:rgba(255,255,255,.12);
 }
 
-/* Keep the white “Register here” button */
+/* “Register here” button */
 aside nav a.btn{
   background:#fff; color:var(--brand); border:1px solid #fff;
   text-align:center; margin-top:.4rem; font-weight:700;
@@ -76,19 +91,38 @@ aside nav a.btn{
 }
 aside nav a.btn:hover{ filter:brightness(.96); }
 
-  /* smoother edge: remove hard border line */
-  border-right:none;
-
-  position:sticky;
-  top:0;
-  height:100dvh;
-  padding:1rem;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-
-  /* soft inner shadow toward the content */
-  box-shadow: inset -14px 0 18px -14px rgba(0,0,0,.28);
+/* --- Sidebar active link highlight: tiny logo + thin bar --- */
+aside nav a{ position: relative; padding-left: 2.1rem; }
+aside nav a.active{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+aside nav a.active::before{
+  content:"";
+  position:absolute;
+  left:.6rem; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; border-radius:4px;
+  background:#fff url("images/logo.png") center/contain no-repeat;
+}
+aside nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0; top:8px; bottom:8px;
+  width:3px; border-radius:2px;
+  background:#fff;
+}
+aside nav a:focus,
+aside nav a:focus-visible{
+  outline:none !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+aside nav a.active:hover{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
 }
 
   /* ===== Sections, typography, accents ===== */
