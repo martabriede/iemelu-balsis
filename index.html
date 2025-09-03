@@ -412,5 +412,42 @@ aside nav a.active::before{
     });
   })();
 </script>
+  <script>
+  // Auto-highlight the active section in the sidebar
+  (function(){
+    const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
+    const map = new Map(
+      links.map(a => [a.getAttribute('href'), a])
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      // Find the most visible section entry that is intersecting
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+
+      const id = '#' + visible.target.id;
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px', // trigger a bit before the section center
+      threshold: [0.1, 0.25, 0.5, 0.75]
+    });
+
+    // Observe each section that has a matching sidebar link
+    document.querySelectorAll('main section[id]').forEach(sec => {
+      if (map.has('#' + sec.id)) observer.observe(sec);
+    });
+
+    // If user clicks a link, make it active immediately (nice UX)
+    links.forEach(a => {
+      a.addEventListener('click', () => {
+        links.forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
