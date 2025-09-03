@@ -172,48 +172,37 @@
     nav ul{flex-direction:row;flex-wrap:wrap}
     nav a{padding:.5rem .6rem}
   }
- /* --- Sidebar active link highlight with logo badge --- */
+/* --- Sidebar active link highlight with logo badge (no shadow) --- */
 aside nav a{ position:relative; padding-left:2.1rem; }
 
+/* Clean active look: no shadow, no border glow */
 aside nav a.active{
   background:rgba(255,255,255,.18);
-  border-color:rgba(255,255,255,.35);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  border-color:transparent !important; 
+  box-shadow:none !important;         /* ensure no shadow */
 }
 
+/* The small logo badge — also no shadow */
 aside nav a.active::before{
   content:"";
   position:absolute;
   left:.6rem; top:50%; transform:translateY(-50%);
   width:18px; height:18px; border-radius:4px;
-  background: #fff url("images/logo.png") center/contain no-repeat;
-  box-shadow:0 0 0 2px rgba(255,255,255,.15);
+  background:#fff url("images/logo.png") center/contain no-repeat;
+  box-shadow:none !important;         /* remove tiny ring around logo */
 }
 
+/* Keep a clear keyboard focus without extra shadow */
 aside nav a:focus-visible{
   outline:2px solid #fff; outline-offset:2px;
   background:rgba(255,255,255,.14);
 }
-  /* --- Sidebar active link highlight with logo badge --- */
-aside nav a{ position:relative; padding-left:2.1rem; }
 
-aside nav a.active{
+/* Prevent hover from changing the active look */
+aside nav a.active:hover{
   background:rgba(255,255,255,.18);
-  border-color:transparent;   /* no border highlight */
-  box-shadow:none;            /* removed pale shadow */
-}
-
-aside nav a.active::before{
-  content:"";
-  position:absolute;
-  left:.6rem; top:50%; transform:translateY(-50%);
-  width:18px; height:18px; border-radius:4px;
-  background: #fff url("images/logo.png") center/contain no-repeat;
-}
-
-aside nav a:focus-visible{
-  outline:2px solid #fff; outline-offset:2px;
-  background:rgba(255,255,255,.14);
+  border-color:transparent;
+  box-shadow:none;
 }
   </style>
 </head>
