@@ -172,37 +172,47 @@
     nav ul{flex-direction:row;flex-wrap:wrap}
     nav a{padding:.5rem .6rem}
   }
-/* --- Sidebar active link highlight with logo badge (no shadow) --- */
-aside nav a{ position:relative; padding-left:2.1rem; }
-
-/* Clean active look: no shadow, no border glow */
-aside nav a.active{
-  background:rgba(255,255,255,.18);
-  border-color:transparent !important; 
-  box-shadow:none !important;         /* ensure no shadow */
+/* --- Sidebar active link highlight with logo badge (no shadow at all) --- */
+aside nav a{
+  position:relative;
+  padding-left:2.1rem;
+  box-shadow:none !important;     /* kill any default shadow */
+  border:1px solid transparent;   /* no border by default */
+  filter:none !important;         /* just in case */
 }
 
-/* The small logo badge — also no shadow */
+/* Active item – keep soft white bg, but NO shadow/border */
+aside nav a.active{
+  background:rgba(255,255,255,.18) !important;
+  border:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+/* Tiny logo badge */
 aside nav a.active::before{
   content:"";
   position:absolute;
   left:.6rem; top:50%; transform:translateY(-50%);
   width:18px; height:18px; border-radius:4px;
   background:#fff url("images/logo.png") center/contain no-repeat;
-  box-shadow:none !important;         /* remove tiny ring around logo */
+  box-shadow:none !important;
 }
 
-/* Keep a clear keyboard focus without extra shadow */
+/* Remove focus ring/halo as well */
+aside nav a:focus,
 aside nav a:focus-visible{
-  outline:2px solid #fff; outline-offset:2px;
-  background:rgba(255,255,255,.14);
+  outline:none !important;
+  box-shadow:none !important;
+  background:rgba(255,255,255,.14); /* optional: softer focus bg, remove if you want none */
 }
 
-/* Prevent hover from changing the active look */
+/* Hover should not add any glow on the active item */
 aside nav a.active:hover{
-  background:rgba(255,255,255,.18);
-  border-color:transparent;
-  box-shadow:none;
+  background:rgba(255,255,255,.18) !important;
+  border:none !important;
+  box-shadow:none !important;
+  filter:none !important;
 }
   </style>
 </head>
