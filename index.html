@@ -213,6 +213,27 @@ aside nav a.active:hover{
   .lightbox img{max-width:92vw;max-height:92vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
   .lightbox:focus{outline:none}
 
+    /* === Lightbox arrows === */
+.lightbox .nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  display:grid;
+  place-items:center;
+  width:44px; height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.6);
+  background:rgba(0,0,0,.35);
+  color:#fff;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+  user-select:none;
+}
+.lightbox .nav:hover{ background:rgba(0,0,0,.5) }
+.lightbox .prev{ left:24px }
+.lightbox .next{ right:24px }
+
   /* ===== Contacts (updated minimal) ===== */
   .contacts-wrap{display:grid;gap:1.2rem}
   @media(min-width:900px){.contacts-wrap{grid-template-columns:1fr 1fr}}
@@ -568,22 +589,65 @@ aside nav a.active:hover{
     </main>
   </div>
 
-  <!-- Year + lightbox + contact form JS -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+ <script>
+/* LIGHTBOX with next/prev navigation */
+(function(){
+  // Build the lightbox with arrows
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.id = 'lightbox';
+  box.tabIndex = -1;
+  box.innerHTML = `
+    <button class="nav prev" aria-label="Previous image">‹</button>
+    <img alt="">
+    <button class="nav next" aria-label="Next image">›</button>
+  `;
+  document.body.appendChild(box);
 
-    // Simple lightbox
-    (function(){
-      const box = document.createElement('div');
-      box.className = 'lightbox'; box.id = 'lightbox'; box.tabIndex = -1; box.innerHTML = '<img alt="">';
-      document.body.appendChild(box);
-      const big = box.querySelector('img');
-      document.querySelectorAll('#gallery img').forEach(img=>{
-        img.addEventListener('click',()=>{ big.src = img.src; box.classList.add('open'); box.focus(); });
-      });
-      box.addEventListener('click',()=>box.classList.remove('open'));
-      document.addEventListener('keydown',e=>{ if(e.key==='Escape') box.classList.remove('open'); });
-    })();
+  const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+  if (!thumbs.length) return;
+
+  const big     = box.querySelector('img');
+  const prevBtn = box.querySelector('.prev');
+  const nextBtn = box.querySelector('.next');
+  let i = 0; // current index
+
+  function updateArrows(){
+    prevBtn.style.display = i > 0 ? 'grid' : 'none';
+    nextBtn.style.display = i < thumbs.length - 1 ? 'grid' : 'none';
+  }
+  function openAt(idx){
+    i = idx;
+    big.src = thumbs[i].src;
+    box.classList.add('open');
+    box.focus();
+    updateArrows();
+  }
+  function close(){ box.classList.remove('open'); }
+  function next(){ if (i < thumbs.length - 1) openAt(i + 1); }
+  function prev(){ if (i > 0) openAt(i - 1); }
+
+  // Clicking a thumbnail opens the lightbox at that index
+  thumbs.forEach((img, idx) => {
+    img.addEventListener('click', () => openAt(idx));
+  });
+
+  // Click backdrop to close (but not when clicking the image or buttons)
+  box.addEventListener('click', (e) => {
+    if (e.target === box) close();
+  });
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+
+  // Keyboard support
+  document.addEventListener('keydown', (e) => {
+    if (!box.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft')  prev();
+  });
+})();
+</script>
 
     // Contact form (Formspree)
     (function(){
