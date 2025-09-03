@@ -120,6 +120,36 @@ aside nav a.active::before{
   }
   .link-badge:hover{background:var(--tint)}
 
+    /* —— Contacts (minimal) —— */
+.contacts-wrap{display:grid;gap:1rem}
+@media(min-width:900px){.contacts-wrap{grid-template-columns:1fr 1fr}}
+.contact-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)
+}
+.contact-list{display:grid;gap:.75rem;margin:.6rem 0 0}
+.contact-item{display:flex;align-items:center;gap:.6rem;
+  border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:#fff}
+.contact-item b{font-weight:600}
+
+.social-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.8rem}
+.social-chip{display:inline-flex;align-items:center;gap:.5rem;
+  padding:.55rem .9rem;border:1px solid var(--border);border-radius:999px;
+  text-decoration:none;background:#fff;box-shadow:var(--shadow);color:var(--text)}
+.social-chip:hover{background:var(--tint)}
+
+.form-grid{display:grid;gap:.8rem;margin-top:.6rem}
+.form-grid input,.form-grid textarea{
+  width:100%;padding:.9rem 1rem;border:1px solid var(--border);border-radius:12px;
+  font:inherit;background:#fff
+}
+.form-grid textarea{min-height:140px;resize:vertical}
+.form-actions{display:flex;gap:.6rem;align-items:center;margin-top:.4rem}
+.form-note{font-size:.9rem;color:var(--muted)}
+.alert{margin-top:.6rem;font-size:.95rem}
+.alert.ok{color:#166534}
+.alert.err{color:#9f1239}
+
   /* Media compact (you already have it, refined colours) */
   #news .news-grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
   #news .news-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:.85rem .9rem;box-shadow:var(--shadow)}
