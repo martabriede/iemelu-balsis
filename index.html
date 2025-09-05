@@ -124,7 +124,11 @@ aside nav a.active::before{
   position:absolute;
   left:.6rem; top:50%; transform:translateY(-50%);
   width:18px; height:18px; border-radius:4px;
-  background:url("images/logo.png") center/contain no-repeat;
+  background-color: transparent;                 /* ensure no fill */
+  background-image: url("images/logo.png");      /* your transparent PNG */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   box-shadow:none !important;
 }
 aside nav a:focus,
