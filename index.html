@@ -336,8 +336,15 @@ aside nav a.active:hover{
   .lightbox{
     position:fixed;
     inset:0;
-    background:rgba(15,23,42,.92);
-    backdrop-filter:blur(10px);
+    background-color:rgba(158,27,52,.94);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.10) 0px, rgba(255,255,255,.10) 2px, transparent 2px, transparent 7px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.10) 0px, rgba(255,255,255,.10) 2px, transparent 2px, transparent 7px),
+      radial-gradient(circle at 25% 15%, rgba(255,255,255,.18), transparent 34%),
+      linear-gradient(135deg, rgba(158,27,52,.96), rgba(127,21,42,.96));
+    background-size:18px 18px, 18px 18px, auto, auto;
+    background-blend-mode:overlay, overlay, screen, normal;
+    backdrop-filter:blur(8px);
     display:none;
     align-items:center;
     justify-content:center;
@@ -365,7 +372,7 @@ aside nav a.active:hover{
     height:54px;
     border-radius:999px;
     border:1px solid rgba(255,255,255,.45);
-    background:rgba(255,255,255,.16);
+    background:rgba(255,255,255,.20);
     color:#fff;
     font-size:34px;
     line-height:1;
@@ -384,8 +391,8 @@ aside nav a.active:hover{
     bottom:24px;
     transform:translateX(-50%);
     color:#fff;
-    background:rgba(0,0,0,.35);
-    border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.32);
     border-radius:999px;
     padding:.35rem .75rem;
     font-size:.95rem;
