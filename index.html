@@ -13,18 +13,18 @@
      =============================== */
   :root{
     --bg:#ffffff; --text:#0f172a; --muted:#475569;
-    --brand:#9E1B34;          /* Latvian carmine red */
-    --brand-accent:#9E1B34;   /* same for buttons/links */
+    --brand:#9E1B34;
+    --brand-accent:#9E1B34;
     --brand-dark:#7F152A;
     --card:#ffffff;
-    --border:#E9D3D8;         /* subtle red-tinted border */
+    --border:#E9D3D8;
     --ring:rgba(158,27,52,.35);
-    --sidebar:#9E1B34;        /* red sidebar */
-    --tint:#FFF6F8;           /* very light red tint */
+    --sidebar:#9E1B34;
+    --tint:#FFF6F8;
     --shadow:0 10px 20px rgba(158,27,52,.06), 0 2px 6px rgba(0,0,0,.05);
     --radius:18px;
     --radius-small:12px;
-    --maxw:1100px;            /* nicer readable width */
+    --maxw:1100px;
   }
 
   *{box-sizing:border-box}
@@ -38,151 +38,64 @@
   main{flex:1;min-width:0}
   .content{max-width:var(--maxw);margin:0 auto}
 
-/* ===== Sidebar (Latvian red, soft inner shadow) ===== */
-aside{
-  width:280px;
-  flex:0 0 280px;
-  background: var(--sidebar);
-  color:#fff;
+  aside{
+    width:280px;
+    flex:0 0 280px;
+    background: var(--sidebar);
+    color:#fff;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 6px);
+    background-size:16px 16px;
+    background-blend-mode:overlay;
+    border-right:none;
+    position:sticky;
+    top:0;
+    height:100dvh;
+    padding:1rem;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    box-shadow: inset -14px 0 22px -12px rgba(0,0,0,.35);
+  }
 
-  /* Subtle Lielvārdes josta pattern */
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.12) 0px,
-      rgba(255,255,255,0.12) 2px,
-      transparent 2px,
-      transparent 6px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255,255,255,0.12) 0px,
-      rgba(255,255,255,0.12) 2px,
-      transparent 2px,
-      transparent 6px
-    );
-  background-size:16px 16px;
-  background-blend-mode:overlay;
+  .brand{display:flex; align-items:center; gap:.75rem; font-weight:800}
+  .brand img{width:44px; height:44px; border-radius:10px; background:transparent; padding:3px}
+  aside nav ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.45rem}
+  aside nav a{color:#fff; text-decoration:none; display:block; padding:.55rem .7rem; border-radius:12px; transition:.2s ease}
+  aside nav a:hover{background:rgba(255,255,255,.12)}
+  aside nav a.btn{background:#fff; color:var(--brand); border:1px solid #fff; text-align:center; margin-top:.4rem; font-weight:700; box-shadow:var(--shadow)}
+  aside nav a.btn:hover{filter:brightness(.96)}
+  aside nav a{position:relative; padding-left:2.1rem; border:1px solid transparent; box-shadow:none !important}
+  aside nav a.active{background:transparent !important; border:none !important; box-shadow:none !important; filter:none !important}
+  aside nav a.active::before{
+    content:""; position:absolute; left:.6rem; top:50%; transform:translateY(-50%);
+    width:18px; height:18px; border-radius:4px;
+    background:url("images/logo.png") center/contain no-repeat;
+    box-shadow:none !important;
+  }
+  aside nav a:focus, aside nav a:focus-visible{outline:none !important; box-shadow:none !important; background:transparent !important}
+  aside nav a.active:hover{background:transparent !important; border:none !important; box-shadow:none !important}
 
-  /* no hard border line */
-  border-right:none;
-
-  position:sticky;
-  top:0;
-  height:100dvh;
-  padding:1rem;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-
-  /* soft inner shadow toward the content */
-  box-shadow: inset -14px 0 22px -12px rgba(0,0,0,.35);
-}
-
-/* Brand row */
-.brand{
-  display:flex; align-items:center; gap:.75rem; font-weight:800;
-}
-.brand img{
-  width:44px; height:44px; border-radius:10px;
-  background:transparent;   /* was #fff */
-  padding:3px;
-}
-/* Nav list + links */
-aside nav ul{
-  list-style:none;
-  padding:0; margin:0;
-  display:flex; flex-direction:column; gap:.45rem;
-}
-aside nav a{
-  color:#fff; text-decoration:none;
-  display:block; padding:.55rem .7rem; border-radius:12px;
-  transition:.2s ease;
-}
-aside nav a:hover{
-  background:rgba(255,255,255,.12);
-}
-
-/* “Register here” button */
-aside nav a.btn{
-  background:#fff; color:var(--brand); border:1px solid #fff;
-  text-align:center; margin-top:.4rem; font-weight:700;
-  box-shadow:var(--shadow);
-}
-aside nav a.btn:hover{ filter:brightness(.96); }
-
-/* --- Sidebar active link highlight: tiny logo + thin bar --- */
-aside nav a{ position: relative; padding-left: 2.1rem; }
-aside nav a.active{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-aside nav a.active::before{
-  content:"";
-  position:absolute;
-  left:.6rem; top:50%; transform:translateY(-50%);
-  width:18px; height:18px; border-radius:4px;
-  background-color: transparent;                 /* ensure no fill */
-  background-image: url("images/logo.png");      /* your transparent PNG */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  box-shadow:none !important;
-}
-aside nav a:focus,
-aside nav a:focus-visible{
-  outline:none !important;
-  box-shadow:none !important;
-  background:transparent !important;
-}
-aside nav a.active:hover{
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
-}
-
-  /* ===== Sections, typography, accents ===== */
   section{padding:2rem 1.25rem;border-bottom:1px solid var(--border)}
   .content section{padding:2rem 0}
-  section h1,section h2{margin:.2rem 0 .8rem;letter-spacing:.2px}
-  section h1, section h2{position:relative}
-  section h1::after, section h2::after{
-    content:"";display:block;width:64px;height:4px;margin-top:.45rem;border-radius:999px;background:var(--brand);
-  }
+  section h1,section h2{margin:.2rem 0 .8rem;letter-spacing:.2px;position:relative}
+  section h1::after, section h2::after{content:"";display:block;width:64px;height:4px;margin-top:.45rem;border-radius:999px;background:var(--brand)}
 
   .grid{display:grid;gap:1.25rem}
   .grid.two{grid-template-columns:1fr}
   @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
 
-  .card{
-    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-    padding:1rem;box-shadow:var(--shadow)
-  }
-  .btn{
-    display:inline-block;padding:.8rem 1.1rem;border-radius:12px;
-    border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff;
-    box-shadow:var(--shadow);transition:.15s ease;
-  }
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+  .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff;box-shadow:var(--shadow);transition:.15s ease}
   .btn:hover{transform:translateY(-1px);filter:brightness(.97)}
-
-  a{ color: var(--brand); }
-  a:hover{ text-decoration: underline; }
-
-  /* Link badge (maps) */
-  .link-badge{
-    display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:1px solid var(--border);
-    border-radius:999px;font-size:.95rem;text-decoration:none;background:#fff;box-shadow:var(--shadow)
-  }
+  a{color:var(--brand)}
+  a:hover{text-decoration:underline}
+  .link-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none;background:#fff;box-shadow:var(--shadow)}
   .link-badge:hover{background:var(--tint)}
 
-
   /* Upcoming event */
-  .event-banner{
-    padding:2rem 0 1rem;
-    border-bottom:0;
-  }
+  .event-banner{padding:2rem 0 1rem;border-bottom:0}
   .event-card{
     background-color:var(--brand);
     background-image:
@@ -202,51 +115,14 @@ aside nav a.active:hover{
     overflow:hidden;
   }
   .event-content{min-width:0}
-  .event-label{
-    margin:0 0 .35rem;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    font-size:.8rem;
-    opacity:.85;
-    font-weight:700;
-  }
-  .event-card h2{
-    margin:0 0 .2rem;
-    font-size:clamp(1.35rem,3vw,2.2rem);
-    line-height:1.18;
-    max-width:900px;
-  }
+  .event-label{margin:0 0 .35rem;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;opacity:.85;font-weight:700}
+  .event-card h2{margin:0 0 .2rem;font-size:clamp(1.35rem,3vw,2.2rem);line-height:1.18;max-width:900px}
   .event-card h2::after{background:#fff}
-  .event-subtitle{
-    margin:.2rem 0 1rem;
-    font-size:1.05rem;
-    opacity:.9;
-  }
+  .event-subtitle{margin:.2rem 0 1rem;font-size:1.05rem;opacity:.9}
   .event-details p{margin:.25rem 0}
-  .event-button{
-    background:#fff;
-    color:var(--brand);
-    text-decoration:none;
-    font-weight:700;
-    padding:.8rem 1rem;
-    border-radius:999px;
-    white-space:nowrap;
-    box-shadow:0 8px 18px rgba(0,0,0,.12);
-  }
-  .event-button:hover{
-    filter:brightness(.96);
-    text-decoration:none;
-  }
-  @media(max-width:700px){
-    .event-card{
-      flex-direction:column;
-      align-items:flex-start;
-    }
-    .event-button{
-      width:100%;
-      text-align:center;
-    }
-  }
+  .event-button{background:#fff;color:var(--brand);text-decoration:none;font-weight:700;padding:.8rem 1rem;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+  .event-button:hover{filter:brightness(.96);text-decoration:none}
+  @media(max-width:700px){.event-card{flex-direction:column;align-items:flex-start}.event-button{width:100%;text-align:center}}
 
   /* Media compact */
   #news .news-grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
@@ -260,11 +136,9 @@ aside nav a.active:hover{
   #news .toggle-wrap{text-align:center;margin-top:.8rem}
   #news .toggle-btn{background:var(--brand);color:#fff;border:1px solid var(--brand);padding:.5rem .9rem;border-radius:999px;cursor:pointer;font-size:.95rem;box-shadow:var(--shadow)}
 
-  /* Media & images */
   .media{width:100%;border-radius:16px;border:1px solid var(--border);object-fit:cover}
   .about-hero img{aspect-ratio:16/9;max-height:300px}
   .about-text p{margin:.5rem 0}
-
   .about-grid{display:grid;gap:1.25rem}
   @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
   .portrait-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:.75rem;box-shadow:var(--shadow)}
@@ -272,225 +146,70 @@ aside nav a.active:hover{
   .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
 
   /* Gallery preview */
-  .gallery-preview{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:1rem;
-    box-shadow:var(--shadow);
-  }
-  .gallery{
-    display:grid;
-    grid-template-columns:1.4fr 1fr;
-    gap:.9rem;
-    align-items:stretch;
-  }
-  .gallery img{
-    width:100%;
-    height:190px;
-    border-radius:16px;
-    border:1px solid var(--border);
-    object-fit:cover;
-    cursor:pointer;
-    transition:.2s ease;
-    box-shadow:0 8px 18px rgba(15,23,42,.08);
-    background:#fff;
-  }
-  .gallery img:hover{
-    transform:translateY(-3px);
-    filter:brightness(.98);
-  }
+  .gallery-preview{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+  .gallery{display:grid;grid-template-columns:1.4fr 1fr;gap:.9rem;align-items:stretch}
+  .gallery img{width:100%;height:190px;border-radius:16px;border:1px solid var(--border);object-fit:cover;cursor:pointer;transition:.2s ease;box-shadow:0 8px 18px rgba(15,23,42,.08);background:#fff}
+  .gallery img:hover{transform:translateY(-3px);filter:brightness(.98)}
   .gallery img:nth-of-type(n+6){display:none}
-  .gallery img:first-child{
-    grid-row:span 2;
-    height:100%;
-    min-height:390px;
-  }
-  @media(min-width:900px){
-    .gallery{grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,210px)}
-    .gallery img{height:100%}
-    .gallery img:first-child{grid-column:span 1;grid-row:span 2;min-height:0}
-  }
-  .gallery-actions{
-    text-align:center;
-    margin-top:1rem;
-  }
-  .gallery-open-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:.45rem;
-    background:var(--brand);
-    color:#fff;
-    border:1px solid var(--brand);
-    border-radius:999px;
-    padding:.85rem 1.25rem;
-    font:inherit;
-    font-weight:800;
-    cursor:pointer;
-    box-shadow:var(--shadow);
-  }
+  .gallery img:first-child{grid-row:span 2;height:100%;min-height:390px}
+  @media(min-width:900px){.gallery{grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,210px)}.gallery img{height:100%}.gallery img:first-child{grid-column:span 1;grid-row:span 2;min-height:0}}
+  .gallery-actions{text-align:center;margin-top:1rem}
+  .gallery-open-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;background:var(--brand);color:#fff;border:1px solid var(--brand);border-radius:999px;padding:.85rem 1.25rem;font:inherit;font-weight:800;cursor:pointer;box-shadow:var(--shadow)}
   .gallery-open-btn:hover{filter:brightness(.96);transform:translateY(-1px)}
 
-  /* Modern full-screen gallery */
+  /* Modern full-screen gallery — FIXED: hidden until opened */
   .lightbox{
     position:fixed;
     inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:9999;
     background:
-  linear-gradient(rgba(158,27,52,0.65), rgba(158,27,52,0.65)),
-  repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.08) 0px,
-    rgba(255,255,255,0.08) 2px,
-    transparent 2px,
-    transparent 6px
-  ),
-  repeating-linear-gradient(
-    -45deg,
-    rgba(255,255,255,0.08) 0px,
-    rgba(255,255,255,0.08) 2px,
-    transparent 2px,
-    transparent 6px
-  );
+      linear-gradient(rgba(40,9,16,0.34), rgba(40,9,16,0.34)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 2px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 2px, transparent 2px, transparent 6px),
+      rgba(158,27,52,0.38);
+    background-size:auto,16px 16px,16px 16px,auto;
+    backdrop-filter: blur(10px);
   }
   .lightbox.open{display:flex}
-  .lightbox img{
-    max-width:calc(100vw - 48px);
-    max-height:calc(100vh - 48px);
-    width:auto;
-    height:auto;
-    object-fit:contain;
-    border-radius:20px;
-    box-shadow:0 28px 90px rgba(0,0,0,.48);
-    background:#fff;
-  }
+  .lightbox img{max-width:calc(100vw - 48px);max-height:calc(100vh - 48px);width:auto;height:auto;object-fit:contain;border-radius:20px;box-shadow:0 28px 90px rgba(0,0,0,.48);background:#fff}
   .lightbox:focus{outline:none}
-  .lightbox .nav,
-  .lightbox .close{
-    position:absolute;
-    display:grid;
-    place-items:center;
-    width:54px;
-    height:54px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.45);
-    background:rgba(255,255,255,.20);
-    color:#fff;
-    font-size:34px;
-    line-height:1;
-    cursor:pointer;
-    user-select:none;
-    box-shadow:0 12px 28px rgba(0,0,0,.22);
-  }
-  .lightbox .nav:hover,
-  .lightbox .close:hover{background:rgba(255,255,255,.25)}
+  .lightbox .nav,.lightbox .close{position:absolute;display:grid;place-items:center;width:54px;height:54px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.20);color:#fff;font-size:34px;line-height:1;cursor:pointer;user-select:none;box-shadow:0 12px 28px rgba(0,0,0,.22)}
+  .lightbox .nav:hover,.lightbox .close:hover{background:rgba(255,255,255,.25)}
   .lightbox .prev{left:28px;top:50%;transform:translateY(-50%)}
   .lightbox .next{right:28px;top:50%;transform:translateY(-50%)}
   .lightbox .close{right:28px;top:24px;font-size:30px}
-  .lightbox .counter{
-    position:absolute;
-    left:50%;
-    bottom:24px;
-    transform:translateX(-50%);
-    color:#fff;
-    background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.32);
-    border-radius:999px;
-    padding:.35rem .75rem;
-    font-size:.95rem;
-  }
-  @media(max-width:700px){
-    .gallery-preview{padding:.75rem}
-    .gallery{grid-template-columns:1fr 1fr;gap:.75rem}
-    .gallery img{height:160px;border-radius:14px}
-    .gallery img:first-child{grid-column:span 2;grid-row:auto;min-height:220px;height:220px}
-    .lightbox{padding:.75rem}
-    .lightbox img{max-width:calc(100vw - 20px);max-height:calc(100vh - 92px);border-radius:16px}
-    .lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}
-    .lightbox .prev{left:22px}
-    .lightbox .next{right:22px}
-    .lightbox .close{right:18px;top:18px;width:44px;height:44px;font-size:26px}
-    .lightbox .counter{bottom:36px}
-  }
+  .lightbox .counter{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:.35rem .75rem;font-size:.95rem}
+  @media(max-width:700px){.gallery-preview{padding:.75rem}.gallery{grid-template-columns:1fr 1fr;gap:.75rem}.gallery img{height:160px;border-radius:14px}.gallery img:first-child{grid-column:span 2;grid-row:auto;min-height:220px;height:220px}.lightbox{padding:.75rem}.lightbox img{max-width:calc(100vw - 20px);max-height:calc(100vh - 92px);border-radius:16px}.lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}.lightbox .prev{left:22px}.lightbox .next{right:22px}.lightbox .close{right:18px;top:18px;width:44px;height:44px;font-size:26px}.lightbox .counter{bottom:36px}}
 
-  /* ===== Contacts (updated minimal) ===== */
   .contacts-wrap{display:grid;gap:1.2rem}
   @media(min-width:900px){.contacts-wrap{grid-template-columns:1fr 1fr}}
-  .contact-card{
-    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-    padding:1rem;box-shadow:var(--shadow)
-  }
+  .contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
   .contact-card h3{margin:.2rem 0 1rem}
   .contact-list{display:grid;gap:.7rem;margin-bottom:1rem}
   .contact-item{display:flex;align-items:center;gap:.6rem}
-  .contact-item span{
-    width:34px;height:34px;border-radius:999px;display:inline-grid;place-items:center;
-    background:var(--tint);border:1px solid var(--border);font-size:1rem
-  }
-
+  .contact-item span{width:34px;height:34px;border-radius:999px;display:inline-grid;place-items:center;background:var(--tint);border:1px solid var(--border);font-size:1rem}
   .social-row{display:flex;gap:.6rem;flex-wrap:wrap}
-  .social-chip{
-    padding:.55rem .9rem;border:1px solid var(--border);border-radius:999px;text-decoration:none;
-    color:var(--brand);background:#fff;box-shadow:var(--shadow)
-  }
+  .social-chip{padding:.55rem .9rem;border:1px solid var(--border);border-radius:999px;text-decoration:none;color:var(--brand);background:#fff;box-shadow:var(--shadow)}
   .social-chip:hover{background:var(--tint)}
-
-  /* Minimal contact form */
   .form-grid{display:grid;gap:.7rem}
-  .form-grid input,.form-grid textarea{
-    width:100%;border:1px solid var(--border);border-radius:12px;padding:.75rem .9rem;font:inherit
-  }
+  .form-grid input,.form-grid textarea{width:100%;border:1px solid var(--border);border-radius:12px;padding:.75rem .9rem;font:inherit}
   .form-grid textarea{min-height:140px;resize:vertical}
   .form-actions{display:flex;align-items:center;gap:.8rem;margin-top:.3rem}
   .form-note{color:var(--muted);font-size:.9rem}
   .alert{margin-top:.6rem;font-size:.95rem}
-  .alert.ok{color:#166534} .alert.err{color:#991B1B}
-
+  .alert.ok{color:#166534}.alert.err{color:#991B1B}
   footer{padding:2rem;color:#475569}
 
-  /* Mobile tweaks */
-  @media(max-width:900px){
-    aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}
-    .layout{flex-direction:column}
-    nav ul{flex-direction:row;flex-wrap:wrap}
-    nav a{padding:.5rem .6rem}
-  }
-/* --- Sidebar active link highlight: no pill, just logo + thin bar --- */
-aside nav a{
-  position: relative;
-  padding-left: 2.1rem;
-  border: 1px solid transparent;
-  box-shadow: none !important;
-}
-
-/* REMOVE the light pill completely */
-aside nav a.active{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-aside nav a.active::before{
-  content:"";
-  position:absolute;
-  left:.6rem; top:50%; transform:translateY(-50%);
-  width:18px; height:18px; border-radius:4px;
-  background:url("images/logo.png") center/contain no-repeat;
-  box-shadow:none !important;
-}
-
-/* Don’t re-add the pill on hover for the active link */
-aside nav a.active:hover{
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
-}
+  @media(max-width:900px){aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}.layout{flex-direction:column}nav ul{flex-direction:row;flex-wrap:wrap}nav a{padding:.5rem .6rem}}
   </style>
 </head>
 
 <body>
   <div class="layout">
-    <!-- SIDEBAR -->
     <aside>
       <div class="brand">
         <img src="images/logo.png" alt="Ziemeļu Balsis logo">
@@ -508,37 +227,26 @@ aside nav a.active:hover{
       </nav>
     </aside>
 
-    <!-- MAIN -->
     <main>
       <div class="content">
-
-
-        <!-- UPCOMING EVENT -->
         <section class="event-banner" id="event">
           <div class="event-card">
             <div class="event-content">
               <p class="event-label">Upcoming concert</p>
               <h2>Kooridirigeerimise eriala kontserteksam „Kolme päikest tõusemassa“</h2>
               <p class="event-subtitle">Three Suns Rising</p>
-
               <div class="event-details">
                 <p><strong>When:</strong> 24.05.2026, 14:00</p>
                 <p><strong>Where:</strong> EMTA suur saal — Estonian Academy of Music and Theatre, main hall</p>
               </div>
             </div>
-
-            <a class="event-button" href="https://www.facebook.com/events/36558685360397696" target="_blank" rel="noopener">
-              View Facebook event →
-            </a>
+            <a class="event-button" href="https://www.facebook.com/events/36558685360397696" target="_blank" rel="noopener">View Facebook event →</a>
           </div>
         </section>
 
-        <!-- ABOUT US -->
         <section id="about">
           <h1>About us</h1>
-          <div class="about-hero">
-            <img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo">
-          </div>
+          <div class="about-hero"><img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo"></div>
           <div class="about-text">
             <p>The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
             <p>We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
@@ -547,263 +255,142 @@ aside nav a.active:hover{
             <p>Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
             <p>Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.</p>
           </div>
-
           <div class="about-grid">
-            <div class="portrait-card">
-              <img class="portrait-img" src="images/matiss-briedis.jpg" alt="Matīss Briedis">
-              <div class="portrait-caption">Matīss Briedis</div>
-            </div>
-            <div class="portrait-card">
-              <img class="portrait-img" src="images/rihards-zarins.jpg" alt="Rihards Zariņš">
-              <div class="portrait-caption">Rihards Zariņš</div>
-            </div>
+            <div class="portrait-card"><img class="portrait-img" src="images/matiss-briedis.jpg" alt="Matīss Briedis"><div class="portrait-caption">Matīss Briedis</div></div>
+            <div class="portrait-card"><img class="portrait-img" src="images/rihards-zarins.jpg" alt="Rihards Zariņš"><div class="portrait-caption">Rihards Zariņš</div></div>
           </div>
         </section>
 
-        <!-- REHEARSALS -->
         <section id="rehearsals">
           <h2>Rehearsals</h2>
           <div class="grid two">
-            <div class="card">
-              <h3>Tartu</h3>
-              <p><strong>When:</strong> Wednesdays, 18:00</p>
-              <p><strong>Address:</strong> Juhan Liivi 2d (Tartu International School)</p>
-              <a class="link-badge" href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">🌍 Open in Google Maps</a>
-            </div>
-            <div class="card">
-              <h3>Tallinn</h3>
-              <p><strong>When:</strong> Wednesdays, 18:00</p>
-              <p><strong>Address:</strong> Tõnismägi 10, 15190 Tallinn</p>
-              <a class="link-badge" href="https://www.google.com/maps/place/T%C3%B5nism%C3%A3gi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">🌍 Open in Google Maps</a>
-            </div>
+            <div class="card"><h3>Tartu</h3><p><strong>When:</strong> Wednesdays, 18:00</p><p><strong>Address:</strong> Juhan Liivi 2d (Tartu International School)</p><a class="link-badge" href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">🌍 Open in Google Maps</a></div>
+            <div class="card"><h3>Tallinn</h3><p><strong>When:</strong> Wednesdays, 18:00</p><p><strong>Address:</strong> Tõnismägi 10, 15190 Tallinn</p><a class="link-badge" href="https://www.google.com/maps/place/T%C3%B5nism%C3%A3gi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">🌍 Open in Google Maps</a></div>
           </div>
         </section>
 
-        <!-- MEDIA (compact) -->
         <section id="news">
-          <style>
-            /* Scoped compact media styles */
-            #news .news-grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-            #news .news-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:.85rem .9rem}
-            #news .news-card h3{font-size:1rem;line-height:1.35;margin:0 0 .45rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-            #news .meta-row{display:flex;align-items:center;gap:.45rem;color:#64748b;font-size:.9rem;margin-bottom:.45rem}
-            #news .meta-row img{width:16px;height:16px;border-radius:4px;flex:0 0 16px}
-            #news .actions{margin-top:.25rem}
-            #news .read-link{font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .55rem;border:1px solid var(--border);border-radius:999px;color:var(--brand);background:#FFF5F7}
-            #news .read-link:hover{filter:brightness(.97)}
-            #news .toggle-wrap{text-align:center;margin-top:.8rem}
-            #news .toggle-btn{background:var(--brand);color:#fff;border:1px solid var(--brand);padding:.5rem .9rem;border-radius:999px;cursor:pointer;font-size:.95rem}
-          </style>
-
           <h2>Media</h2>
           <div class="news-grid" id="mediaGrid">
-            <article class="news-card">
-              <h3>Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3>
-              <div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div>
-              <div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3>
-              <div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div>
-              <div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3>
-              <div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div>
-              <div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3>
-              <div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div>
-              <div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3>
-              <div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div>
-              <div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3>
-              <div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div>
-              <div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema</h3>
-              <div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div>
-              <div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3>
-              <div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div>
-              <div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener">Read →</a></div>
-            </article>
-
-            <article class="news-card">
-              <h3>Laulupidu — see on huulepulk</h3>
-              <div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div>
-              <div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener">Read →</a></div>
-            </article>
+            <article class="news-card"><h3>Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3><div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div><div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3><div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div><div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3><div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div><div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3><div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div><div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>Läti-Eesti koori dirigent: ootan ļoti, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener">Read →</a></div></article>
           </div>
-
-          <div class="toggle-wrap">
-            <button class="toggle-btn" id="mediaToggle">Show more</button>
-          </div>
-
+          <div class="toggle-wrap"><button class="toggle-btn" id="mediaToggle">Show more</button></div>
           <script>
-            // Favicons per source
             document.querySelectorAll('#news .meta-row').forEach(row => {
               const d = row.getAttribute('data-domain');
               const img = row.querySelector('img');
               img.src = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64`;
             });
-
-            // Show only first 8 by default
             const cards = Array.from(document.querySelectorAll('#news .news-card'));
             const toggle = document.getElementById('mediaToggle');
             const initial = 8;
-            function applyClamp(collapsed) {
-              cards.forEach((card, i) => { card.style.display = (collapsed && i >= initial) ? 'none' : ''; });
-              toggle.textContent = collapsed ? 'Show more' : 'Show less';
-            }
+            function applyClamp(collapsed){cards.forEach((card,i)=>{card.style.display=(collapsed&&i>=initial)?'none':''});toggle.textContent=collapsed?'Show more':'Show less'}
             let collapsed = true;
             applyClamp(collapsed);
-            toggle.addEventListener('click', () => { collapsed = !collapsed; applyClamp(collapsed); });
+            toggle.addEventListener('click',()=>{collapsed=!collapsed;applyClamp(collapsed)});
           </script>
         </section>
 
-        <!-- GALLERY -->
         <section id="gallery">
           <h2>Gallery</h2>
-
-          <!-- 16:9 video on top -->
           <div style="margin:0 0 1rem 0;max-width:1000px;">
-            <iframe
-              src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50&modestbranding=1&rel=0"
-              title="Ziemeļu Balsis video"
-              loading="lazy"
-              allowfullscreen
-              style="width:100%; aspect-ratio:16 / 9; border:0; border-radius:14px;"
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50&modestbranding=1&rel=0" title="Ziemeļu Balsis video" loading="lazy" allowfullscreen style="width:100%; aspect-ratio:16 / 9; border:0; border-radius:14px;"></iframe>
           </div>
 
-
-          <!-- Photos (keep adding filenames as you upload them) -->
           <div class="gallery-preview">
             <div class="gallery">
-            <img src="gallery-1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-3.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-5.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-7.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-9.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-11.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-13.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-15.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-17.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-19.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-21.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-23.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-25.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-27.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-29.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-31.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-33.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-35.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-37.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-39.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-41.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-43.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-45.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-47.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="gallery-49.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 3.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 4.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 5.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 6.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 7.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 8.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 9.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 10.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 11.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 12.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 13.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 15.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 16.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 19.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 20.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 21.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 22.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 23.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 24.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 25.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 27.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="Koris 29.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="about1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            <img src="about2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-3.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-5.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-7.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-9.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-11.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-13.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-15.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-17.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-19.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-21.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-23.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-25.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-27.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-29.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-31.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-33.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-35.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-37.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-39.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-41.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-43.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-45.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-47.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="gallery-49.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 3.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 4.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 5.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 6.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 7.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 8.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 9.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 10.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 11.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 12.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 13.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 15.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 16.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 19.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 20.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 21.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 22.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 23.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 24.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 25.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 27.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="Koris 29.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="about1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+              <img src="about2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             </div>
-
-            <div class="gallery-actions">
-              <button class="gallery-open-btn" id="openGallery" type="button">Open full gallery →</button>
-            </div>
+            <div class="gallery-actions"><button class="gallery-open-btn" id="openGallery" type="button">Open full gallery →</button></div>
           </div>
         </section>
 
-        <!-- CONTACTS (UPDATED) -->
         <section id="contact">
           <h2>Contacts</h2>
           <div class="contacts-wrap">
-
-            <!-- Left: visible info (kept) -->
             <div class="contact-card">
               <h3>Get in touch</h3>
               <div class="contact-list">
-                <div class="contact-item">
-                  <span>✉️</span>
-                  <div><b>Email:</b> <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a></div>
-                </div>
-                <div class="contact-item">
-                  <span>📞</span>
-                  <div><b>Phone:</b> +372&nbsp;56266439</div>
-                </div>
+                <div class="contact-item"><span>✉️</span><div><b>Email:</b> <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a></div></div>
+                <div class="contact-item"><span>📞</span><div><b>Phone:</b> +372&nbsp;56266439</div></div>
               </div>
-
-              <div class="social-row">
-                <a class="social-chip" href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a>
-                <a class="social-chip" href="https://www.instagram.com/ziemelu.balsis" target="_blank" rel="noopener">Instagram</a>
-              </div>
+              <div class="social-row"><a class="social-chip" href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a><a class="social-chip" href="https://www.instagram.com/ziemelu.balsis" target="_blank" rel="noopener">Instagram</a></div>
             </div>
-
-            <!-- Right: private form to hidden address (Formspree) -->
             <div class="contact-card">
               <h3>Contact us</h3>
               <form id="contactForm" class="form-grid" action="https://formspree.io/f/xblazekk" method="POST" novalidate>
                 <input type="text" name="name" placeholder="Your name" required>
                 <input type="email" name="_replyto" placeholder="Your email" required>
                 <textarea name="message" placeholder="Your message…" required></textarea>
-                <div class="form-actions">
-                  <button class="btn" type="submit">Send message</button>
-                  <span class="form-note">We’ll reply to the email you provide.</span>
-                </div>
+                <div class="form-actions"><button class="btn" type="submit">Send message</button><span class="form-note">We’ll reply to the email you provide.</span></div>
                 <div id="contactAlert" class="alert" aria-live="polite"></div>
               </form>
             </div>
           </div>
         </section>
 
-        <footer>
-</footer>
+        <footer></footer>
       </div>
     </main>
   </div>
 
-  <!-- LIGHTBOX with next/prev navigation -->
   <script>
   (function(){
     const box = document.createElement('div');
@@ -850,20 +437,12 @@ aside nav a.active:hover{
     function next(){ if (i < thumbs.length - 1) openAt(i + 1); }
     function prev(){ if (i > 0) openAt(i - 1); }
 
-    thumbs.forEach((img, idx) => {
-      img.addEventListener('click', () => openAt(idx));
-    });
-    if (openGalleryBtn) {
-      openGalleryBtn.addEventListener('click', () => openAt(0));
-    }
-
-    box.addEventListener('click', (e) => {
-      if (e.target === box) close();
-    });
+    thumbs.forEach((img, idx) => { img.addEventListener('click', () => openAt(idx)); });
+    if (openGalleryBtn) openGalleryBtn.addEventListener('click', () => openAt(0));
+    box.addEventListener('click', (e) => { if (e.target === box) close(); });
     closeBtn.addEventListener('click', (e) => { e.stopPropagation(); close(); });
     prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
     nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
-
     document.addEventListener('keydown', (e) => {
       if (!box.classList.contains('open')) return;
       if (e.key === 'Escape') close();
@@ -873,79 +452,34 @@ aside nav a.active:hover{
   })();
   </script>
 
-  <!-- Contact form (Formspree) -->
   <script>
   (function(){
     const form = document.getElementById('contactForm');
     const alertBox = document.getElementById('contactAlert');
     if(!form || !alertBox) return;
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       alertBox.textContent = '';
       alertBox.className = 'alert';
       try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.reset();
-          alertBox.textContent = '✅ Thank you! Your message has been sent.';
-          alertBox.classList.add('ok');
-        } else {
-          alertBox.textContent = '❌ Could not send. Please try again.';
-          alertBox.classList.add('err');
-        }
-      } catch (err) {
-        alertBox.textContent = '❌ Network error. Please try again.';
-        alertBox.classList.add('err');
-      }
+        const res = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
+        if (res.ok) {form.reset(); alertBox.textContent = '✅ Thank you! Your message has been sent.'; alertBox.classList.add('ok');}
+        else {alertBox.textContent = '❌ Could not send. Please try again.'; alertBox.classList.add('err');}
+      } catch (err) {alertBox.textContent = '❌ Network error. Please try again.'; alertBox.classList.add('err');}
     });
   })();
   </script>
 
-  <!-- Sidebar active link (scroll spy) -->
   <script>
   (function(){
     const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
     const byId = new Map(links.map(a => [decodeURIComponent(a.getAttribute('href').slice(1)), a]));
-
-    function setActive(id){
-      links.forEach(a => a.classList.remove('active'));
-      const link = byId.get(id);
-      if(link) link.classList.add('active');
-    }
-
+    function setActive(id){links.forEach(a => a.classList.remove('active')); const link = byId.get(id); if(link) link.classList.add('active')}
     const sections = Array.from(document.querySelectorAll('main section[id]'));
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          setActive(entry.target.id);
-        }
-      });
-    },{
-      rootMargin: '-45% 0px -50% 0px',
-      threshold: 0.01
-    });
+    const observer = new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting) setActive(entry.target.id)})},{rootMargin:'-45% 0px -50% 0px',threshold:0.01});
     sections.forEach(sec => observer.observe(sec));
-
-    links.forEach(a=>{
-      a.addEventListener('click', () => {
-        const id = decodeURIComponent(a.getAttribute('href').slice(1));
-        setActive(id);
-      });
-    });
-
-    setTimeout(()=>{
-      const current = sections.find(sec => {
-        const r = sec.getBoundingClientRect();
-        const mid = window.innerHeight * 0.5;
-        return r.top <= mid && r.bottom >= mid;
-      });
-      setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)));
-    }, 0);
+    links.forEach(a=>{a.addEventListener('click',()=>{const id=decodeURIComponent(a.getAttribute('href').slice(1)); setActive(id)})});
+    setTimeout(()=>{const current=sections.find(sec=>{const r=sec.getBoundingClientRect(); const mid=window.innerHeight*0.5; return r.top<=mid&&r.bottom>=mid}); setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)))},0);
   })();
   </script>
 </body>
