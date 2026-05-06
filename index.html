@@ -76,15 +76,26 @@
   aside nav a.btn{background:#fff; color:var(--brand); border:1px solid #fff; text-align:center; margin-top:.4rem; font-weight:700; box-shadow:var(--shadow-soft)}
   aside nav a.btn:hover{filter:brightness(.96)}
   aside nav a{position:relative; padding-left:2.1rem; border:1px solid transparent; box-shadow:none !important}
-  aside nav a.active{background:transparent !important; border:none !important; box-shadow:none !important; filter:none !important}
+  aside nav a.active,
+  aside nav a.active:hover,
+  aside nav a.active:focus,
+  aside nav a.active:focus-visible{
+    background:transparent !important;
+    border:1px solid transparent !important;
+    outline:none !important;
+    box-shadow:none !important;
+    filter:none !important;
+    transition:none !important;
+  }
   aside nav a.active::before{
     content:""; position:absolute; left:.6rem; top:50%; transform:translateY(-50%);
     width:18px; height:18px; border-radius:4px;
     background:url("images/logo.png") center/contain no-repeat;
     box-shadow:none !important;
+    border:none !important;
+    pointer-events:none;
   }
-  aside nav a:focus, aside nav a:focus-visible{outline:none !important; box-shadow:none !important; background:transparent !important}
-  aside nav a.active:hover{background:transparent !important; border:none !important; box-shadow:none !important}
+  aside nav a:focus, aside nav a:focus-visible{outline:none !important; box-shadow:none !important}
 
   section{padding:2.6rem 1.25rem;border-bottom:1px solid var(--border)}
   .content section{padding:2.8rem 0}
