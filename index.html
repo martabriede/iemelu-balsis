@@ -184,16 +184,24 @@ aside nav a.active:hover{
     border-bottom:0;
   }
   .event-card{
-    background:linear-gradient(135deg, var(--brand), var(--brand-dark));
+    background-color:var(--brand);
+    background-image:
+      linear-gradient(135deg, rgba(158,27,52,.96), rgba(127,21,42,.96)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.13) 0px, rgba(255,255,255,.13) 2px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.13) 0px, rgba(255,255,255,.13) 2px, transparent 2px, transparent 6px);
+    background-size:auto, 16px 16px, 16px 16px;
+    background-blend-mode:normal, overlay, overlay;
     color:#fff;
     border-radius:var(--radius);
-    padding:1.5rem;
+    padding:1.75rem;
     box-shadow:var(--shadow);
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:1.5rem;
+    overflow:hidden;
   }
+  .event-content{min-width:0}
   .event-label{
     margin:0 0 .35rem;
     text-transform:uppercase;
@@ -204,8 +212,9 @@ aside nav a.active:hover{
   }
   .event-card h2{
     margin:0 0 .2rem;
-    font-size:1.7rem;
-    line-height:1.25;
+    font-size:clamp(1.35rem,3vw,2.2rem);
+    line-height:1.18;
+    max-width:900px;
   }
   .event-card h2::after{background:#fff}
   .event-subtitle{
@@ -263,51 +272,52 @@ aside nav a.active:hover{
   .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
 
   /* Gallery preview */
-  .gallery-intro{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:1rem;
-    margin:.3rem 0 1rem;
-  }
-  .gallery-intro p{
-    margin:0;
+  .gallery-kicker{
+    margin:.2rem 0 1rem;
     color:var(--muted);
+    font-size:1rem;
+  }
+  .gallery-preview{
+    background:var(--tint);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:1rem;
+    box-shadow:var(--shadow);
   }
   .gallery{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1rem;
-  }
-  @media(min-width:800px){
-    .gallery{grid-template-columns:repeat(4,1fr)}
+    grid-template-columns:1.4fr 1fr;
+    gap:.9rem;
   }
   .gallery img{
     width:100%;
-    height:220px;
-    border-radius:18px;
+    height:190px;
+    border-radius:16px;
     border:1px solid var(--border);
     object-fit:cover;
     cursor:pointer;
     transition:.2s ease;
-    box-shadow:var(--shadow);
+    box-shadow:0 8px 18px rgba(15,23,42,.08);
     background:#fff;
   }
   .gallery img:hover{
     transform:translateY(-3px);
     filter:brightness(.98);
   }
-  .gallery img:nth-of-type(n+7){display:none}
+  .gallery img:nth-of-type(n+6){display:none}
+  .gallery img:first-child{
+    grid-row:span 2;
+    height:100%;
+    min-height:390px;
+  }
   @media(min-width:900px){
-    .gallery img:first-child{
-      grid-column:span 2;
-      grid-row:span 2;
-      height:456px;
-    }
+    .gallery{grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,210px)}
+    .gallery img{height:100%}
+    .gallery img:first-child{grid-column:span 1;grid-row:span 2;min-height:0}
   }
   .gallery-actions{
     text-align:center;
-    margin-top:1.25rem;
+    margin-top:1rem;
   }
   .gallery-open-btn{
     display:inline-flex;
@@ -318,13 +328,13 @@ aside nav a.active:hover{
     color:#fff;
     border:1px solid var(--brand);
     border-radius:999px;
-    padding:.8rem 1.15rem;
+    padding:.85rem 1.25rem;
     font:inherit;
-    font-weight:700;
+    font-weight:800;
     cursor:pointer;
     box-shadow:var(--shadow);
   }
-  .gallery-open-btn:hover{filter:brightness(.96)}
+  .gallery-open-btn:hover{filter:brightness(.96);transform:translateY(-1px)}
 
   /* Modern full-screen gallery */
   .lightbox{
@@ -385,9 +395,10 @@ aside nav a.active:hover{
     font-size:.95rem;
   }
   @media(max-width:700px){
-    .gallery-intro{display:block}
+    .gallery-preview{padding:.75rem}
     .gallery{grid-template-columns:1fr 1fr;gap:.75rem}
     .gallery img{height:160px;border-radius:14px}
+    .gallery img:first-child{grid-column:span 2;grid-row:auto;min-height:220px;height:220px}
     .lightbox{padding:1rem}
     .lightbox img{max-width:calc(100vw - 24px);max-height:calc(100vh - 150px);border-radius:16px}
     .lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}
@@ -677,12 +688,11 @@ aside nav a.active:hover{
             ></iframe>
           </div>
 
-          <div class="gallery-intro">
-            <p>A short preview is shown here. Open the full gallery to browse all photos.</p>
-          </div>
+          <p class="gallery-kicker">Moments from rehearsals, concerts and song festivals.</p>
 
           <!-- Photos (keep adding filenames as you upload them) -->
-          <div class="gallery">
+          <div class="gallery-preview">
+            <div class="gallery">
             <img src="gallery-1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             <img src="gallery-3.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             <img src="gallery-5.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
@@ -733,10 +743,11 @@ aside nav a.active:hover{
             <img src="Koris 29.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             <img src="about1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             <img src="about2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-          </div>
+            </div>
 
-          <div class="gallery-actions">
-            <button class="gallery-open-btn" id="openGallery" type="button">View full gallery →</button>
+            <div class="gallery-actions">
+              <button class="gallery-open-btn" id="openGallery" type="button">View full gallery →</button>
+            </div>
           </div>
         </section>
 
