@@ -336,20 +336,22 @@ aside nav a.active:hover{
   .lightbox{
     position:fixed;
     inset:0;
-    background-color:rgba(158,27,52,.94);
-    background-image:
-      repeating-linear-gradient(45deg, rgba(255,255,255,.10) 0px, rgba(255,255,255,.10) 2px, transparent 2px, transparent 7px),
-      repeating-linear-gradient(-45deg, rgba(255,255,255,.10) 0px, rgba(255,255,255,.10) 2px, transparent 2px, transparent 7px),
-      radial-gradient(circle at 25% 15%, rgba(255,255,255,.18), transparent 34%),
-      linear-gradient(135deg, rgba(158,27,52,.96), rgba(127,21,42,.96));
-    background-size:18px 18px, 18px 18px, auto, auto;
-    background-blend-mode:overlay, overlay, screen, normal;
-    backdrop-filter:blur(8px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:50;
-    padding:1.25rem;
+    background:
+  linear-gradient(rgba(158,27,52,0.65), rgba(158,27,52,0.65)),
+  repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.08) 2px,
+    transparent 2px,
+    transparent 6px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.08) 2px,
+    transparent 2px,
+    transparent 6px
+  );
   }
   .lightbox.open{display:flex}
   .lightbox img{
