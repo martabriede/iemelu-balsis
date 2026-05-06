@@ -262,57 +262,140 @@ aside nav a.active:hover{
   .portrait-img{display:block;width:100%;max-width:260px;margin:0 auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
   .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
 
-  /* Gallery */
+  /* Gallery preview */
+  .gallery-intro{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    margin:.3rem 0 1rem;
+  }
+  .gallery-intro p{
+    margin:0;
+    color:var(--muted);
+  }
   .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(2,1fr);
     gap:1rem;
+  }
+  @media(min-width:800px){
+    .gallery{grid-template-columns:repeat(4,1fr)}
   }
   .gallery img{
     width:100%;
-    height:260px;
-    border-radius:16px;
+    height:220px;
+    border-radius:18px;
     border:1px solid var(--border);
     object-fit:cover;
     cursor:pointer;
     transition:.2s ease;
     box-shadow:var(--shadow);
+    background:#fff;
   }
-  .gallery img:hover{transform:translateY(-3px)}
+  .gallery img:hover{
+    transform:translateY(-3px);
+    filter:brightness(.98);
+  }
+  .gallery img:nth-of-type(n+7){display:none}
   @media(min-width:900px){
     .gallery img:first-child{
       grid-column:span 2;
       grid-row:span 2;
-      height:536px;
+      height:456px;
     }
   }
+  .gallery-actions{
+    text-align:center;
+    margin-top:1.25rem;
+  }
+  .gallery-open-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.45rem;
+    background:var(--brand);
+    color:#fff;
+    border:1px solid var(--brand);
+    border-radius:999px;
+    padding:.8rem 1.15rem;
+    font:inherit;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  .gallery-open-btn:hover{filter:brightness(.96)}
 
-  /* Lightbox */
-  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:50}
+  /* Modern full-screen gallery */
+  .lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.88);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:2rem;
+  }
   .lightbox.open{display:flex}
-  .lightbox img{max-width:92vw;max-height:92vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .lightbox img{
+    max-width:min(1180px,calc(100vw - 120px));
+    max-height:calc(100vh - 110px);
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:22px;
+    box-shadow:0 28px 90px rgba(0,0,0,.45);
+    background:#fff;
+  }
   .lightbox:focus{outline:none}
-
-    /* === Lightbox arrows === */
-.lightbox .nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  display:grid;
-  place-items:center;
-  width:44px; height:44px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.6);
-  background:rgba(0,0,0,.35);
-  color:#fff;
-  font-size:28px;
-  line-height:1;
-  cursor:pointer;
-  user-select:none;
-}
-.lightbox .nav:hover{ background:rgba(0,0,0,.5) }
-.lightbox .prev{ left:24px }
-.lightbox .next{ right:24px }
+  .lightbox .nav,
+  .lightbox .close{
+    position:absolute;
+    display:grid;
+    place-items:center;
+    width:54px;
+    height:54px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.45);
+    background:rgba(255,255,255,.16);
+    color:#fff;
+    font-size:34px;
+    line-height:1;
+    cursor:pointer;
+    user-select:none;
+    box-shadow:0 12px 28px rgba(0,0,0,.22);
+  }
+  .lightbox .nav:hover,
+  .lightbox .close:hover{background:rgba(255,255,255,.25)}
+  .lightbox .prev{left:28px;top:50%;transform:translateY(-50%)}
+  .lightbox .next{right:28px;top:50%;transform:translateY(-50%)}
+  .lightbox .close{right:28px;top:24px;font-size:30px}
+  .lightbox .counter{
+    position:absolute;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%);
+    color:#fff;
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+    padding:.35rem .75rem;
+    font-size:.95rem;
+  }
+  @media(max-width:700px){
+    .gallery-intro{display:block}
+    .gallery{grid-template-columns:1fr 1fr;gap:.75rem}
+    .gallery img{height:160px;border-radius:14px}
+    .lightbox{padding:1rem}
+    .lightbox img{max-width:calc(100vw - 24px);max-height:calc(100vh - 150px);border-radius:16px}
+    .lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}
+    .lightbox .prev{left:22px}
+    .lightbox .next{right:22px}
+    .lightbox .close{right:18px;top:18px;width:44px;height:44px;font-size:26px}
+    .lightbox .counter{bottom:36px}
+  }
 
   /* ===== Contacts (updated minimal) ===== */
   .contacts-wrap{display:grid;gap:1.2rem}
@@ -594,6 +677,10 @@ aside nav a.active:hover{
             ></iframe>
           </div>
 
+          <div class="gallery-intro">
+            <p>A short preview is shown here. Open the full gallery to browse all photos.</p>
+          </div>
+
           <!-- Photos (keep adding filenames as you upload them) -->
           <div class="gallery">
             <img src="gallery-1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
@@ -646,6 +733,10 @@ aside nav a.active:hover{
             <img src="Koris 29.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             <img src="about1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             <img src="about2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
+          </div>
+
+          <div class="gallery-actions">
+            <button class="gallery-open-btn" id="openGallery" type="button">View full gallery →</button>
           </div>
         </section>
 
@@ -700,59 +791,69 @@ aside nav a.active:hover{
   <!-- LIGHTBOX with next/prev navigation -->
   <script>
   (function(){
-    // Build the lightbox with arrows
     const box = document.createElement('div');
     box.className = 'lightbox';
     box.id = 'lightbox';
     box.tabIndex = -1;
     box.innerHTML = `
+      <button class="close" aria-label="Close gallery">×</button>
       <button class="nav prev" aria-label="Previous image">‹</button>
-      <img alt="">
+      <img alt="Choir photo">
       <button class="nav next" aria-label="Next image">›</button>
+      <div class="counter" aria-live="polite"></div>
     `;
     document.body.appendChild(box);
 
     const thumbs = Array.from(document.querySelectorAll('#gallery img'));
     if (!thumbs.length) return;
 
-    const big     = box.querySelector('img');
+    const big = box.querySelector('img');
     const prevBtn = box.querySelector('.prev');
     const nextBtn = box.querySelector('.next');
-    let i = 0; // current index
+    const closeBtn = box.querySelector('.close');
+    const counter = box.querySelector('.counter');
+    const openGalleryBtn = document.getElementById('openGallery');
+    let i = 0;
 
-    function updateArrows(){
+    function updateControls(){
       prevBtn.style.display = i > 0 ? 'grid' : 'none';
       nextBtn.style.display = i < thumbs.length - 1 ? 'grid' : 'none';
+      counter.textContent = `${i + 1} / ${thumbs.length}`;
     }
     function openAt(idx){
       i = idx;
       big.src = thumbs[i].src;
       box.classList.add('open');
+      document.body.style.overflow = 'hidden';
       box.focus();
-      updateArrows();
+      updateControls();
     }
-    function close(){ box.classList.remove('open'); }
+    function close(){
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+    }
     function next(){ if (i < thumbs.length - 1) openAt(i + 1); }
     function prev(){ if (i > 0) openAt(i - 1); }
 
-    // Clicking a thumbnail opens the lightbox at that index
     thumbs.forEach((img, idx) => {
       img.addEventListener('click', () => openAt(idx));
     });
+    if (openGalleryBtn) {
+      openGalleryBtn.addEventListener('click', () => openAt(0));
+    }
 
-    // Click backdrop to close (but not when clicking the image or buttons)
     box.addEventListener('click', (e) => {
       if (e.target === box) close();
     });
+    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); close(); });
     prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
     nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
 
-    // Keyboard support
     document.addEventListener('keydown', (e) => {
       if (!box.classList.contains('open')) return;
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft')  prev();
+      if (e.key === 'ArrowLeft') prev();
     });
   })();
   </script>
