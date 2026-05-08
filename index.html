@@ -225,10 +225,55 @@
   footer{padding:2rem;color:#475569}
 
   @media(max-width:900px){aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}.layout{flex-direction:column}nav ul{flex-direction:row;flex-wrap:wrap}nav a{padding:.5rem .6rem}}
+
+  /* Language selector */
+  .language-switcher{
+    position:fixed;
+    top:1rem;
+    right:1rem;
+    z-index:40;
+    display:flex;
+    gap:.35rem;
+    padding:.35rem;
+    border:1px solid rgba(143,23,48,.16);
+    border-radius:999px;
+    background:rgba(255,255,255,.86);
+    box-shadow:var(--shadow-soft);
+    backdrop-filter:blur(12px);
+  }
+  .language-switcher button{
+    border:0;
+    background:transparent;
+    color:var(--brand);
+    border-radius:999px;
+    padding:.42rem .62rem;
+    font:inherit;
+    font-size:.85rem;
+    font-weight:800;
+    cursor:pointer;
+    letter-spacing:.02em;
+  }
+  .language-switcher button:hover{background:var(--tint)}
+  .language-switcher button.active{
+    background:var(--brand);
+    color:#fff;
+    box-shadow:0 8px 18px rgba(143,23,48,.18);
+  }
+  @media(max-width:700px){
+    .language-switcher{top:.75rem;right:.75rem}
+    .language-switcher button{padding:.36rem .5rem;font-size:.78rem}
+  }
+
   </style>
 </head>
 
 <body>
+
+  <div class="language-switcher" aria-label="Language selector">
+    <button type="button" class="active" data-lang-btn="en">ENG</button>
+    <button type="button" data-lang-btn="lv">LV</button>
+    <button type="button" data-lang-btn="ee">EE</button>
+  </div>
   <div class="layout">
     <aside>
       <div class="brand">
@@ -237,13 +282,13 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#about">About us</a></li>
-          <li><a href="#rehearsals">Rehearsals</a></li>
-          <li><a href="#news">Media</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contacts</a></li>
+          <li><a href="#about" data-i18n="navAbout">About us</a></li>
+          <li><a href="#rehearsals" data-i18n="navRehearsals">Rehearsals</a></li>
+          <li><a href="#news" data-i18n="navMedia">Media</a></li>
+          <li><a href="#gallery" data-i18n="navGallery">Gallery</a></li>
+          <li><a href="#contact" data-i18n="navContacts">Contacts</a></li>
         </ul>
-        <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener">Register here</a>
+        <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener"> <span data-i18n="register">Register here</span></a>
       </nav>
     </aside>
 
@@ -252,28 +297,28 @@
         <section class="event-banner" id="event">
           <div class="event-card">
             <div class="event-content">
-              <p class="event-label">Upcoming concert</p>
-              <h2>Kooridirigeerimise eriala kontserteksam „Kolme päikest tõusemassa“</h2>
-              <p class="event-subtitle">Three Suns Rising</p>
+              <p class="event-label" data-i18n="eventLabel">Upcoming concert</p>
+              <h2 data-i18n="eventTitle">Conducting speciality concert exam “Three Suns Rising”</h2>
+              <p class="event-subtitle" data-i18n="eventSubtitle">Three Suns Rising</p>
               <div class="event-details">
-                <p><strong>When:</strong> 24.05.2026, 14:00</p>
-                <p><strong>Where:</strong> EMTA suur saal — Estonian Academy of Music and Theatre, main hall</p>
+                <p><strong data-i18n="whenLabel">When:</strong> <span data-i18n="eventDate">24.05.2026, 14:00</span></p>
+                <p><strong data-i18n="whereLabel">Where:</strong> <span data-i18n="eventPlace">EMTA suur saal — Estonian Academy of Music and Theatre, main hall</span></p>
               </div>
             </div>
-            <a class="event-button" href="https://www.facebook.com/events/36558685360397696" target="_blank" rel="noopener">View Facebook event →</a>
+            <a class="event-button" href="https://www.facebook.com/events/36558685360397696" target="_blank" rel="noopener"> <span data-i18n="eventButton">View Facebook event →</span></a>
           </div>
         </section>
 
         <section id="about">
-          <h1>About us</h1>
+          <h1 data-i18n="aboutTitle">About us</h1>
           <div class="about-hero"><img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo"></div>
           <div class="about-text">
-            <p>The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
-            <p>We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
-            <p>Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.</p>
-            <p>Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.</p>
-            <p>Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
-            <p>Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.</p>
+            <p data-i18n="aboutP1">The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
+            <p data-i18n="aboutP2">We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
+            <p data-i18n="aboutP3">Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.</p>
+            <p data-i18n="aboutP4">Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.</p>
+            <p data-i18n="aboutP5">Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
+            <p data-i18n="aboutP6">Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.</p>
           </div>
           <div class="about-grid">
             <div class="portrait-card"><img class="portrait-img" src="images/matiss-briedis.jpg" alt="Matīss Briedis"><div class="portrait-caption">Matīss Briedis</div></div>
@@ -282,29 +327,29 @@
         </section>
 
         <section id="rehearsals">
-          <h2>Rehearsals</h2>
+          <h2 data-i18n="rehearsalsTitle">Rehearsals</h2>
           <div class="grid two">
-            <div class="card"><h3>Tartu</h3><p><strong>When:</strong> Wednesdays, 18:00</p><p><strong>Address:</strong> Juhan Liivi 2d (Tartu International School)</p><a class="link-badge" href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">🌍 Open in Google Maps</a></div>
-            <div class="card"><h3>Tallinn</h3><p><strong>When:</strong> Wednesdays, 18:00</p><p><strong>Address:</strong> Tõnismägi 10, 15190 Tallinn</p><a class="link-badge" href="https://www.google.com/maps/place/T%C3%B5nism%C3%A3gi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">🌍 Open in Google Maps</a></div>
+            <div class="card"><h3>Tartu</h3><p><strong data-i18n="whenLabel">When:</strong> <span data-i18n="rehearsalTime">Wednesdays, 18:00</span></p><p><strong data-i18n="addressLabel">Address:</strong> <span data-i18n="tartuAddress">Juhan Liivi 2d (Tartu International School)</span></p><a class="link-badge" href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">🌍 <span data-i18n="maps">Open in Google Maps</span></a></div>
+            <div class="card"><h3>Tallinn</h3><p><strong data-i18n="whenLabel">When:</strong> <span data-i18n="rehearsalTime">Wednesdays, 18:00</span></p><p><strong data-i18n="addressLabel">Address:</strong> <span data-i18n="tallinnAddress">Tõnismägi 10, 15190 Tallinn</span></p><a class="link-badge" href="https://www.google.com/maps/place/T%C3%B5nism%C3%A3gi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">🌍 <span data-i18n="maps">Open in Google Maps</span></a></div>
           </div>
         </section>
 
         <section id="news">
-          <h2>Media</h2>
+          <h2 data-i18n="mediaTitle">Media</h2>
           <div class="news-grid" id="mediaGrid">
-            <article class="news-card"><h3>Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/notikumi/igaunijas-latviesu-kora-koncerts-tris-saulites-uzlecami" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/no-pekinas-lidz-tartu-ka-dazadas-pasaules-balsis-satiekas-latviesu-dziesma" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3><div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div><div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3><div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div><div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3><div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div><div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3><div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div><div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Läti-Eesti koori dirigent: ootan ļoti, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener">Read →</a></div></article>
-            <article class="news-card"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener">Read →</a></div></article>
+            <article class="news-card"><h3 data-i18n="article1">Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/notikumi/igaunijas-latviesu-kora-koncerts-tris-saulites-uzlecami" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article2">No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/no-pekinas-lidz-tartu-ka-dazadas-pasaules-balsis-satiekas-latviesu-dziesma" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article3">Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article4">Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3><div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div><div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article5">Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3><div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div><div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article6">LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3><div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div><div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article7">Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3><div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div><div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article8">It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article9">Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article10">Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
+            <article class="news-card"><h3 data-i18n="article11">Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
           </div>
-          <div class="toggle-wrap"><button class="toggle-btn" id="mediaToggle">Show more</button></div>
+          <div class="toggle-wrap"><button class="toggle-btn" id="mediaToggle" data-i18n="mediaShowMore">Show more</button></div>
           <script>
             document.querySelectorAll('#news .meta-row').forEach(row => {
               const d = row.getAttribute('data-domain');
@@ -314,7 +359,7 @@
             const cards = Array.from(document.querySelectorAll('#news .news-card'));
             const toggle = document.getElementById('mediaToggle');
             const initial = 6;
-            function applyClamp(collapsed){cards.forEach((card,i)=>{card.style.display=(collapsed&&i>=initial)?'none':''});toggle.textContent=collapsed?'Show more':'Show less'}
+            function applyClamp(collapsed){cards.forEach((card,i)=>{card.style.display=(collapsed&&i>=initial)?'none':''});toggle.textContent = window.t ? (collapsed ? window.t('mediaShowMore') : window.t('mediaShowLess')) : (collapsed ? 'Show more' : 'Show less')}
             let collapsed = true;
             applyClamp(collapsed);
             toggle.addEventListener('click',()=>{collapsed=!collapsed;applyClamp(collapsed)});
@@ -322,7 +367,7 @@
         </section>
 
         <section id="gallery">
-          <h2>Gallery</h2>
+          <h2 data-i18n="galleryTitle">Gallery</h2>
           <div style="margin:0 0 1rem 0;max-width:1000px;">
             <iframe src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50&modestbranding=1&rel=0" title="Ziemeļu Balsis video" loading="lazy" allowfullscreen style="width:100%; aspect-ratio:16 / 9; border:0; border-radius:14px;"></iframe>
           </div>
@@ -380,28 +425,28 @@
               <img src="about1.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
               <img src="about2.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
             </div>
-            <div class="gallery-actions"><button class="gallery-open-btn" id="openGallery" type="button">Open full gallery →</button></div>
+            <div class="gallery-actions"><button class="gallery-open-btn" id="openGallery" type="button" data-i18n="openGallery">Open full gallery →</button></div>
           </div>
         </section>
 
         <section id="contact">
-          <h2>Contacts</h2>
+          <h2 data-i18n="contactsTitle">Contacts</h2>
           <div class="contacts-wrap">
             <div class="contact-card">
-              <h3>Get in touch</h3>
+              <h3 data-i18n="getInTouch">Get in touch</h3>
               <div class="contact-list">
-                <div class="contact-item"><span>✉️</span><div><b>Email:</b> <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a></div></div>
-                <div class="contact-item"><span>📞</span><div><b>Phone:</b> +372&nbsp;56266439</div></div>
+                <div class="contact-item"><span>✉️</span><div><b data-i18n="emailLabel">Email:</b> <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a></div></div>
+                <div class="contact-item"><span>📞</span><div><b data-i18n="phoneLabel">Phone:</b> +372&nbsp;56266439</div></div>
               </div>
               <div class="social-row"><a class="social-chip" href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a><a class="social-chip" href="https://www.instagram.com/ziemelu.balsis" target="_blank" rel="noopener">Instagram</a></div>
             </div>
             <div class="contact-card">
-              <h3>Contact us</h3>
+              <h3 data-i18n="contactUs">Contact us</h3>
               <form id="contactForm" class="form-grid" action="https://formspree.io/f/xblazekk" method="POST" novalidate>
-                <input type="text" name="name" placeholder="Your name" required>
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message…" required></textarea>
-                <div class="form-actions"><button class="btn" type="submit">Send message</button><span class="form-note">We’ll reply to the email you provide.</span></div>
+                <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="namePlaceholder" required>
+                <input type="email" name="_replyto" placeholder="Your email" data-i18n-placeholder="emailPlaceholder" required>
+                <textarea name="message" placeholder="Your message…" data-i18n-placeholder="messagePlaceholder" required></textarea>
+                <div class="form-actions"><button class="btn" type="submit" data-i18n="sendMessage">Send message</button><span class="form-note" data-i18n="formNote">We’ll reply to the email you provide.</span></div>
                 <div id="contactAlert" class="alert" aria-live="polite"></div>
               </form>
             </div>
@@ -420,10 +465,10 @@
     box.id = 'lightbox';
     box.tabIndex = -1;
     box.innerHTML = `
-      <button class="close" aria-label="Close gallery">×</button>
-      <button class="nav prev" aria-label="Previous image">‹</button>
+      <button class="close" aria-label="Close gallery" data-i18n-aria="closeGallery">×</button>
+      <button class="nav prev" aria-label="Previous image" data-i18n-aria="prevImage">‹</button>
       <img alt="Choir photo">
-      <button class="nav next" aria-label="Next image">›</button>
+      <button class="nav next" aria-label="Next image" data-i18n-aria="nextImage">›</button>
       <div class="counter" aria-live="polite"></div>
     `;
     document.body.appendChild(box);
@@ -485,9 +530,9 @@
       alertBox.className = 'alert';
       try {
         const res = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
-        if (res.ok) {form.reset(); alertBox.textContent = '✅ Thank you! Your message has been sent.'; alertBox.classList.add('ok');}
-        else {alertBox.textContent = '❌ Could not send. Please try again.'; alertBox.classList.add('err');}
-      } catch (err) {alertBox.textContent = '❌ Network error. Please try again.'; alertBox.classList.add('err');}
+        if (res.ok) {form.reset(); alertBox.textContent = '✅ ' + (window.t ? window.t('formSuccess') : 'Thank you! Your message has been sent.'); alertBox.classList.add('ok');}
+        else {alertBox.textContent = '❌ ' + (window.t ? window.t('formError') : 'Could not send. Please try again.'); alertBox.classList.add('err');}
+      } catch (err) {alertBox.textContent = '❌ ' + (window.t ? window.t('networkError') : 'Network error. Please try again.'); alertBox.classList.add('err');}
     });
   })();
   </script>
@@ -504,5 +549,127 @@
     setTimeout(()=>{const current=sections.find(sec=>{const r=sec.getBoundingClientRect(); const mid=window.innerHeight*0.5; return r.top<=mid&&r.bottom>=mid}); setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)))},0);
   })();
   </script>
+
+  <script>
+  (function(){
+    const translations = {
+      en: {
+        pageTitle:'Ziemeļu Balsis — Latvian Mixed Choir in Estonia',
+        metaDescription:'Latvian mixed choir in Estonia. Rehearsals in Tartu and Tallinn. Conductors Matīss Briedis and Rihards Zariņš.',
+        navAbout:'About us', navRehearsals:'Rehearsals', navMedia:'Media', navGallery:'Gallery', navContacts:'Contacts', register:'Register here',
+        eventLabel:'Upcoming concert', eventTitle:'Conducting speciality concert exam “Three Suns Rising”', eventSubtitle:'Three Suns Rising', eventDate:'24.05.2026, 14:00', eventPlace:'EMTA suur saal — Estonian Academy of Music and Theatre, main hall', eventButton:'View Facebook event →',
+        whenLabel:'When:', whereLabel:'Where:', addressLabel:'Address:', maps:'Open in Google Maps',
+        aboutTitle:'About us',
+        aboutP1:'The Latvian choir in Estonia “Ziemeļu Balsis” was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.',
+        aboutP2:'We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.',
+        aboutP3:'Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.',
+        aboutP4:'Matīss Briedis studied at the Heino Eller Music School, graduating in 2017, and at the Estonian Academy of Music and Theatre, where he is now pursuing his Master’s degree in conducting. A member of Ziemeļu Balsis since 2013, Matīss became one of the choir’s conductors in 2017. He has guided several choirs in Tartu and Tallinn to national song festivals across the Baltics.',
+        aboutP5:'Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.',
+        aboutP6:'Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.',
+        rehearsalsTitle:'Rehearsals', rehearsalTime:'Wednesdays, 18:00', tartuAddress:'Juhan Liivi 2d (Tartu International School)', tallinnAddress:'Tõnismägi 10, 15190 Tallinn',
+        mediaTitle:'Media', readArticle:'Read →', mediaShowMore:'Show more', mediaShowLess:'Show less',
+        article1:'Estonian Latvian Choir concert “Three Little Suns Rising”',
+        article2:'From Beijing to Tartu: how voices from different worlds meet in Latvian song',
+        article3:'Three Baltic Song Festivals in a row — the special story of “Ziemeļu Balsis”',
+        article4:'Three years, three song festivals — how “Ziemeļu Balsis” completed a special challenge',
+        article5:'On the road to a Baltic Song Festival “hat trick”',
+        article6:'LR2: Midsummer singing with the Estonian Latvian choir “Ziemeļu Balsis”',
+        article7:'How the Estonian Latvian choir “Ziemeļu Balsis” strengthens Baltic unity through song',
+        article8:"It’s an honor: 3 expats on why they’re taking part in Estonia’s Song Festival",
+        article9:'Latvian-Estonian choir conductor: I really hope the power of song drives the rain away',
+        article10:'Lithuania celebrates the centenary of its Song Festival',
+        article11:'Song Festival — this is lipstick',
+        galleryTitle:'Gallery', openGallery:'Open full gallery →', closeGallery:'Close gallery', prevImage:'Previous image', nextImage:'Next image',
+        contactsTitle:'Contacts', getInTouch:'Get in touch', contactUs:'Contact us', emailLabel:'Email:', phoneLabel:'Phone:', namePlaceholder:'Your name', emailPlaceholder:'Your email', messagePlaceholder:'Your message…', sendMessage:'Send message', formNote:'We’ll reply to the email you provide.', formSuccess:'Thank you! Your message has been sent.', formError:'Could not send. Please try again.', networkError:'Network error. Please try again.'
+      },
+      lv: {
+        pageTitle:'Ziemeļu Balsis — Latvijas jauktais koris Igaunijā',
+        metaDescription:'Latviešu jauktais koris Igaunijā. Mēģinājumi Tartu un Tallinā. Diriģenti Matīss Briedis un Rihards Zariņš.',
+        navAbout:'Par mums', navRehearsals:'Mēģinājumi', navMedia:'Mediji', navGallery:'Galerija', navContacts:'Kontakti', register:'Pievienojies',
+        eventLabel:'Gaidāmais koncerts', eventTitle:'Kordiriģēšanas specialitātes koncerteksāmens „Trīs saulītes uzlecami”', eventSubtitle:'Trīs saulītes uzlecami', eventDate:'24.05.2026., 14.00', eventPlace:'EMTA lielā zāle — Igaunijas Mūzikas un teātra akadēmijas lielā zāle', eventButton:'Skatīt Facebook notikumu →',
+        whenLabel:'Kad:', whereLabel:'Kur:', addressLabel:'Adrese:', maps:'Atvērt Google Maps',
+        aboutTitle:'Par mums',
+        aboutP1:'Latviešu koris Igaunijā “Ziemeļu Balsis” tika dibināts 2012. gadā. Šodien koris apvieno dziedātājus no desmit dažādām valstīm. “Ziemeļu Balsis” ir īpašs ne tikai ar savu starptautisko sastāvu, bet arī ar spēju pulcēt cilvēkus no divām Igaunijas pilsētām — Tartu un Tallinas. Pateicoties regulāriem kopmēģinājumiem, koris ir izaudzis par saskanīgu un vienotu kolektīvu.',
+        aboutP2:'Mēs lepojamies, ka esam pirmais koris, kas piedalījies visos trīs Baltijas Dziesmu svētkos: Latvijas Dziesmu svētkos (2013, 2018, 2023), Lietuvas Dziesmu svētkos (2024) un Igaunijas Dziesmu svētkos (2025). Šis sasniegums apliecina mūsu uzticību Baltijas kordziedāšanas tradīciju kopšanai pāri robežām.',
+        aboutP3:'Mūsu muzikālo virzienu veido divi iedvesmojoši diriģenti — Matīss Briedis un Rihards Zariņš.',
+        aboutP4:'Matīss Briedis mācījies Heino Ellera mūzikas skolā, kuru absolvēja 2017. gadā, un Igaunijas Mūzikas un teātra akadēmijā, kur šobrīd turpina maģistra studijas kordiriģēšanā. Kopš 2013. gada Matīss ir “Ziemeļu Balsu” dalībnieks, bet 2017. gadā kļuva par vienu no kora diriģentiem. Viņš vadījis vairākus korus Tartu un Tallinā, palīdzot tiem piedalīties nacionālajos dziesmu svētkos visā Baltijā.',
+        aboutP5:'Rihards Zariņš savu muzikālo ceļu sāka 1998. gadā Rīgas Doma kora skolā un turpināja Jāzepa Vītola Latvijas Mūzikas akadēmijā. Gadu gaitā viņš diriģējis korus Latvijā, Igaunijā un Somijā, tostarp Helsinkos, un kopš 2013. gada aktīvi iesaistījies koru pasākumu organizēšanā. Viņa izglītībā ietilpst arī studijas Igaunijas Mūzikas un teātra akadēmijā, kas vēl vairāk nostiprina saikni ar Baltijas kordziedāšanas tradīciju.',
+        aboutP6:'Kopā Matīss un Rihards veido “Ziemeļu Balsu” skanējumu un garu, vedot kori uz jauniem mērķiem un saglabājot dzīvu dziedāšanas prieku, kas mūs visus vieno.',
+        rehearsalsTitle:'Mēģinājumi', rehearsalTime:'Trešdienās, 18.00', tartuAddress:'Juhan Liivi 2d (Tartu Starptautiskā skola)', tallinnAddress:'Tõnismägi 10, 15190 Tallina',
+        mediaTitle:'Mediji', readArticle:'Lasīt →', mediaShowMore:'Rādīt vairāk', mediaShowLess:'Rādīt mazāk',
+        article1:'Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”',
+        article2:'No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā',
+        article3:'Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts',
+        article4:'Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu',
+        article5:'Ceļā uz Baltijas Dziesmu svētku “hat trick”',
+        article6:'LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”',
+        article7:'Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību',
+        article8:'Tas ir gods: trīs ārvalstnieki par dalību Igaunijas Dziesmu svētkos',
+        article9:'Latviešu-igauņu kora diriģents: ļoti ceru, ka dziesmas spēks aizdzīs lietu',
+        article10:'Lietuva svin Dziesmu svētku simtgadi',
+        article11:'Dziesmu svētki — tā ir lūpukrāsa',
+        galleryTitle:'Galerija', openGallery:'Atvērt pilno galeriju →', closeGallery:'Aizvērt galeriju', prevImage:'Iepriekšējais attēls', nextImage:'Nākamais attēls',
+        contactsTitle:'Kontakti', getInTouch:'Sazinies', contactUs:'Raksti mums', emailLabel:'E-pasts:', phoneLabel:'Tālrunis:', namePlaceholder:'Tavs vārds', emailPlaceholder:'Tavs e-pasts', messagePlaceholder:'Tava ziņa…', sendMessage:'Nosūtīt ziņu', formNote:'Mēs atbildēsim uz norādīto e-pastu.', formSuccess:'Paldies! Tava ziņa ir nosūtīta.', formError:'Neizdevās nosūtīt. Lūdzu, mēģini vēlreiz.', networkError:'Tīkla kļūda. Lūdzu, mēģini vēlreiz.'
+      },
+      ee: {
+        pageTitle:'Ziemeļu Balsis — Läti segakoor Eestis',
+        metaDescription:'Läti segakoor Eestis. Proovid Tartus ja Tallinnas. Dirigendid Matīss Briedis ja Rihards Zariņš.',
+        navAbout:'Meist', navRehearsals:'Proovid', navMedia:'Meedia', navGallery:'Galerii', navContacts:'Kontaktid', register:'Liitu kooriga',
+        eventLabel:'Tulevane kontsert', eventTitle:'Kooridirigeerimise eriala kontserteksam „Kolme päikest tõusemassa“', eventSubtitle:'Kolme päikest tõusemassa', eventDate:'24.05.2026, 14.00', eventPlace:'EMTA suur saal — Eesti Muusika- ja Teatriakadeemia suur saal', eventButton:'Vaata Facebooki üritust →',
+        whenLabel:'Millal:', whereLabel:'Kus:', addressLabel:'Aadress:', maps:'Ava Google Mapsis',
+        aboutTitle:'Meist',
+        aboutP1:'Eesti Läti koor “Ziemeļu Balsis” asutati 2012. aastal. Täna ühendab koor lauljaid kümnest eri riigist. “Ziemeļu Balsis” on eriline mitte ainult oma rahvusvahelise koosseisu, vaid ka selle poolest, et toob kokku inimesed kahest Eesti linnast — Tartust ja Tallinnast. Tänu regulaarsetele ühisproovidele on koor kasvanud tõeliselt ühtseks ja harmooniliseks kollektiiviks.',
+        aboutP2:'Oleme uhked, et oleme esimene koor, kes on osalenud kõigil kolmel Balti laulupeol: Läti laulupeol (2013, 2018, 2023), Leedu laulupeol (2024) ja Eesti laulupeol (2025). See saavutus näitab meie pühendumust Balti koorilaulu traditsioonide hoidmisele üle riigipiiride.',
+        aboutP3:'Meie muusikalist suunda juhivad kaks inspireerivat dirigenti — Matīss Briedis ja Rihards Zariņš.',
+        aboutP4:'Matīss Briedis õppis Heino Elleri Muusikakoolis, mille lõpetas 2017. aastal, ning Eesti Muusika- ja Teatriakadeemias, kus jätkab praegu magistriõpinguid dirigeerimise erialal. Matīss on olnud “Ziemeļu Balsise” liige alates 2013. aastast ning sai 2017. aastal üheks koori dirigendiks. Ta on juhatanud mitmeid koore Tartus ja Tallinnas ning aidanud neil jõuda üleriigilistele laulupidudele kogu Baltikumis.',
+        aboutP5:'Rihards Zariņš alustas oma muusikateed 1998. aastal Riia Toomkiriku koorikoolis ja jätkas õpinguid Jāzeps Vītolsi Läti Muusikaakadeemias. Aastate jooksul on ta juhatanud koore Lätis, Eestis ja Soomes, sealhulgas Helsingis, ning on alates 2013. aastast aktiivselt osalenud koorisündmuste korraldamises. Tema haridustee hulka kuuluvad ka õpingud Eesti Muusika- ja Teatriakadeemias, mis tugevdavad tema sidet Balti kooritraditsiooniga.',
+        aboutP6:'Matīss ja Rihards kujundavad koos “Ziemeļu Balsise” kõla ja vaimu, juhtides koori uute eesmärkide poole ning hoides elus laulurõõmu, mis meid kõiki ühendab.',
+        rehearsalsTitle:'Proovid', rehearsalTime:'Kolmapäeviti, 18.00', tartuAddress:'Juhan Liivi 2d (Tartu Rahvusvaheline Kool)', tallinnAddress:'Tõnismägi 10, 15190 Tallinn',
+        mediaTitle:'Meedia', readArticle:'Loe →', mediaShowMore:'Näita rohkem', mediaShowLess:'Näita vähem',
+        article1:'Eesti Läti koori kontsert “Kolm päikest tõusevad”',
+        article2:'Pekingist Tartusse: kuidas eri maailma hääled kohtuvad läti laulus',
+        article3:'Kolm Balti laulupidu järjest — “Ziemeļu Balsise” eriline lugu',
+        article4:'Kolm aastat, kolm laulupidu — kuidas “Ziemeļu Balsis” erilise väljakutsega hakkama sai',
+        article5:'Teel Balti laulupidude “hat trick’i” poole',
+        article6:'LR2: Jaaniõhtu laulmine Eesti Läti kooriga “Ziemeļu Balsis”',
+        article7:'Kuidas Eesti Läti koor “Ziemeļu Balsis” tugevdab lauluga Balti ühtsust',
+        article8:'See on au: kolm välismaalast räägivad, miks nad osalevad Eesti laulupeol',
+        article9:'Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema',
+        article10:'Leedu tähistab laulupeo sajandat sünnipäeva',
+        article11:'Laulupidu — see on huulepulk',
+        galleryTitle:'Galerii', openGallery:'Ava kogu galerii →', closeGallery:'Sulge galerii', prevImage:'Eelmine pilt', nextImage:'Järgmine pilt',
+        contactsTitle:'Kontaktid', getInTouch:'Võta ühendust', contactUs:'Kirjuta meile', emailLabel:'E-post:', phoneLabel:'Telefon:', namePlaceholder:'Sinu nimi', emailPlaceholder:'Sinu e-post', messagePlaceholder:'Sinu sõnum…', sendMessage:'Saada sõnum', formNote:'Vastame sinu sisestatud e-posti aadressile.', formSuccess:'Aitäh! Sinu sõnum on saadetud.', formError:'Saatmine ebaõnnestus. Palun proovi uuesti.', networkError:'Võrguviga. Palun proovi uuesti.'
+      }
+    };
+
+    window.currentLang = localStorage.getItem('zbLang') || 'en';
+    window.t = function(key){ return (translations[window.currentLang] && translations[window.currentLang][key]) || translations.en[key] || key; };
+
+    window.applyLanguage = function(lang){
+      window.currentLang = translations[lang] ? lang : 'en';
+      localStorage.setItem('zbLang', window.currentLang);
+      document.documentElement.lang = window.currentLang === 'ee' ? 'et' : window.currentLang;
+      document.title = window.t('pageTitle');
+      const meta = document.querySelector('meta[name="description"]');
+      if(meta) meta.setAttribute('content', window.t('metaDescription'));
+      document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = window.t(el.getAttribute('data-i18n')); });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.setAttribute('placeholder', window.t(el.getAttribute('data-i18n-placeholder'))); });
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', window.t(el.getAttribute('data-i18n-aria'))); });
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => { btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === window.currentLang); });
+      const mediaToggle = document.getElementById('mediaToggle');
+      if(mediaToggle){
+        const hiddenCards = Array.from(document.querySelectorAll('#news .news-card')).some(card => card.style.display === 'none');
+        mediaToggle.textContent = hiddenCards ? window.t('mediaShowMore') : window.t('mediaShowLess');
+      }
+    };
+
+    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+      btn.addEventListener('click', () => window.applyLanguage(btn.getAttribute('data-lang-btn')));
+    });
+
+    window.applyLanguage(window.currentLang);
+  })();
+  </script>
+
 </body>
 </html>
