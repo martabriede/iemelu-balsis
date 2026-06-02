@@ -122,41 +122,44 @@
   }
   #news .news-card{
     border:1px solid var(--border);
-    border-radius:22px;
+    border-radius:20px;
     background:#fff;
     padding:0;
     overflow:hidden;
     box-shadow:var(--shadow-soft);
-    transition:.22s ease;
-  }
-  #news .news-card:hover{
-    transform:translateY(-3px);
-    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    min-height:100%;
   }
   #news .news-image-wrap{
     width:100%;
     aspect-ratio:16/10;
-    background:linear-gradient(135deg,var(--tint),#fff);
     overflow:hidden;
+    background:var(--tint);
     border-bottom:1px solid var(--border);
   }
   #news .news-image{
     width:100%;
     height:100%;
-    display:block;
     object-fit:cover;
-    transition:.3s ease;
+    display:block;
+    transition:.28s ease;
   }
   #news .news-card:hover .news-image{
     transform:scale(1.035);
+    filter:brightness(.98);
   }
   #news .news-content{
     padding:1rem;
+    display:flex;
+    flex-direction:column;
+    gap:.55rem;
+    flex:1;
   }
   #news .news-card h3{
-    font-size:1.02rem;
+    font-size:1rem;
     line-height:1.35;
-    margin:0 0 .65rem;
+    margin:0;
     display:-webkit-box;
     -webkit-line-clamp:3;
     -webkit-box-orient:vertical;
@@ -168,7 +171,7 @@
     gap:.45rem;
     color:#64748b;
     font-size:.9rem;
-    margin-bottom:.8rem;
+    margin:0;
   }
   #news .meta-row img{
     width:16px;
@@ -176,7 +179,10 @@
     border-radius:4px;
     flex:0 0 16px;
   }
-  #news .actions{margin-top:.25rem}
+  #news .actions{
+    margin-top:auto;
+    padding-top:.2rem;
+  }
   #news .read-link{
     font-size:.92rem;
     text-decoration:none;
@@ -192,9 +198,11 @@
   }
   #news .read-link:hover{
     background:var(--tint);
-    text-decoration:none;
   }
-  #news .toggle-wrap{text-align:center;margin-top:1rem}
+  #news .toggle-wrap{
+    text-align:center;
+    margin-top:1rem;
+  }
   #news .toggle-btn{
     background:var(--brand);
     color:#fff;
@@ -205,6 +213,10 @@
     font-size:.95rem;
     font-weight:800;
     box-shadow:var(--shadow-soft);
+  }
+  #news .toggle-btn:hover{
+    filter:brightness(.96);
+    transform:translateY(-1px);
   }
 
   .media{width:100%;border-radius:24px;border:1px solid var(--border);object-fit:cover;box-shadow:var(--shadow-soft)}
@@ -384,7 +396,7 @@
             <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-17.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
             <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-19.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
             <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-21.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-23.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>          </div>
+            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-23.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
           <div class="toggle-wrap"><button class="toggle-btn" id="mediaToggle" data-i18n="mediaShowMore">Show more</button></div>
           <script>
             document.querySelectorAll('#news .meta-row').forEach(row => {
