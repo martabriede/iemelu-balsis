@@ -137,6 +137,7 @@
     width:100%;
     height:100%;
     object-fit:cover;
+    object-position:top center;
     display:block;
     transition:.35s ease;
   }
@@ -338,24 +339,27 @@
               img.src = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64`;
             });
 
-            // Load each media preview image from the article's own OpenGraph/metadata image.
-            // If the article metadata cannot be loaded, use a neutral local choir image as fallback.
-            document.querySelectorAll('#news .news-thumb').forEach(async (thumb) => {
+            // Media preview images
+            // Latvieši.com is a JavaScript-based site, so its OpenGraph image is not always
+            // available through browser-side metadata tools. To avoid wrong/broken thumbnails,
+            // each card now uses a screenshot preview generated from its own article URL.
+            // If a screenshot cannot load, the card falls back to the local choir hero image.
+            document.querySelectorAll('#news .news-thumb').forEach((thumb) => {
               const articleUrl = thumb.getAttribute('data-preview-url');
               const img = thumb.querySelector('img');
               const fallback = 'images/hero.jpg';
               if (!articleUrl || !img) return;
 
-              try {
-                const endpoint = `https://api.microlink.io/?url=${encodeURIComponent(articleUrl)}`;
-                const response = await fetch(endpoint);
-                if (!response.ok) throw new Error('Preview metadata unavailable');
-                const data = await response.json();
-                const imageUrl = data && data.data && data.data.image && data.data.image.url;
-                img.src = imageUrl || fallback;
-              } catch (error) {
+              img.onerror = () => {
+                if (img.dataset.fallback === 'true') {
+                  thumb.classList.add('news-thumb-fallback');
+                  return;
+                }
+                img.dataset.fallback = 'true';
                 img.src = fallback;
-              }
+              };
+
+              img.src = `https://api.microlink.io/?url=${encodeURIComponent(articleUrl)}&screenshot=true&embed=screenshot.url`;
             });
 
             const cards = Array.from(document.querySelectorAll('#news .news-card'));
