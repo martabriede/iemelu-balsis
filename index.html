@@ -114,36 +114,6 @@
   .link-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none;background:#fff;box-shadow:var(--shadow-soft)}
   .link-badge:hover{background:var(--tint)}
 
-  /* Upcoming event */
-  .event-banner{padding:2rem 0 1rem;border-bottom:0}
-  .event-card{
-    background-color:var(--brand);
-    background-image:
-      repeating-linear-gradient(45deg, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 2px, transparent 2px, transparent 6px),
-      repeating-linear-gradient(-45deg, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 2px, transparent 2px, transparent 6px),
-      linear-gradient(135deg, rgba(158,27,52,.98), rgba(127,21,42,.98));
-    background-size:16px 16px, 16px 16px, auto;
-    background-blend-mode:overlay, overlay, normal;
-    color:#fff;
-    border-radius:30px;
-    padding:2rem;
-    box-shadow:0 24px 70px rgba(112,20,39,.18), 0 8px 24px rgba(15,23,42,.08);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:1.5rem;
-    overflow:hidden;
-  }
-  .event-content{min-width:0}
-  .event-label{margin:0 0 .35rem;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;opacity:.85;font-weight:700}
-  .event-card h2{margin:0 0 .2rem;font-size:clamp(1.35rem,3vw,2.2rem);line-height:1.18;max-width:900px}
-  .event-card h2::after{background:#fff}
-  .event-subtitle{margin:.2rem 0 1rem;font-size:1.05rem;opacity:.9}
-  .event-details p{margin:.25rem 0}
-  .event-button{background:#fff;color:var(--brand);text-decoration:none;font-weight:700;padding:.8rem 1rem;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px rgba(0,0,0,.12)}
-  .event-button:hover{filter:brightness(.96);text-decoration:none}
-  @media(max-width:700px){.event-card{flex-direction:column;align-items:flex-start}.event-button{width:100%;text-align:center}}
-
   /* Media compact */
   #news .news-grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
   #news .news-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:.85rem .9rem;box-shadow:var(--shadow-soft)}
@@ -294,21 +264,6 @@
 
     <main>
       <div class="content">
-        <section class="event-banner" id="event">
-          <div class="event-card">
-            <div class="event-content">
-              <p class="event-label" data-i18n="eventLabel">Upcoming concert</p>
-              <h2 data-i18n="eventTitle">Conducting speciality concert exam “Three Suns Rising”</h2>
-              <p class="event-subtitle" data-i18n="eventSubtitle">Three Suns Rising</p>
-              <div class="event-details">
-                <p><strong data-i18n="whenLabel">When:</strong> <span data-i18n="eventDate">24.05.2026, 14:00</span></p>
-                <p><strong data-i18n="whereLabel">Where:</strong> <span data-i18n="eventPlace">EMTA suur saal — Estonian Academy of Music and Theatre, main hall</span></p>
-              </div>
-            </div>
-            <a class="event-button" href="https://www.facebook.com/events/36558685360397696" target="_blank" rel="noopener"> <span data-i18n="eventButton">View Facebook event →</span></a>
-          </div>
-        </section>
-
         <section id="about">
           <h1 data-i18n="aboutTitle">About us</h1>
           <div class="about-hero"><img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo"></div>
