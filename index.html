@@ -115,109 +115,42 @@
   .link-badge:hover{background:var(--tint)}
 
   /* Media cards */
-  #news .news-grid{
-    display:grid;
-    gap:1rem;
-    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  }
+  #news .news-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
   #news .news-card{
     border:1px solid var(--border);
     border-radius:20px;
     background:#fff;
     padding:0;
-    overflow:hidden;
     box-shadow:var(--shadow-soft);
-    display:flex;
-    flex-direction:column;
-    min-height:100%;
-  }
-  #news .news-image-wrap{
-    width:100%;
-    aspect-ratio:16/10;
     overflow:hidden;
-    background:var(--tint);
+    transition:.22s ease;
+  }
+  #news .news-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  #news .news-thumb{
+    width:100%;
+    aspect-ratio:16/9;
+    background:linear-gradient(135deg,var(--tint),#fff);
+    overflow:hidden;
     border-bottom:1px solid var(--border);
   }
-  #news .news-image{
+  #news .news-thumb img{
     width:100%;
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.28s ease;
+    transition:.35s ease;
   }
-  #news .news-card:hover .news-image{
-    transform:scale(1.035);
-    filter:brightness(.98);
-  }
-  #news .news-content{
-    padding:1rem;
-    display:flex;
-    flex-direction:column;
-    gap:.55rem;
-    flex:1;
-  }
-  #news .news-card h3{
-    font-size:1rem;
-    line-height:1.35;
-    margin:0;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
-  #news .meta-row{
-    display:flex;
-    align-items:center;
-    gap:.45rem;
-    color:#64748b;
-    font-size:.9rem;
-    margin:0;
-  }
-  #news .meta-row img{
-    width:16px;
-    height:16px;
-    border-radius:4px;
-    flex:0 0 16px;
-  }
-  #news .actions{
-    margin-top:auto;
-    padding-top:.2rem;
-  }
-  #news .read-link{
-    font-size:.92rem;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:.35rem;
-    padding:.45rem .7rem;
-    border:1px solid var(--border);
-    border-radius:999px;
-    color:var(--brand);
-    background:#fff;
-    font-weight:700;
-  }
-  #news .read-link:hover{
-    background:var(--tint);
-  }
-  #news .toggle-wrap{
-    text-align:center;
-    margin-top:1rem;
-  }
-  #news .toggle-btn{
-    background:var(--brand);
-    color:#fff;
-    border:1px solid var(--brand);
-    padding:.65rem 1rem;
-    border-radius:999px;
-    cursor:pointer;
-    font-size:.95rem;
-    font-weight:800;
-    box-shadow:var(--shadow-soft);
-  }
-  #news .toggle-btn:hover{
-    filter:brightness(.96);
-    transform:translateY(-1px);
-  }
+  #news .news-card:hover .news-thumb img{transform:scale(1.025)}
+  #news .news-thumb img[src=""]{display:none}
+  #news .news-content{padding:1rem}
+  #news .news-card h3{font-size:1.02rem;line-height:1.35;margin:0 0 .55rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  #news .meta-row{display:flex;align-items:center;gap:.45rem;color:#64748b;font-size:.9rem;margin-bottom:.65rem}
+  #news .meta-row img{width:16px;height:16px;border-radius:4px;flex:0 0 16px}
+  #news .actions{margin-top:.25rem}
+  #news .read-link{font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;color:var(--brand);background:#fff;box-shadow:0 8px 18px rgba(112,20,39,.06)}
+  #news .read-link:hover{background:var(--tint)}
+  #news .toggle-wrap{text-align:center;margin-top:1rem}
+  #news .toggle-btn{background:var(--brand);color:#fff;border:1px solid var(--brand);padding:.6rem 1rem;border-radius:999px;cursor:pointer;font-size:.95rem;font-weight:800;box-shadow:var(--shadow-soft)}
 
   .media{width:100%;border-radius:24px;border:1px solid var(--border);object-fit:cover;box-shadow:var(--shadow-soft)}
   .about-hero img{aspect-ratio:16/9;max-height:300px}
@@ -385,18 +318,18 @@
         <section id="news">
           <h2 data-i18n="mediaTitle">Media</h2>
           <div class="news-grid" id="mediaGrid">
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-1.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Igaunijas latviešu koris “Ziemeļu Balsis” Tallinā izpilda vērienīgu Baltijas kormūzikas programmu</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/igaunijas-latviesu-koris-ziemelu-balsis-tallina-izpilda-verienigu-baltijas-kormuzikas-programmu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-3.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/notikumi/igaunijas-latviesu-kora-koncerts-tris-saulites-uzlecami" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-5.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/no-pekinas-lidz-tartu-ka-dazadas-pasaules-balsis-satiekas-latviesu-dziesma" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-7.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-9.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3><div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div><div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-11.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3><div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div><div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-13.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3><div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div><div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-15.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3><div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div><div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-17.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-19.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-21.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
-            <article class="news-card"><div class="news-image-wrap"><img class="news-image" src="gallery-23.jpg" alt="" loading="lazy" onerror="this.closest('.news-image-wrap').remove()"></div><div class="news-content"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.latviesi.com/jaunumi/igaunijas-latviesu-koris-ziemelu-balsis-tallina-izpilda-verienigu-baltijas-kormuzikas-programmu"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Igaunijas latviešu koris “Ziemeļu Balsis” Tallinā izpilda vērienīgu Baltijas kormūzikas programmu</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/igaunijas-latviesu-koris-ziemelu-balsis-tallina-izpilda-verienigu-baltijas-kormuzikas-programmu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.latviesi.com/notikumi/igaunijas-latviesu-kora-koncerts-tris-saulites-uzlecami"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/notikumi/igaunijas-latviesu-kora-koncerts-tris-saulites-uzlecami" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.latviesi.com/jaunumi/no-pekinas-lidz-tartu-ka-dazadas-pasaules-balsis-satiekas-latviesu-dziesma"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/no-pekinas-lidz-tartu-ka-dazadas-pasaules-balsis-satiekas-latviesu-dziesma" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3><div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div><div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3><div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div><div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3><div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div><div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3><div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div><div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>
+            <article class="news-card"><div class="news-thumb" data-preview-url="https://www.sirp.ee/laulupidu-see-on-huulepulk/"><img src="" alt="" loading="lazy"></div><div class="news-content"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></div></article>          </div>
           <div class="toggle-wrap"><button class="toggle-btn" id="mediaToggle" data-i18n="mediaShowMore">Show more</button></div>
           <script>
             document.querySelectorAll('#news .meta-row').forEach(row => {
@@ -404,6 +337,27 @@
               const img = row.querySelector('img');
               img.src = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64`;
             });
+
+            // Load each media preview image from the article's own OpenGraph/metadata image.
+            // If the article metadata cannot be loaded, use a neutral local choir image as fallback.
+            document.querySelectorAll('#news .news-thumb').forEach(async (thumb) => {
+              const articleUrl = thumb.getAttribute('data-preview-url');
+              const img = thumb.querySelector('img');
+              const fallback = 'images/hero.jpg';
+              if (!articleUrl || !img) return;
+
+              try {
+                const endpoint = `https://api.microlink.io/?url=${encodeURIComponent(articleUrl)}`;
+                const response = await fetch(endpoint);
+                if (!response.ok) throw new Error('Preview metadata unavailable');
+                const data = await response.json();
+                const imageUrl = data && data.data && data.data.image && data.data.image.url;
+                img.src = imageUrl || fallback;
+              } catch (error) {
+                img.src = fallback;
+              }
+            });
+
             const cards = Array.from(document.querySelectorAll('#news .news-card'));
             const toggle = document.getElementById('mediaToggle');
             const initial = 6;
