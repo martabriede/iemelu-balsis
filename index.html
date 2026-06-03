@@ -218,7 +218,7 @@
     backdrop-filter: blur(10px);
   }
   .lightbox.open{display:flex}
-  .lightbox img{max-width:calc(100vw - 48px);max-height:calc(100vh - 48px);width:auto;height:auto;object-fit:contain;border-radius:20px;box-shadow:0 28px 90px rgba(0,0,0,.48);background:#fff}
+  .lightbox .lightbox-main{max-width:calc(100vw - 48px);max-height:calc(100vh - 150px);width:auto;height:auto;object-fit:contain;border-radius:20px;box-shadow:0 28px 90px rgba(0,0,0,.48);background:#fff}
   .lightbox:focus{outline:none}
   .lightbox .nav,.lightbox .close{position:absolute;display:grid;place-items:center;width:54px;height:54px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.20);color:#fff;font-size:34px;line-height:1;cursor:pointer;user-select:none;box-shadow:0 12px 28px rgba(0,0,0,.22)}
   .lightbox .nav:hover,.lightbox .close:hover{background:rgba(255,255,255,.25)}
@@ -226,7 +226,73 @@
   .lightbox .next{right:28px;top:50%;transform:translateY(-50%)}
   .lightbox .close{right:28px;top:24px;font-size:30px}
   .lightbox .counter{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:.35rem .75rem;font-size:.95rem}
-  @media(max-width:700px){.gallery-preview{padding:.75rem}.gallery{grid-template-columns:1fr 1fr;gap:.75rem}.gallery img{height:160px;border-radius:14px}.gallery img:first-child{grid-column:span 2;grid-row:auto;min-height:220px;height:220px}.lightbox{padding:.75rem}.lightbox img{max-width:calc(100vw - 20px);max-height:calc(100vh - 92px);border-radius:16px}.lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}.lightbox .prev{left:22px}.lightbox .next{right:22px}.lightbox .close{right:18px;top:18px;width:44px;height:44px;font-size:26px}.lightbox .counter{bottom:36px}}
+  @media(max-width:700px){.gallery-preview{padding:.75rem}.gallery{grid-template-columns:1fr 1fr;gap:.75rem}.gallery img{height:160px;border-radius:14px}.gallery img:first-child{grid-column:span 2;grid-row:auto;min-height:220px;height:220px}.lightbox{padding:.75rem}.lightbox .lightbox-main{max-width:calc(100vw - 20px);max-height:calc(100vh - 160px);border-radius:16px}.lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}.lightbox .prev{left:22px}.lightbox .next{right:22px}.lightbox .close{right:18px;top:18px;width:44px;height:44px;font-size:26px}.lightbox .counter{bottom:36px}}
+
+
+  .lightbox .thumb-panel{
+    position:absolute;
+    left:50%;
+    bottom:20px;
+    transform:translateX(-50%);
+    width:min(900px, calc(100vw - 180px));
+    display:flex;
+    align-items:center;
+    gap:.55rem;
+    padding:.55rem;
+    border-radius:22px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow:0 14px 34px rgba(0,0,0,.20);
+    backdrop-filter:blur(14px);
+  }
+  .lightbox .thumb-strip{
+    display:flex;
+    gap:.5rem;
+    overflow-x:auto;
+    scrollbar-width:none;
+    scroll-behavior:smooth;
+    padding:.1rem;
+    flex:1;
+  }
+  .lightbox .thumb-strip::-webkit-scrollbar{display:none}
+  .lightbox .thumb{
+    width:72px;
+    height:54px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid transparent;
+    opacity:.72;
+    cursor:pointer;
+    flex:0 0 auto;
+    background:#fff;
+    transition:.18s ease;
+  }
+  .lightbox .thumb:hover{opacity:1;transform:translateY(-2px)}
+  .lightbox .thumb.active{
+    opacity:1;
+    border-color:#fff;
+    box-shadow:0 8px 18px rgba(0,0,0,.22);
+  }
+  .lightbox .thumb-scroll{
+    width:38px;
+    height:38px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.42);
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    font-size:24px;
+    line-height:1;
+    cursor:pointer;
+    display:grid;
+    place-items:center;
+    flex:0 0 38px;
+  }
+  .lightbox .thumb-scroll:hover{background:rgba(255,255,255,.26)}
+  @media(max-width:700px){
+    .lightbox .thumb-panel{width:calc(100vw - 24px);bottom:14px;border-radius:18px;padding:.45rem;gap:.4rem}
+    .lightbox .thumb{width:58px;height:44px;border-radius:10px}
+    .lightbox .thumb-scroll{width:34px;height:34px;font-size:22px}
+  }
 
   .contacts-wrap{display:grid;gap:1.2rem}
   @media(min-width:900px){.contacts-wrap{grid-template-columns:1fr 1fr}}
@@ -496,27 +562,48 @@
     box.innerHTML = `
       <button class="close" aria-label="Close gallery" data-i18n-aria="closeGallery">×</button>
       <button class="nav prev" aria-label="Previous image" data-i18n-aria="prevImage">‹</button>
-      <img alt="Choir photo">
+      <img class="lightbox-main" alt="Choir photo">
       <button class="nav next" aria-label="Next image" data-i18n-aria="nextImage">›</button>
       <div class="counter" aria-live="polite"></div>
+      <div class="thumb-panel" aria-label="Gallery thumbnails">
+        <button class="thumb-scroll thumb-left" type="button" aria-label="Scroll thumbnails left">‹</button>
+        <div class="thumb-strip"></div>
+        <button class="thumb-scroll thumb-right" type="button" aria-label="Scroll thumbnails right">›</button>
+      </div>
     `;
     document.body.appendChild(box);
 
     const thumbs = Array.from(document.querySelectorAll('#gallery img'));
     if (!thumbs.length) return;
 
-    const big = box.querySelector('img');
+    const big = box.querySelector('.lightbox-main');
     const prevBtn = box.querySelector('.prev');
     const nextBtn = box.querySelector('.next');
     const closeBtn = box.querySelector('.close');
     const counter = box.querySelector('.counter');
+    const thumbStrip = box.querySelector('.thumb-strip');
+    const thumbLeft = box.querySelector('.thumb-left');
+    const thumbRight = box.querySelector('.thumb-right');
     const openGalleryBtn = document.getElementById('openGallery');
     let i = 0;
+
+    const thumbButtons = thumbs.map((img, idx) => {
+      const thumb = document.createElement('img');
+      thumb.className = 'thumb';
+      thumb.src = img.src;
+      thumb.alt = `Photo ${idx + 1}`;
+      thumb.loading = 'lazy';
+      thumb.addEventListener('click', (e) => { e.stopPropagation(); openAt(idx); });
+      thumbStrip.appendChild(thumb);
+      return thumb;
+    });
 
     function updateControls(){
       prevBtn.style.display = i > 0 ? 'grid' : 'none';
       nextBtn.style.display = i < thumbs.length - 1 ? 'grid' : 'none';
       counter.textContent = `${i + 1} / ${thumbs.length}`;
+      thumbButtons.forEach((thumb, idx) => thumb.classList.toggle('active', idx === i));
+      if (thumbButtons[i]) thumbButtons[i].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
     }
     function openAt(idx){
       i = idx;
@@ -539,6 +626,9 @@
     closeBtn.addEventListener('click', (e) => { e.stopPropagation(); close(); });
     prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
     nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+    thumbLeft.addEventListener('click', (e) => { e.stopPropagation(); thumbStrip.scrollBy({left:-360, behavior:'smooth'}); });
+    thumbRight.addEventListener('click', (e) => { e.stopPropagation(); thumbStrip.scrollBy({left:360, behavior:'smooth'}); });
+    thumbStrip.addEventListener('click', (e) => e.stopPropagation());
     document.addEventListener('keydown', (e) => {
       if (!box.classList.contains('open')) return;
       if (e.key === 'Escape') close();
