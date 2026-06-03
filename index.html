@@ -3,39 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Latvian choir in Estonia "Ziemeļu Balsis"</title>
-<meta property="og:title" content='Latvian choir in Estonia "Ziemeļu Balsis"'>
-<meta property="og:description" content="An international Latvian choir based in Estonia, bringing together singers from Tallinn, Tartu and beyond.">
-<meta property="og:image" content="https://ziemelubalsis.com/gallery-featured-01.jpg">
-<meta property="og:url" content="https://ziemelubalsis.com/">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content='Latvian choir in Estonia "Ziemeļu Balsis"'>
-<meta name="twitter:description" content="An international Latvian choir based in Estonia, bringing together singers from Tallinn, Tartu and beyond.">
-<meta name="twitter:image" content="https://ziemelubalsis.com/gallery-featured-01.jpg">
+  <title>Latvian choir in Estonia &quot;Ziemeļu Balsis&quot;</title>
+  <meta name="description" content="Latvian choir in Estonia &quot;Ziemeļu Balsis&quot;. Rehearsals in Tartu and Tallinn." />
+  <meta property="og:title" content="Latvian choir in Estonia &quot;Ziemeļu Balsis&quot;">
+  <meta property="og:description" content="An international Latvian choir based in Estonia, bringing together singers from Tallinn, Tartu and beyond.">
+  <meta property="og:image" content="https://ziemelubalsis.com/gallery-featured-01.jpg">
+  <meta property="og:url" content="https://ziemelubalsis.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Latvian choir in Estonia &quot;Ziemeļu Balsis&quot;">
+  <meta name="twitter:description" content="An international Latvian choir based in Estonia, bringing together singers from Tallinn, Tartu and beyond.">
+  <meta name="twitter:image" content="https://ziemelubalsis.com/gallery-featured-01.jpg">
+  <link rel="icon" href="images/logo.png">
 
   <style>
   /* ===============================
      THEME — Latvian red + white
      =============================== */
   :root{
-    --bg:#FFFBFC;
-    --text:#182033;
-    --muted:#5f6b7d;
-    --brand:#8F1730;
-    --brand-accent:#8F1730;
+    --bg:#FFF9F7;
+    --text:#171923;
+    --muted:#647084;
+    --brand:#8C1730;
+    --brand-accent:#8C1730;
     --brand-dark:#651020;
-    --card:#ffffff;
-    --border:#F0DDE2;
+    --card:rgba(255,255,255,.88);
+    --border:#EEDCE1;
     --ring:rgba(143,23,48,.28);
     --sidebar:#8F1730;
-    --tint:#FFF3F6;
-    --shadow:0 18px 45px rgba(112,20,39,.10), 0 4px 14px rgba(15,23,42,.06);
-    --shadow-soft:0 10px 28px rgba(112,20,39,.08), 0 2px 8px rgba(15,23,42,.05);
-    --radius:24px;
+    --tint:#FFF1F4;
+    --shadow:0 24px 70px rgba(112,20,39,.12), 0 8px 22px rgba(15,23,42,.07);
+    --shadow-soft:0 14px 36px rgba(112,20,39,.075), 0 3px 12px rgba(15,23,42,.045);
+    --radius:28px;
     --radius-small:16px;
-    --maxw:1120px;
+    --maxw:1180px;
   }
 
   *{box-sizing:border-box}
@@ -46,8 +47,9 @@
   }
   body{
     background:
-      radial-gradient(circle at 85% 8%, rgba(143,23,48,.08), transparent 28rem),
-      linear-gradient(180deg,#fff 0%,#fff7f9 100%);
+      radial-gradient(circle at 82% 4%, rgba(140,23,48,.10), transparent 30rem),
+      radial-gradient(circle at 12% 92%, rgba(140,23,48,.055), transparent 28rem),
+      linear-gradient(180deg,#fffdfb 0%,#fff7f4 100%);
   }
 
   .layout{display:flex;min-height:100dvh}
@@ -56,8 +58,8 @@
   @media(max-width:900px){.content{padding:0 1rem}}
 
   aside{
-    width:280px;
-    flex:0 0 280px;
+    width:236px;
+    flex:0 0 236px;
     background-color:var(--sidebar);
     color:#fff;
     background-image:
@@ -69,19 +71,19 @@
     position:sticky;
     top:0;
     height:100dvh;
-    padding:1rem;
+    padding:1.15rem .85rem;
     display:flex;
     flex-direction:column;
     gap:1rem;
-    box-shadow:inset -20px 0 40px rgba(0,0,0,.18);
+    box-shadow:inset -14px 0 34px rgba(0,0,0,.14);
   }
 
-  .brand{display:flex; align-items:center; gap:.75rem; font-weight:800}
-  .brand img{width:44px; height:44px; border-radius:10px; background:transparent; padding:3px}
-  aside nav ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.45rem}
-  aside nav a{color:#fff; text-decoration:none; display:block; padding:.55rem .7rem; border-radius:12px; transition:.2s ease}
-  aside nav a:hover{background:rgba(255,255,255,.12)}
-  aside nav a.btn{background:#fff; color:var(--brand); border:1px solid #fff; text-align:center; margin-top:.4rem; font-weight:700; box-shadow:var(--shadow-soft)}
+  .brand{display:flex; align-items:center; gap:.65rem; font-weight:850; letter-spacing:-.02em}
+  .brand img{width:40px; height:40px; border-radius:10px; background:transparent; padding:3px}
+  aside nav ul{list-style:none; padding:0; margin:1rem 0 0; display:flex; flex-direction:column; gap:.3rem}
+  aside nav a{color:#fff; text-decoration:none; display:block; padding:.52rem .65rem; border-radius:14px; transition:.22s ease; font-weight:650}
+  aside nav a:hover{background:rgba(255,255,255,.10); transform:translateX(2px)}
+  aside nav a.btn{background:rgba(255,255,255,.95); color:var(--brand); border:1px solid rgba(255,255,255,.75); text-align:center; margin-top:.75rem; font-weight:850; box-shadow:0 18px 42px rgba(45,8,17,.18); padding:.75rem .85rem; border-radius:18px}
   aside nav a.btn:hover{filter:brightness(.96)}
   aside nav a{position:relative; padding-left:2.1rem; border:1px solid transparent; box-shadow:none !important}
   aside nav a.active,
@@ -105,16 +107,17 @@
   }
   aside nav a:focus, aside nav a:focus-visible{outline:none !important; box-shadow:none !important}
 
-  section{padding:2.6rem 1.25rem;border-bottom:1px solid var(--border)}
-  .content section{padding:2.8rem 0}
-  section h1,section h2{margin:.2rem 0 .8rem;letter-spacing:.2px;position:relative}
-  section h1::after, section h2::after{content:"";display:block;width:64px;height:5px;margin-top:.55rem;border-radius:999px;background:var(--brand)}
+  section{padding:3.15rem 1.25rem;border-bottom:1px solid rgba(238,220,225,.72)}
+  .content section{padding:3.35rem 0}
+  section h1,section h2{margin:.2rem 0 1.15rem;letter-spacing:-.035em;position:relative;font-weight:850}
+  section h1::after, section h2::after{content:"";display:block;width:72px;height:5px;margin-top:.65rem;border-radius:999px;background:linear-gradient(90deg,var(--brand),rgba(140,23,48,.28))}
 
-  .grid{display:grid;gap:1.25rem}
+  .grid{display:grid;gap:1.4rem}
   .grid.two{grid-template-columns:1fr}
   @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
 
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow-soft)}
+  .card{background:var(--card);border:1px solid rgba(238,220,225,.86);border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow-soft);backdrop-filter:blur(10px);transition:.22s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
   .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff;box-shadow:var(--shadow-soft);transition:.15s ease}
   .btn:hover{transform:translateY(-1px);filter:brightness(.97)}
   a{color:var(--brand)}
@@ -122,23 +125,115 @@
   .link-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none;background:#fff;box-shadow:var(--shadow-soft)}
   .link-badge:hover{background:var(--tint)}
 
+
+
+  /* Modern intro hero */
+  .site-hero{
+    border-bottom:0;
+    padding-top:2rem !important;
+  }
+  .hero-card{
+    min-height:430px;
+    display:grid;
+    grid-template-columns:1.02fr .98fr;
+    gap:1.2rem;
+    align-items:stretch;
+    border:1px solid rgba(238,220,225,.88);
+    border-radius:34px;
+    background:
+      linear-gradient(135deg,rgba(255,255,255,.94),rgba(255,244,247,.84));
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .hero-copy{
+    padding:clamp(1.4rem,4vw,3rem);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .hero-kicker{
+    margin:0 0 .65rem;
+    color:var(--brand);
+    text-transform:uppercase;
+    letter-spacing:.11em;
+    font-size:.78rem;
+    font-weight:900;
+  }
+  .hero-copy h1{
+    margin:0 0 .9rem;
+    font-size:clamp(2.25rem,5.5vw,5rem);
+    line-height:.95;
+    letter-spacing:-.07em;
+  }
+  .hero-copy h1::after{display:none}
+  .hero-copy p{
+    margin:0;
+    max-width:48ch;
+    color:var(--muted);
+    font-size:clamp(1.03rem,1.6vw,1.2rem);
+  }
+  .hero-actions{
+    display:flex;
+    gap:.75rem;
+    flex-wrap:wrap;
+    margin-top:1.35rem;
+  }
+  .hero-actions a{
+    text-decoration:none;
+    border-radius:999px;
+    padding:.82rem 1.1rem;
+    font-weight:850;
+    box-shadow:var(--shadow-soft);
+  }
+  .hero-primary{background:var(--brand);color:#fff;border:1px solid var(--brand)}
+  .hero-secondary{background:#fff;color:var(--brand);border:1px solid var(--border)}
+  .hero-actions a:hover{transform:translateY(-2px);text-decoration:none}
+  .hero-image{
+    position:relative;
+    min-height:360px;
+    background:var(--tint);
+  }
+  .hero-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(255,249,247,.12),transparent 38%);
+    pointer-events:none;
+  }
+  @media(max-width:900px){
+    .site-hero{padding-top:1.25rem !important}
+    .hero-card{grid-template-columns:1fr;min-height:auto;border-radius:26px}
+    .hero-image{min-height:260px;order:-1}
+    .hero-copy{padding:1.35rem}
+  }
+
   /* Media cards */
   #news .news-grid{
     display:grid;
-    gap:1rem;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:1.1rem;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   }
   #news .news-card{
     border:1px solid var(--border);
     border-radius:20px;
-    background:rgba(255,255,255,.94);
-    padding:1.15rem;
+    background:rgba(255,255,255,.92);
+    padding:1.2rem;
     box-shadow:var(--shadow-soft);
     transition:.22s ease;
   }
   #news .news-card:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
     box-shadow:var(--shadow);
+  }
+  @media(min-width:900px){
+    #news .news-card:nth-child(1),
+    #news .news-card:nth-child(2){grid-column:span 2}
   }
   #news .news-card h3{
     font-size:1.08rem;
@@ -197,13 +292,13 @@
   .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
 
   /* Gallery preview */
-  .gallery-preview{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow-soft)}
-  .gallery{display:grid;grid-template-columns:1.4fr 1fr;gap:.9rem;align-items:stretch}
-  .gallery img{width:100%;height:190px;border-radius:16px;border:1px solid var(--border);object-fit:cover;cursor:pointer;transition:.28s ease;box-shadow:0 8px 18px rgba(15,23,42,.08);background:#fff}
+  .gallery-preview{background:rgba(255,255,255,.78);border:1px solid rgba(238,220,225,.9);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow-soft);backdrop-filter:blur(10px)}
+  .gallery{display:grid;grid-template-columns:1.35fr 1fr;gap:1rem;align-items:stretch}
+  .gallery img{width:100%;height:190px;border-radius:20px;border:1px solid rgba(238,220,225,.9);object-fit:cover;cursor:pointer;transition:.28s ease;box-shadow:0 12px 26px rgba(15,23,42,.09);background:#fff}
   .gallery img:hover{transform:translateY(-3px);filter:brightness(.98)}
-  .gallery img:nth-of-type(n+6){display:none}
+  .gallery img:nth-of-type(n+9){display:none}
   .gallery img:first-child{grid-row:span 2;height:100%;min-height:390px}
-  @media(min-width:900px){.gallery{grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,210px)}.gallery img{height:100%}.gallery img:first-child{grid-column:span 1;grid-row:span 2;min-height:0}}
+  @media(min-width:900px){.gallery{grid-template-columns:2fr 1fr 1fr 1fr;grid-template-rows:repeat(2,205px)}.gallery img{height:100%}.gallery img:first-child{grid-column:span 1;grid-row:span 2;min-height:0}}
   .gallery-actions{text-align:center;margin-top:1rem}
   .gallery-open-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;background:var(--brand);color:#fff;border:1px solid var(--brand);border-radius:999px;padding:.85rem 1.25rem;font:inherit;font-weight:800;cursor:pointer;box-shadow:var(--shadow-soft)}
   .gallery-open-btn:hover{filter:brightness(.96);transform:translateY(-1px)}
@@ -326,8 +421,8 @@
   /* Language selector */
   .language-switcher{
     position:fixed;
-    top:1rem;
-    right:1rem;
+    top:1.1rem;
+    right:1.1rem;
     z-index:40;
     display:flex;
     gap:.35rem;
@@ -391,6 +486,23 @@
 
     <main>
       <div class="content">
+        <section class="site-hero" id="home">
+          <div class="hero-card">
+            <div class="hero-copy">
+              <p class="hero-kicker" data-i18n="heroKicker">Latvian choir in Estonia</p>
+              <h1>Ziemeļu Balsis</h1>
+              <p data-i18n="heroLead">An international Latvian choir bringing together singers from Tallinn, Tartu and beyond.</p>
+              <div class="hero-actions">
+                <a class="hero-primary" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener" data-i18n="heroJoin">Join the choir</a>
+                <a class="hero-secondary" href="#gallery" data-i18n="heroGallery">See gallery</a>
+              </div>
+            </div>
+            <div class="hero-image">
+              <img src="gallery-featured-01.jpg" alt="Ziemeļu Balsis choir photo" loading="eager">
+            </div>
+          </div>
+        </section>
+
         <section id="about">
           <h1 data-i18n="aboutTitle">About us</h1>
           <div class="about-hero"><img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo"></div>
@@ -683,9 +795,9 @@
   (function(){
     const translations = {
       en: {
-        pageTitle:'Ziemeļu Balsis — Latvian Mixed Choir in Estonia',
-        metaDescription:'Latvian mixed choir in Estonia. Rehearsals in Tartu and Tallinn. Conductors Matīss Briedis and Rihards Zariņš.',
-        navAbout:'About us', navRehearsals:'Rehearsals', navMedia:'Media', navGallery:'Gallery', navContacts:'Contacts', register:'Register here',
+        pageTitle:'Latvian choir in Estonia \"Ziemeļu Balsis\"',
+        metaDescription:'Latvian choir in Estonia \"Ziemeļu Balsis\". Rehearsals in Tartu and Tallinn.',
+        navAbout:'About us', navRehearsals:'Rehearsals', navMedia:'Media', navGallery:'Gallery', navContacts:'Contacts', register:'Register here', heroKicker:'Latvian choir in Estonia', heroLead:'An international Latvian choir bringing together singers from Tallinn, Tartu and beyond.', heroJoin:'Join the choir', heroGallery:'See gallery',
         eventLabel:'Upcoming concert', eventTitle:'Conducting speciality concert exam “Three Suns Rising”', eventSubtitle:'Three Suns Rising', eventDate:'24.05.2026, 14:00', eventPlace:'EMTA suur saal — Estonian Academy of Music and Theatre, main hall', eventButton:'View Facebook event →',
         whenLabel:'When:', whereLabel:'Where:', addressLabel:'Address:', maps:'Open in Google Maps',
         aboutTitle:'About us',
@@ -714,7 +826,7 @@
       lv: {
         pageTitle:'Ziemeļu Balsis — Latvijas jauktais koris Igaunijā',
         metaDescription:'Latviešu jauktais koris Igaunijā. Mēģinājumi Tartu un Tallinā. Diriģenti Matīss Briedis un Rihards Zariņš.',
-        navAbout:'Par mums', navRehearsals:'Mēģinājumi', navMedia:'Mediji', navGallery:'Galerija', navContacts:'Kontakti', register:'Pievienojies',
+        navAbout:'Par mums', navRehearsals:'Mēģinājumi', navMedia:'Mediji', navGallery:'Galerija', navContacts:'Kontakti', register:'Pievienojies', heroKicker:'Latviešu koris Igaunijā', heroLead:'Starptautisks latviešu koris, kas apvieno dziedātājus no Tallinas, Tartu un citurienes.', heroJoin:'Pievienojies korim', heroGallery:'Skatīt galeriju',
         eventLabel:'Gaidāmais koncerts', eventTitle:'Kordiriģēšanas specialitātes koncerteksāmens „Trīs saulītes uzlecami”', eventSubtitle:'Trīs saulītes uzlecami', eventDate:'24.05.2026., 14.00', eventPlace:'EMTA lielā zāle — Igaunijas Mūzikas un teātra akadēmijas lielā zāle', eventButton:'Skatīt Facebook notikumu →',
         whenLabel:'Kad:', whereLabel:'Kur:', addressLabel:'Adrese:', maps:'Atvērt Google Maps',
         aboutTitle:'Par mums',
@@ -743,7 +855,7 @@
       ee: {
         pageTitle:'Ziemeļu Balsis — Läti segakoor Eestis',
         metaDescription:'Läti segakoor Eestis. Proovid Tartus ja Tallinnas. Dirigendid Matīss Briedis ja Rihards Zariņš.',
-        navAbout:'Meist', navRehearsals:'Proovid', navMedia:'Meedia', navGallery:'Galerii', navContacts:'Kontaktid', register:'Liitu kooriga',
+        navAbout:'Meist', navRehearsals:'Proovid', navMedia:'Meedia', navGallery:'Galerii', navContacts:'Kontaktid', register:'Liitu kooriga', heroKicker:'Läti koor Eestis', heroLead:'Rahvusvaheline Läti koor, mis ühendab lauljaid Tallinnast, Tartust ja mujalt.', heroJoin:'Liitu kooriga', heroGallery:'Vaata galeriid',
         eventLabel:'Tulevane kontsert', eventTitle:'Kooridirigeerimise eriala kontserteksam „Kolme päikest tõusemassa“', eventSubtitle:'Kolme päikest tõusemassa', eventDate:'24.05.2026, 14.00', eventPlace:'EMTA suur saal — Eesti Muusika- ja Teatriakadeemia suur saal', eventButton:'Vaata Facebooki üritust →',
         whenLabel:'Millal:', whereLabel:'Kus:', addressLabel:'Aadress:', maps:'Ava Google Mapsis',
         aboutTitle:'Meist',
