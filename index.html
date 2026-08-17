@@ -1,804 +1,580 @@
 <!doctype html>
-<html lang="en">
+<html lang="lv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Latvian choir in Estonia "Ziemeļu Balsis"</title>
-<meta property="og:title" content='Latvian choir in Estonia "Ziemeļu Balsis"'>
-<meta property="og:description" content="An international Latvian choir based in Estonia, bringing together singers from Tallinn, Tartu and beyond.">
-<meta property="og:image" content="https://ziemelubalsis.com/gallery-featured-01.jpg">
-<meta property="og:url" content="https://ziemelubalsis.com/">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content='Latvian choir in Estonia "Ziemeļu Balsis"'>
-<meta name="twitter:description" content="An international Latvian choir based in Estonia, bringing together singers from Tallinn, Tartu and beyond.">
-<meta name="twitter:image" content="https://ziemelubalsis.com/gallery-featured-01.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#8F1730">
+  <title>Ziemeļu Balsis — Kora ziņas</title>
 
   <style>
-  /* ===============================
-     THEME — Latvian red + white
-     =============================== */
-  :root{
-    --bg:#FFFBFC;
-    --text:#182033;
-    --muted:#5f6b7d;
-    --brand:#8F1730;
-    --brand-accent:#8F1730;
-    --brand-dark:#651020;
-    --card:#ffffff;
-    --border:#F0DDE2;
-    --ring:rgba(143,23,48,.28);
-    --sidebar:#8F1730;
-    --tint:#FFF3F6;
-    --shadow:0 18px 45px rgba(112,20,39,.10), 0 4px 14px rgba(15,23,42,.06);
-    --shadow-soft:0 10px 28px rgba(112,20,39,.08), 0 2px 8px rgba(15,23,42,.05);
-    --radius:24px;
-    --radius-small:16px;
-    --maxw:1120px;
-  }
+    :root{
+      --bg:#FFFBFC;
+      --text:#182033;
+      --muted:#5f6b7d;
+      --brand:#8F1730;
+      --brand-dark:#651020;
+      --card:#ffffff;
+      --border:#F0DDE2;
+      --tint:#FFF3F6;
+      --shadow:0 18px 45px rgba(112,20,39,.10),0 4px 14px rgba(15,23,42,.06);
+      --shadow-soft:0 10px 28px rgba(112,20,39,.08),0 2px 8px rgba(15,23,42,.05);
+      --radius:24px;
+      --maxw:820px;
+    }
 
-  *{box-sizing:border-box}
-  html,body{
-    margin:0;padding:0;background:var(--bg);color:var(--text);
-    font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  }
-  body{
-    background:
-      radial-gradient(circle at 85% 8%, rgba(143,23,48,.08), transparent 28rem),
-      linear-gradient(180deg,#fff 0%,#fff7f9 100%);
-  }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
 
-  .layout{display:flex;min-height:100dvh}
-  main{flex:1;min-width:0}
-  .content{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
-  @media(max-width:900px){.content{padding:0 1rem}}
+    body{
+      min-height:100dvh;
+      background:
+        radial-gradient(circle at 85% 8%,rgba(143,23,48,.08),transparent 28rem),
+        linear-gradient(180deg,#fff 0%,#fff7f9 100%);
+    }
 
-  aside{
-    width:280px;
-    flex:0 0 280px;
-    background-color:var(--sidebar);
-    color:#fff;
-    background-image:
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 6px),
-      repeating-linear-gradient(-45deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 6px);
-    background-size:16px 16px;
-    background-blend-mode:overlay;
-    border-right:none;
-    position:sticky;
-    top:0;
-    height:100dvh;
-    padding:1rem;
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-    box-shadow:inset -20px 0 40px rgba(0,0,0,.18);
-  }
+    .topbar{
+      background-color:var(--brand);
+      color:#fff;
+      background-image:
+        repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0px,rgba(255,255,255,.12) 2px,transparent 2px,transparent 6px),
+        repeating-linear-gradient(-45deg,rgba(255,255,255,.12) 0px,rgba(255,255,255,.12) 2px,transparent 2px,transparent 6px);
+      background-size:16px 16px;
+      background-blend-mode:overlay;
+      box-shadow:0 8px 24px rgba(101,16,32,.20);
+    }
 
-  .brand{display:flex; align-items:center; gap:.75rem; font-weight:800}
-  .brand img{width:44px; height:44px; border-radius:10px; background:transparent; padding:3px}
-  aside nav ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.45rem}
-  aside nav a{color:#fff; text-decoration:none; display:block; padding:.55rem .7rem; border-radius:12px; transition:.2s ease}
-  aside nav a:hover{background:rgba(255,255,255,.12)}
-  aside nav a.btn{background:#fff; color:var(--brand); border:1px solid #fff; text-align:center; margin-top:.4rem; font-weight:700; box-shadow:var(--shadow-soft)}
-  aside nav a.btn:hover{filter:brightness(.96)}
-  aside nav a{position:relative; padding-left:2.1rem; border:1px solid transparent; box-shadow:none !important}
-  aside nav a.active,
-  aside nav a.active:hover,
-  aside nav a.active:focus,
-  aside nav a.active:focus-visible{
-    background:transparent !important;
-    border:1px solid transparent !important;
-    outline:none !important;
-    box-shadow:none !important;
-    filter:none !important;
-    transition:none !important;
-  }
-  aside nav a.active::before{
-    content:""; position:absolute; left:.6rem; top:50%; transform:translateY(-50%);
-    width:18px; height:18px; border-radius:4px;
-    background:url("images/logo.png") center/contain no-repeat;
-    box-shadow:none !important;
-    border:none !important;
-    pointer-events:none;
-  }
-  aside nav a:focus, aside nav a:focus-visible{outline:none !important; box-shadow:none !important}
+    .topbar-inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:1rem 1.1rem;
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
 
-  section{padding:2.6rem 1.25rem;border-bottom:1px solid var(--border)}
-  .content section{padding:2.8rem 0}
-  section h1,section h2{margin:.2rem 0 .8rem;letter-spacing:.2px;position:relative}
-  section h1::after, section h2::after{content:"";display:block;width:64px;height:5px;margin-top:.55rem;border-radius:999px;background:var(--brand)}
+    .logo{
+      width:46px;height:46px;object-fit:contain;border-radius:12px;
+    }
 
-  .grid{display:grid;gap:1.25rem}
-  .grid.two{grid-template-columns:1fr}
-  @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+    .brand-title{font-size:1.05rem;font-weight:850;letter-spacing:.01em}
+    .brand-subtitle{font-size:.82rem;opacity:.86;margin-top:.05rem}
 
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow-soft)}
-  .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--brand-accent);background:var(--brand-accent);color:#fff;box-shadow:var(--shadow-soft);transition:.15s ease}
-  .btn:hover{transform:translateY(-1px);filter:brightness(.97)}
-  a{color:var(--brand)}
-  a:hover{text-decoration:underline}
-  .link-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:1px solid var(--border);border-radius:999px;font-size:.95rem;text-decoration:none;background:#fff;box-shadow:var(--shadow-soft)}
-  .link-badge:hover{background:var(--tint)}
+    main{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:1.35rem 1rem 4rem;
+    }
 
-  /* Media cards */
-  #news .news-grid{
-    display:grid;
-    gap:1rem;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  }
-  #news .news-card{
-    border:1px solid var(--border);
-    border-radius:20px;
-    background:rgba(255,255,255,.94);
-    padding:1.15rem;
-    box-shadow:var(--shadow-soft);
-    transition:.22s ease;
-  }
-  #news .news-card:hover{
-    transform:translateY(-3px);
-    box-shadow:var(--shadow);
-  }
-  #news .news-card h3{
-    font-size:1.08rem;
-    line-height:1.4;
-    margin:0 0 .75rem;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
-  #news .meta-row{
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-    color:#64748b;
-    font-size:.92rem;
-    margin-bottom:.8rem;
-  }
-  #news .meta-row img{width:18px;height:18px;border-radius:4px;flex:0 0 18px}
-  #news .actions{margin-top:.25rem}
-  #news .read-link{
-    font-size:.95rem;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:.35rem;
-    padding:.48rem .8rem;
-    border:1px solid var(--border);
-    border-radius:999px;
-    color:var(--brand);
-    background:#fff;
-    box-shadow:0 8px 18px rgba(112,20,39,.06);
-  }
-  #news .read-link:hover{background:var(--tint);text-decoration:none}
-  #news .toggle-wrap{text-align:center;margin-top:1rem}
-  #news .toggle-btn{
-    background:var(--brand);
-    color:#fff;
-    border:1px solid var(--brand);
-    padding:.65rem 1rem;
-    border-radius:999px;
-    cursor:pointer;
-    font-size:.95rem;
-    font-weight:800;
-    box-shadow:var(--shadow-soft);
-  }
-  #news .toggle-btn:hover{filter:brightness(.96);transform:translateY(-1px)}
+    .intro{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:1rem;
+      margin-bottom:1rem;
+    }
 
-  .media{width:100%;border-radius:24px;border:1px solid var(--border);object-fit:cover;box-shadow:var(--shadow-soft)}
-  .about-hero img{aspect-ratio:16/9;max-height:300px}
-  .about-text p{margin:.5rem 0}
-  .about-grid{display:grid;gap:1.25rem}
-  @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
-  .portrait-card{background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:22px;padding:.85rem;box-shadow:var(--shadow-soft)}
-  .portrait-img{display:block;width:100%;max-width:260px;margin:0 auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;border:1px solid var(--border)}
-  .portrait-caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.4rem}
+    h1{
+      margin:0;
+      font-size:clamp(1.7rem,5vw,2.3rem);
+      line-height:1.15;
+    }
 
-  /* Gallery preview */
-  .gallery-preview{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow-soft)}
-  .gallery{display:grid;grid-template-columns:1.4fr 1fr;gap:.9rem;align-items:stretch}
-  .gallery img{width:100%;height:190px;border-radius:16px;border:1px solid var(--border);object-fit:cover;cursor:pointer;transition:.28s ease;box-shadow:0 8px 18px rgba(15,23,42,.08);background:#fff}
-  .gallery img:hover{transform:translateY(-3px);filter:brightness(.98)}
-  .gallery img:nth-of-type(n+6){display:none}
-  .gallery img:first-child{grid-row:span 2;height:100%;min-height:390px}
-  @media(min-width:900px){.gallery{grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,210px)}.gallery img{height:100%}.gallery img:first-child{grid-column:span 1;grid-row:span 2;min-height:0}}
-  .gallery-actions{text-align:center;margin-top:1rem}
-  .gallery-open-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;background:var(--brand);color:#fff;border:1px solid var(--brand);border-radius:999px;padding:.85rem 1.25rem;font:inherit;font-weight:800;cursor:pointer;box-shadow:var(--shadow-soft)}
-  .gallery-open-btn:hover{filter:brightness(.96);transform:translateY(-1px)}
+    h1::after{
+      content:"";
+      display:block;
+      width:64px;height:5px;
+      margin-top:.55rem;
+      border-radius:999px;
+      background:var(--brand);
+    }
 
-  /* Modern full-screen gallery — FIXED: hidden until opened */
-  .lightbox{
-    position:fixed;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    z-index:9999;
-    background:
-      linear-gradient(rgba(40,9,16,0.34), rgba(40,9,16,0.34)),
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 2px, transparent 2px, transparent 6px),
-      repeating-linear-gradient(-45deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 2px, transparent 2px, transparent 6px),
-      rgba(158,27,52,0.38);
-    background-size:auto,16px 16px,16px 16px,auto;
-    backdrop-filter: blur(10px);
-  }
-  .lightbox.open{display:flex}
-  .lightbox .lightbox-main{max-width:calc(100vw - 48px);max-height:calc(100vh - 150px);width:auto;height:auto;object-fit:contain;border-radius:20px;box-shadow:0 28px 90px rgba(0,0,0,.48);background:#fff}
-  .lightbox:focus{outline:none}
-  .lightbox .nav,.lightbox .close{position:absolute;display:grid;place-items:center;width:54px;height:54px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.20);color:#fff;font-size:34px;line-height:1;cursor:pointer;user-select:none;box-shadow:0 12px 28px rgba(0,0,0,.22)}
-  .lightbox .nav:hover,.lightbox .close:hover{background:rgba(255,255,255,.25)}
-  .lightbox .prev{left:28px;top:50%;transform:translateY(-50%)}
-  .lightbox .next{right:28px;top:50%;transform:translateY(-50%)}
-  .lightbox .close{right:28px;top:24px;font-size:30px}
-  .lightbox .counter{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:.35rem .75rem;font-size:.95rem}
-  @media(max-width:700px){.gallery-preview{padding:.75rem}.gallery{grid-template-columns:1fr 1fr;gap:.75rem}.gallery img{height:160px;border-radius:14px}.gallery img:first-child{grid-column:span 2;grid-row:auto;min-height:220px;height:220px}.lightbox{padding:.75rem}.lightbox .lightbox-main{max-width:calc(100vw - 20px);max-height:calc(100vh - 160px);border-radius:16px}.lightbox .nav{width:44px;height:44px;font-size:28px;top:auto;bottom:28px;transform:none}.lightbox .prev{left:22px}.lightbox .next{right:22px}.lightbox .close{right:18px;top:18px;width:44px;height:44px;font-size:26px}.lightbox .counter{bottom:36px}}
+    .updated{
+      color:var(--muted);
+      font-size:.82rem;
+      text-align:right;
+      white-space:nowrap;
+    }
 
+    .hero-card,.feed-card{
+      background:rgba(255,255,255,.96);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+    }
 
-  .lightbox .thumb-panel{
-    position:absolute;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%);
-    width:min(900px, calc(100vw - 180px));
-    display:flex;
-    align-items:center;
-    gap:.55rem;
-    padding:.55rem;
-    border-radius:22px;
-    background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.30);
-    box-shadow:0 14px 34px rgba(0,0,0,.20);
-    backdrop-filter:blur(14px);
-  }
-  .lightbox .thumb-strip{
-    display:flex;
-    gap:.5rem;
-    overflow-x:auto;
-    scrollbar-width:none;
-    scroll-behavior:smooth;
-    padding:.1rem;
-    flex:1;
-  }
-  .lightbox .thumb-strip::-webkit-scrollbar{display:none}
-  .lightbox .thumb{
-    width:72px;
-    height:54px;
-    object-fit:cover;
-    border-radius:12px;
-    border:2px solid transparent;
-    opacity:.72;
-    cursor:pointer;
-    flex:0 0 auto;
-    background:#fff;
-    transition:.18s ease;
-  }
-  .lightbox .thumb:hover{opacity:1;transform:translateY(-2px)}
-  .lightbox .thumb.active{
-    opacity:1;
-    border-color:#fff;
-    box-shadow:0 8px 18px rgba(0,0,0,.22);
-  }
-  .lightbox .thumb-scroll{
-    width:38px;
-    height:38px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.42);
-    background:rgba(255,255,255,.18);
-    color:#fff;
-    font-size:24px;
-    line-height:1;
-    cursor:pointer;
-    display:grid;
-    place-items:center;
-    flex:0 0 38px;
-  }
-  .lightbox .thumb-scroll:hover{background:rgba(255,255,255,.26)}
-  @media(max-width:700px){
-    .lightbox .thumb-panel{width:calc(100vw - 24px);bottom:14px;border-radius:18px;padding:.45rem;gap:.4rem}
-    .lightbox .thumb{width:58px;height:44px;border-radius:10px}
-    .lightbox .thumb-scroll{width:34px;height:34px;font-size:22px}
-  }
+    .hero-card{
+      padding:1.25rem;
+      margin-bottom:1.3rem;
+      position:relative;
+      overflow:hidden;
+    }
 
-  .contacts-wrap{display:grid;gap:1.2rem}
-  @media(min-width:900px){.contacts-wrap{grid-template-columns:1fr 1fr}}
-  .contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow-soft)}
-  .contact-card h3{margin:.2rem 0 1rem}
-  .contact-list{display:grid;gap:.7rem;margin-bottom:1rem}
-  .contact-item{display:flex;align-items:center;gap:.6rem}
-  .contact-item span{width:34px;height:34px;border-radius:999px;display:inline-grid;place-items:center;background:var(--tint);border:1px solid var(--border);font-size:1rem}
-  .social-row{display:flex;gap:.6rem;flex-wrap:wrap}
-  .social-chip{padding:.55rem .9rem;border:1px solid var(--border);border-radius:999px;text-decoration:none;color:var(--brand);background:#fff;box-shadow:var(--shadow-soft)}
-  .social-chip:hover{background:var(--tint)}
-  .form-grid{display:grid;gap:.7rem}
-  .form-grid input,.form-grid textarea{width:100%;border:1px solid var(--border);border-radius:16px;padding:.8rem .95rem;font:inherit;background:#fff}
-  .form-grid textarea{min-height:140px;resize:vertical}
-  .form-actions{display:flex;align-items:center;gap:.8rem;margin-top:.3rem}
-  .form-note{color:var(--muted);font-size:.9rem}
-  .alert{margin-top:.6rem;font-size:.95rem}
-  .alert.ok{color:#166534}.alert.err{color:#991B1B}
-  footer{padding:2rem;color:#475569}
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:6px;
+      background:var(--brand);
+    }
 
-  @media(max-width:900px){aside{position:relative;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--border)}.layout{flex-direction:column}nav ul{flex-direction:row;flex-wrap:wrap}nav a{padding:.5rem .6rem}}
+    .eyebrow{
+      color:var(--brand);
+      font-size:.78rem;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:.5rem;
+    }
 
-  /* Language selector */
-  .language-switcher{
-    position:fixed;
-    top:1rem;
-    right:1rem;
-    z-index:40;
-    display:flex;
-    gap:.35rem;
-    padding:.35rem;
-    border:1px solid rgba(143,23,48,.16);
-    border-radius:999px;
-    background:rgba(255,255,255,.86);
-    box-shadow:var(--shadow-soft);
-    backdrop-filter:blur(12px);
-  }
-  .language-switcher button{
-    border:0;
-    background:transparent;
-    color:var(--brand);
-    border-radius:999px;
-    padding:.42rem .62rem;
-    font:inherit;
-    font-size:.85rem;
-    font-weight:800;
-    cursor:pointer;
-    letter-spacing:.02em;
-  }
-  .language-switcher button:hover{background:var(--tint)}
-  .language-switcher button.active{
-    background:var(--brand);
-    color:#fff;
-    box-shadow:0 8px 18px rgba(143,23,48,.18);
-  }
-  @media(max-width:700px){
-    .language-switcher{top:.75rem;right:.75rem}
-    .language-switcher button{padding:.36rem .5rem;font-size:.78rem}
-  }
+    .hero-card h2{
+      margin:.1rem 0 .7rem;
+      font-size:1.55rem;
+      line-height:1.25;
+    }
 
+    .date-main{
+      color:var(--brand);
+      font-weight:850;
+      font-size:1rem;
+      margin:.35rem 0;
+    }
+
+    .details{
+      display:grid;
+      gap:.65rem;
+      margin-top:.85rem;
+    }
+
+    .detail{
+      border-top:1px solid var(--border);
+      padding-top:.65rem;
+    }
+
+    .detail:first-child{border-top:0;padding-top:0}
+
+    .detail-label{
+      display:block;
+      color:var(--muted);
+      font-size:.76rem;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      margin-bottom:.15rem;
+    }
+
+    .description{
+      margin-top:.9rem;
+      padding:.9rem 1rem;
+      background:var(--tint);
+      border:1px solid var(--border);
+      border-radius:18px;
+      white-space:pre-wrap;
+    }
+
+    .section-heading{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:.7rem;
+      margin:1.55rem 0 .75rem;
+    }
+
+    .section-heading h2{font-size:1.12rem;margin:0}
+
+    .count{
+      color:var(--muted);
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:999px;
+      padding:.18rem .55rem;
+      font-size:.8rem;
+    }
+
+    .feed{display:grid;gap:.85rem}
+
+    .feed-card{padding:1rem}
+    .feed-card h3{margin:.08rem 0 .4rem;font-size:1.08rem;line-height:1.35}
+    .feed-date{color:var(--brand);font-weight:850;font-size:.88rem}
+    .compact{color:var(--muted);font-size:.89rem;margin-top:.25rem}
+
+    details{margin-top:.7rem}
+    summary{
+      cursor:pointer;
+      color:var(--brand);
+      font-weight:800;
+      user-select:none;
+    }
+
+    .archive-toggle{
+      width:100%;
+      text-align:left;
+      padding:.9rem 1rem;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:#fff;
+      color:var(--brand);
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .archive{display:none;margin-top:.8rem}
+    .archive.open{display:grid}
+
+    .status{
+      text-align:center;
+      color:var(--muted);
+      padding:2.5rem 1rem;
+    }
+
+    .error{
+      padding:1rem;
+      border:1px solid #fecaca;
+      background:#fff5f5;
+      color:#991B1B;
+      border-radius:18px;
+    }
+
+    a{color:var(--brand);overflow-wrap:anywhere}
+
+    .posted{
+      color:var(--muted);
+      font-size:.75rem;
+      margin-top:.9rem;
+    }
+
+    @media(max-width:560px){
+      .intro{flex-direction:column;align-items:flex-start}
+      .updated{text-align:left}
+      .hero-card{padding:1.05rem}
+    }
   </style>
 </head>
 
 <body>
-
-  <div class="language-switcher" aria-label="Language selector">
-    <button type="button" class="active" data-lang-btn="en">ENG</button>
-    <button type="button" data-lang-btn="lv">LV</button>
-    <button type="button" data-lang-btn="ee">EE</button>
-  </div>
-  <div class="layout">
-    <aside>
-      <div class="brand">
-        <img src="images/logo.png" alt="Ziemeļu Balsis logo">
-        <div>Ziemeļu Balsis</div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <img class="logo" src="../images/logo.png" alt="Ziemeļu Balsis logo">
+      <div>
+        <div class="brand-title">Ziemeļu Balsis</div>
+        <div class="brand-subtitle">Kora dalībnieku ziņas</div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#about" data-i18n="navAbout">About us</a></li>
-          <li><a href="#rehearsals" data-i18n="navRehearsals">Rehearsals</a></li>
-          <li><a href="#news" data-i18n="navMedia">Media</a></li>
-          <li><a href="#gallery" data-i18n="navGallery">Gallery</a></li>
-          <li><a href="#contact" data-i18n="navContacts">Contacts</a></li>
-        </ul>
-        <a class="btn" href="https://forms.gle/sJ83ptDXcackn1jQA" target="_blank" rel="noopener"> <span data-i18n="register">Register here</span></a>
-      </nav>
-    </aside>
+    </div>
+  </header>
 
-    <main>
-      <div class="content">
-        <section id="about">
-          <h1 data-i18n="aboutTitle">About us</h1>
-          <div class="about-hero"><img class="media" src="images/hero.jpg" alt="Ziemeļu Balsis group photo"></div>
-          <div class="about-text">
-            <p data-i18n="aboutP1">The Latvian choir in Estonia "Ziemeļu Balsis" was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.</p>
-            <p data-i18n="aboutP2">We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.</p>
-            <p data-i18n="aboutP3">Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.</p>
-            <p data-i18n="aboutP4">Matīss Briedis graduated from the Heino Eller Music School in 2017 and completed his Master’s degree in conducting at the Estonian Academy of Music and Theatre in 2026. A member of Ziemeļu Balsis since 2013, he has served as one of the choir’s conductors since 2017. Over the years, Matīss has led several choirs in Tartu and Tallinn, preparing them for national song festivals across the Baltic countries.</p>
-            <p data-i18n="aboutP5">Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.</p>
-            <p data-i18n="aboutP6">Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.</p>
+  <main>
+    <div class="intro">
+      <h1>Kas aktuāls?</h1>
+      <div class="updated" id="updated"></div>
+    </div>
+
+    <div id="app">
+      <div class="status">Ielādējam kora ziņas…</div>
+    </div>
+  </main>
+
+  <script>
+    /*
+      SUPER-MVP GOOGLE SHEETS CONNECTION
+      Spreadsheet:
+      https://docs.google.com/spreadsheets/d/1TsUo-NbYTQhAajWZ0jHDjds1dHozQ7HJMs_E4S7Sz2E/
+
+      gid=0 means the first sheet/tab in that spreadsheet.
+      If you later move the newsfeed to another tab, update SHEET_GID.
+    */
+    const SPREADSHEET_ID = "1TsUo-NbYTQhAajWZ0jHDjds1dHozQ7HJMs_E4S7Sz2E";
+    const SHEET_GID = "0";
+
+    const REQUIRED_HEADERS = [
+      "Date of posting",
+      "Title",
+      "Date of event",
+      "Time of event",
+      "Location",
+      "Description",
+      "Dresscode",
+      "Useful links",
+      "Notes from org/conductors"
+    ];
+
+    function escapeHtml(value){
+      return String(value ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function linkify(value){
+      const safe = escapeHtml(value);
+      return safe.replace(
+        /(https?:\/\/[^\s<]+)/g,
+        '<a href="$1" target="_blank" rel="noopener">$1</a>'
+      );
+    }
+
+    // Google Visualization may send Sheet dates as Date(2026,7,17).
+    // Note: the month is zero-based in that format.
+    function parseGoogleDate(raw, formatted){
+      if(raw instanceof Date) return raw;
+
+      const value = String(raw ?? "").trim();
+      const googleDate = value.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})/);
+      if(googleDate){
+        return new Date(
+          Number(googleDate[1]),
+          Number(googleDate[2]),
+          Number(googleDate[3]),
+          12,0,0
+        );
+      }
+
+      // Reliable fallback if admin enters YYYY-MM-DD as plain text.
+      const isoSource = value || String(formatted ?? "").trim();
+      const iso = isoSource.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if(iso){
+        return new Date(Number(iso[1]), Number(iso[2])-1, Number(iso[3]), 12,0,0);
+      }
+
+      const candidate = new Date(isoSource);
+      return Number.isNaN(candidate.getTime()) ? null : candidate;
+    }
+
+    function dateLabel(dateObj, fallback){
+      if(!dateObj) return fallback || "";
+      return new Intl.DateTimeFormat("lv-LV",{
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+      }).format(dateObj);
+    }
+
+    function startToday(){
+      const d = new Date();
+      d.setHours(0,0,0,0);
+      return d;
+    }
+
+    function detail(label, value){
+      if(!String(value ?? "").trim()) return "";
+      return `
+        <div class="detail">
+          <span class="detail-label">${escapeHtml(label)}</span>
+          <div>${linkify(value)}</div>
+        </div>
+      `;
+    }
+
+    function renderHero(item){
+      return `
+        <article class="hero-card">
+          <div class="eyebrow">🎵 Nākamais notikums</div>
+          <h2>${escapeHtml(item["Title"] || "Kora notikums")}</h2>
+
+          <div class="date-main">
+            ${escapeHtml(dateLabel(item._eventDate, item["Date of event"]))}
+            ${item["Time of event"] ? " · " + escapeHtml(item["Time of event"]) : ""}
           </div>
-          <div class="about-grid">
-            <div class="portrait-card"><img class="portrait-img" src="images/matiss-briedis.jpg" alt="Matīss Briedis"><div class="portrait-caption">Matīss Briedis</div></div>
-            <div class="portrait-card"><img class="portrait-img" src="images/rihards-zarins.jpg" alt="Rihards Zariņš"><div class="portrait-caption">Rihards Zariņš</div></div>
-          </div>
-        </section>
 
-        <section id="rehearsals">
-          <h2 data-i18n="rehearsalsTitle">Rehearsals</h2>
-          <div class="grid two">
-            <div class="card"><h3>Tartu</h3><p><strong data-i18n="whenLabel">When:</strong> <span data-i18n="rehearsalTime">Wednesdays, 18:00</span></p><p><strong data-i18n="addressLabel">Address:</strong> <span data-i18n="tartuAddress">Juhan Liivi 2d (Tartu International School)</span></p><a class="link-badge" href="https://maps.app.goo.gl/HuaBaZHCtEGC3KhYA" target="_blank" rel="noopener">🌍 <span data-i18n="maps">Open in Google Maps</span></a></div>
-            <div class="card"><h3>Tallinn</h3><p><strong data-i18n="whenLabel">When:</strong> <span data-i18n="rehearsalTime">Wednesdays, 18:00</span></p><p><strong data-i18n="addressLabel">Address:</strong> <span data-i18n="tallinnAddress">Tõnismägi 10, 15190 Tallinn</span></p><a class="link-badge" href="https://www.google.com/maps/place/T%C3%B5nism%C3%A3gi+10,+15190+Tallinn,+Igaunija/" target="_blank" rel="noopener">🌍 <span data-i18n="maps">Open in Google Maps</span></a></div>
-          </div>
-        </section>
-
-        <section id="news">
-          <h2 data-i18n="mediaTitle">Media</h2>
-          <div class="news-grid" id="mediaGrid">
-            <article class="news-card"><h3>Igaunijas latviešu koris “Ziemeļu Balsis” Tallinā izpilda vērienīgu Baltijas kormūzikas programmu</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/igaunijas-latviesu-koris-ziemelu-balsis-tallina-izpilda-verienigu-baltijas-kormuzikas-programmu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/notikumi/igaunijas-latviesu-kora-koncerts-tris-saulites-uzlecami" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/no-pekinas-lidz-tartu-ka-dazadas-pasaules-balsis-satiekas-latviesu-dziesma" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts</h3><div class="meta-row" data-domain="www.latviesi.com"><img alt="" /><span>Latvieši.com</span></div><div class="actions"><a class="read-link" href="https://www.latviesi.com/jaunumi/tris-baltijas-dziesmu-svetki-pec-kartas-kora-ziemelu-balsis-ipasais-stasts" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu</h3><div class="meta-row" data-domain="www.delfi.lv"><img alt="" /><span>Delfi</span></div><div class="actions"><a class="read-link" href="https://www.delfi.lv/kultura/50055687/dziesmu-un-deju-svetki/120079550/tris-gadi-tris-dziesmusvetki-ka-korim-ziemelu-balsis-izdevas-pieveikt-ipasu-izaicinajumu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Ceļā iz Baltejis valstū dzīsmu svātku “hat trick”</h3><div class="meta-row" data-domain="www.lakuga.lv"><img alt="" /><span>Lakuga</span></div><div class="actions"><a class="read-link" href="https://www.lakuga.lv/2024/07/18/cela-iz-baltejis-valstu-dzismu-svatku-hat-trick-aba-voi-ogurcs-beja/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”</h3><div class="meta-row" data-domain="lr2.lsm.lv"><img alt="" /><span>Latvijas Radio 2</span></div><div class="actions"><a class="read-link" href="https://lr2.lsm.lv/lv/raksts/gadsimta-garaka-ligodziesma/ieligosana-ar-igaunijas-latviesu-kori-ziemelu-balsis.a193591/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību</h3><div class="meta-row" data-domain="sejas.tvnet.lv"><img alt="" /><span>TVNET</span></div><div class="actions"><a class="read-link" href="https://sejas.tvnet.lv/8046169/foto-un-video-ka-igaunijas-latviesu-koris-ziemelu-balsis-ar-dziesmu-stiprina-baltijas-vienotibu" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>It's an honor: 3 expats on why they're taking part in Estonia's Song Festival</h3><div class="meta-row" data-domain="news.err.ee"><img alt="" /><span>ERR News (ENG)</span></div><div class="actions"><a class="read-link" href="https://news.err.ee/1609735050/it-s-an-honor-3-expats-on-why-they-re-taking-part-in-estonia-s-song-festival" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609738668/lati-eesti-koori-dirigent-ootan-vaga-et-lauluvoim-ajaks-vihma-minema" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Leedu tähistab laulupeo sajandat sünnipäeva</h3><div class="meta-row" data-domain="kultuur.err.ee"><img alt="" /><span>ERR Kultuur</span></div><div class="actions"><a class="read-link" href="https://kultuur.err.ee/1609387721/leedu-tahistab-laulupeo-sajandat-sunnipaeva" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>
-            <article class="news-card"><h3>Laulupidu — see on huulepulk</h3><div class="meta-row" data-domain="www.sirp.ee"><img alt="" /><span>Sirp</span></div><div class="actions"><a class="read-link" href="https://www.sirp.ee/laulupidu-see-on-huulepulk/" target="_blank" rel="noopener"><span data-i18n="readArticle">Read →</span></a></div></article>          </div>
-          <div class="toggle-wrap"><button class="toggle-btn" id="mediaToggle" data-i18n="mediaShowMore">Show more</button></div>
-          <script>
-            document.querySelectorAll('#news .meta-row').forEach(row => {
-              const d = row.getAttribute('data-domain');
-              const img = row.querySelector('img');
-              img.src = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64`;
-            });
-
-            const cards = Array.from(document.querySelectorAll('#news .news-card'));
-            const toggle = document.getElementById('mediaToggle');
-            const initial = 6;
-            function applyClamp(collapsed){cards.forEach((card,i)=>{card.style.display=(collapsed&&i>=initial)?'none':''});toggle.textContent = window.t ? (collapsed ? window.t('mediaShowMore') : window.t('mediaShowLess')) : (collapsed ? 'Show more' : 'Show less')}
-            let collapsed = true;
-            applyClamp(collapsed);
-            toggle.addEventListener('click',()=>{collapsed=!collapsed;applyClamp(collapsed)});
-          </script>
-        </section>
-
-        <section id="gallery">
-          <h2 data-i18n="galleryTitle">Gallery</h2>
-          <div style="margin:0 0 1rem 0;max-width:1000px;">
-            <iframe src="https://www.youtube.com/embed/ULzgT8_4hVk?start=50&modestbranding=1&rel=0" title="Ziemeļu Balsis video" loading="lazy" allowfullscreen style="width:100%; aspect-ratio:16 / 9; border:0; border-radius:14px;"></iframe>
+          <div class="details">
+            ${detail("Vieta", item["Location"])}
           </div>
 
-          <div class="gallery-preview">
-            <div class="gallery">
-              <img src="gallery-featured-01.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-featured-02.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-001.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-002.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-003.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-004.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-005.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-006.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-007.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-008.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-009.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-010.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-011.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-012.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-013.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-014.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-015.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-016.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-017.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-018.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-019.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-020.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-021.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-022.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-023.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-024.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-025.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-026.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-027.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-028.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-029.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-030.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-031.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-032.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-033.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-034.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-035.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-036.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-037.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-038.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-039.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-040.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-041.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-042.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-043.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-044.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-045.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-046.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-047.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-048.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-049.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-050.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-051.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-052.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-053.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-054.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-055.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-056.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-057.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-058.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-059.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-060.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-061.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-062.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-063.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-064.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-065.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-066.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-067.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-068.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-069.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-              <img src="gallery-070.jpg" alt="Choir photo" loading="lazy" onerror="this.remove()">
-            </div>
-            <div class="gallery-actions"><button class="gallery-open-btn" id="openGallery" type="button" data-i18n="openGallery">Open full gallery →</button></div>
-          </div>
-        </section>
+          ${item["Description"] ? `<div class="description">${linkify(item["Description"])}</div>` : ""}
 
-        <section id="contact">
-          <h2 data-i18n="contactsTitle">Contacts</h2>
-          <div class="contacts-wrap">
-            <div class="contact-card">
-              <h3 data-i18n="getInTouch">Get in touch</h3>
-              <div class="contact-list">
-                <div class="contact-item"><span>✉️</span><div><b data-i18n="emailLabel">Email:</b> <a href="mailto:ziemelu.balsis@gmail.com">ziemelu.balsis@gmail.com</a></div></div>
-                <div class="contact-item"><span>📞</span><div><b data-i18n="phoneLabel">Phone:</b> +372&nbsp;56266439</div></div>
+          <div class="details">
+            ${detail("Dresscode", item["Dresscode"])}
+            ${detail("Noderīgas saites", item["Useful links"])}
+            ${detail("Organizatoru / diriģentu piezīmes", item["Notes from org/conductors"])}
+          </div>
+
+          ${item["Date of posting"] ? `<div class="posted">Publicēts: ${escapeHtml(item["Date of posting"])}</div>` : ""}
+        </article>
+      `;
+    }
+
+    function renderFeedCard(item){
+      const hasDetails =
+        item["Description"] ||
+        item["Dresscode"] ||
+        item["Useful links"] ||
+        item["Notes from org/conductors"];
+
+      return `
+        <article class="feed-card">
+          <div class="feed-date">
+            ${escapeHtml(dateLabel(item._eventDate, item["Date of event"]))}
+            ${item["Time of event"] ? " · " + escapeHtml(item["Time of event"]) : ""}
+          </div>
+
+          <h3>${escapeHtml(item["Title"] || "Kora notikums")}</h3>
+
+          ${item["Location"] ? `<div class="compact">📍 ${escapeHtml(item["Location"])}</div>` : ""}
+
+          ${hasDetails ? `
+            <details>
+              <summary>Skatīt vairāk</summary>
+              ${item["Description"] ? `<div class="description">${linkify(item["Description"])}</div>` : ""}
+              <div class="details">
+                ${detail("Dresscode", item["Dresscode"])}
+                ${detail("Noderīgas saites", item["Useful links"])}
+                ${detail("Organizatoru / diriģentu piezīmes", item["Notes from org/conductors"])}
               </div>
-              <div class="social-row"><a class="social-chip" href="https://www.facebook.com/profile.php?id=100091946864543" target="_blank" rel="noopener">Facebook</a><a class="social-chip" href="https://www.instagram.com/ziemelu.balsis" target="_blank" rel="noopener">Instagram</a></div>
-            </div>
-            <div class="contact-card">
-              <h3 data-i18n="contactUs">Contact us</h3>
-              <form id="contactForm" class="form-grid" action="https://formspree.io/f/xblazekk" method="POST" novalidate>
-                <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="namePlaceholder" required>
-                <input type="email" name="_replyto" placeholder="Your email" data-i18n-placeholder="emailPlaceholder" required>
-                <textarea name="message" placeholder="Your message…" data-i18n-placeholder="messagePlaceholder" required></textarea>
-                <div class="form-actions"><button class="btn" type="submit" data-i18n="sendMessage">Send message</button><span class="form-note" data-i18n="formNote">We’ll reply to the email you provide.</span></div>
-                <div id="contactAlert" class="alert" aria-live="polite"></div>
-              </form>
-            </div>
+              ${item["Date of posting"] ? `<div class="posted">Publicēts: ${escapeHtml(item["Date of posting"])}</div>` : ""}
+            </details>
+          ` : ""}
+        </article>
+      `;
+    }
+
+    function render(items){
+      const today = startToday();
+
+      const dated = items
+        .filter(item => String(item["Title"] ?? "").trim() !== "")
+        .map(item => ({
+          ...item,
+          _eventDate: parseGoogleDate(item.__rawDateOfEvent, item["Date of event"])
+        }));
+
+      const future = dated
+        .filter(item => item._eventDate && item._eventDate >= today)
+        .sort((a,b) => a._eventDate - b._eventDate);
+
+      const undated = dated
+        .filter(item => !item._eventDate);
+
+      const past = dated
+        .filter(item => item._eventDate && item._eventDate < today)
+        .sort((a,b) => b._eventDate - a._eventDate);
+
+      const hero = future[0] || undated[0] || null;
+      const upcoming = hero
+        ? [...future.slice(hero === future[0] ? 1 : 0), ...undated.filter(x => x !== hero)]
+        : [...future, ...undated];
+
+      let html = "";
+
+      if(hero){
+        html += renderHero(hero);
+      } else {
+        html += `<div class="status">Pašlaik nav pievienotu nākamo notikumu.</div>`;
+      }
+
+      if(upcoming.length){
+        html += `
+          <div class="section-heading">
+            <h2>Turpmākie notikumi</h2>
+            <span class="count">${upcoming.length}</span>
           </div>
-        </section>
+          <div class="feed">
+            ${upcoming.map(renderFeedCard).join("")}
+          </div>
+        `;
+      }
 
-        <footer></footer>
-      </div>
-    </main>
-  </div>
+      if(past.length){
+        html += `
+          <div class="section-heading">
+            <h2>Iepriekšējie notikumi</h2>
+          </div>
+          <button class="archive-toggle" id="archiveToggle" type="button">
+            Parādīt iepriekšējos notikumus (${past.length})
+          </button>
+          <div class="feed archive" id="archive">
+            ${past.map(renderFeedCard).join("")}
+          </div>
+        `;
+      }
 
-  <script>
-  (function(){
-    const box = document.createElement('div');
-    box.className = 'lightbox';
-    box.id = 'lightbox';
-    box.tabIndex = -1;
-    box.innerHTML = `
-      <button class="close" aria-label="Close gallery" data-i18n-aria="closeGallery">×</button>
-      <button class="nav prev" aria-label="Previous image" data-i18n-aria="prevImage">‹</button>
-      <img class="lightbox-main" alt="Choir photo">
-      <button class="nav next" aria-label="Next image" data-i18n-aria="nextImage">›</button>
-      <div class="counter" aria-live="polite"></div>
-      <div class="thumb-panel" aria-label="Gallery thumbnails">
-        <button class="thumb-scroll thumb-left" type="button" aria-label="Scroll thumbnails left">‹</button>
-        <div class="thumb-strip"></div>
-        <button class="thumb-scroll thumb-right" type="button" aria-label="Scroll thumbnails right">›</button>
-      </div>
-    `;
-    document.body.appendChild(box);
+      document.getElementById("app").innerHTML = html;
 
-    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
-    if (!thumbs.length) return;
+      const toggle = document.getElementById("archiveToggle");
+      const archive = document.getElementById("archive");
+      if(toggle && archive){
+        toggle.addEventListener("click",()=>{
+          const open = archive.classList.toggle("open");
+          toggle.textContent = open
+            ? "Paslēpt iepriekšējos notikumus"
+            : `Parādīt iepriekšējos notikumus (${past.length})`;
+        });
+      }
 
-    const big = box.querySelector('.lightbox-main');
-    const prevBtn = box.querySelector('.prev');
-    const nextBtn = box.querySelector('.next');
-    const closeBtn = box.querySelector('.close');
-    const counter = box.querySelector('.counter');
-    const thumbStrip = box.querySelector('.thumb-strip');
-    const thumbLeft = box.querySelector('.thumb-left');
-    const thumbRight = box.querySelector('.thumb-right');
-    const openGalleryBtn = document.getElementById('openGallery');
-    let i = 0;
-
-    const thumbButtons = thumbs.map((img, idx) => {
-      const thumb = document.createElement('img');
-      thumb.className = 'thumb';
-      thumb.src = img.src;
-      thumb.alt = `Photo ${idx + 1}`;
-      thumb.loading = 'lazy';
-      thumb.addEventListener('click', (e) => { e.stopPropagation(); openAt(idx); });
-      thumbStrip.appendChild(thumb);
-      return thumb;
-    });
-
-    function updateControls(){
-      prevBtn.style.display = i > 0 ? 'grid' : 'none';
-      nextBtn.style.display = i < thumbs.length - 1 ? 'grid' : 'none';
-      counter.textContent = `${i + 1} / ${thumbs.length}`;
-      thumbButtons.forEach((thumb, idx) => thumb.classList.toggle('active', idx === i));
-      if (thumbButtons[i]) thumbButtons[i].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      document.getElementById("updated").textContent =
+        "Ielādēts " +
+        new Intl.DateTimeFormat("lv-LV",{hour:"2-digit",minute:"2-digit"}).format(new Date());
     }
-    function openAt(idx){
-      i = idx;
-      big.src = thumbs[i].src;
-      box.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      box.focus();
-      updateControls();
-    }
-    function close(){
-      box.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function next(){ if (i < thumbs.length - 1) openAt(i + 1); }
-    function prev(){ if (i > 0) openAt(i - 1); }
 
-    thumbs.forEach((img, idx) => { img.addEventListener('click', () => openAt(idx)); });
-    if (openGalleryBtn) openGalleryBtn.addEventListener('click', () => openAt(0));
-    box.addEventListener('click', (e) => { if (e.target === box) close(); });
-    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); close(); });
-    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
-    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
-    thumbLeft.addEventListener('click', (e) => { e.stopPropagation(); thumbStrip.scrollBy({left:-360, behavior:'smooth'}); });
-    thumbRight.addEventListener('click', (e) => { e.stopPropagation(); thumbStrip.scrollBy({left:360, behavior:'smooth'}); });
-    thumbStrip.addEventListener('click', (e) => e.stopPropagation());
-    document.addEventListener('keydown', (e) => {
-      if (!box.classList.contains('open')) return;
-      if (e.key === 'Escape') close();
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
-    });
-  })();
-  </script>
+    // This function is called directly by Google's gviz endpoint.
+    window.handleSheetData = function(response){
+      try{
+        if(!response || response.status === "error"){
+          throw new Error("Google Sheets returned an error.");
+        }
 
-  <script>
-  (function(){
-    const form = document.getElementById('contactForm');
-    const alertBox = document.getElementById('contactAlert');
-    if(!form || !alertBox) return;
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      alertBox.textContent = '';
-      alertBox.className = 'alert';
-      try {
-        const res = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
-        if (res.ok) {form.reset(); alertBox.textContent = '✅ ' + (window.t ? window.t('formSuccess') : 'Thank you! Your message has been sent.'); alertBox.classList.add('ok');}
-        else {alertBox.textContent = '❌ ' + (window.t ? window.t('formError') : 'Could not send. Please try again.'); alertBox.classList.add('err');}
-      } catch (err) {alertBox.textContent = '❌ ' + (window.t ? window.t('networkError') : 'Network error. Please try again.'); alertBox.classList.add('err');}
-    });
-  })();
-  </script>
+        const table = response.table;
+        const headers = table.cols.map(col => String(col.label || "").trim());
 
-  <script>
-  (function(){
-    const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
-    const byId = new Map(links.map(a => [decodeURIComponent(a.getAttribute('href').slice(1)), a]));
-    function setActive(id){links.forEach(a => a.classList.remove('active')); const link = byId.get(id); if(link) link.classList.add('active')}
-    const sections = Array.from(document.querySelectorAll('main section[id]'));
-    const observer = new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting) setActive(entry.target.id)})},{rootMargin:'-45% 0px -50% 0px',threshold:0.01});
-    sections.forEach(sec => observer.observe(sec));
-    links.forEach(a=>{a.addEventListener('click',()=>{const id=decodeURIComponent(a.getAttribute('href').slice(1)); setActive(id)})});
-    setTimeout(()=>{const current=sections.find(sec=>{const r=sec.getBoundingClientRect(); const mid=window.innerHeight*0.5; return r.top<=mid&&r.bottom>=mid}); setActive(current ? current.id : (links[0] && links[0].getAttribute('href').slice(1)))},0);
-  })();
-  </script>
+        const missing = REQUIRED_HEADERS.filter(h => !headers.includes(h));
+        if(missing.length){
+          throw new Error("Missing columns: " + missing.join(", "));
+        }
 
-  <script>
-  (function(){
-    const translations = {
-      en: {
-        pageTitle:'Ziemeļu Balsis — Latvian Mixed Choir in Estonia',
-        metaDescription:'Latvian mixed choir in Estonia. Rehearsals in Tartu and Tallinn. Conductors Matīss Briedis and Rihards Zariņš.',
-        navAbout:'About us', navRehearsals:'Rehearsals', navMedia:'Media', navGallery:'Gallery', navContacts:'Contacts', register:'Register here',
-        eventLabel:'Upcoming concert', eventTitle:'Conducting speciality concert exam “Three Suns Rising”', eventSubtitle:'Three Suns Rising', eventDate:'24.05.2026, 14:00', eventPlace:'EMTA suur saal — Estonian Academy of Music and Theatre, main hall', eventButton:'View Facebook event →',
-        whenLabel:'When:', whereLabel:'Where:', addressLabel:'Address:', maps:'Open in Google Maps',
-        aboutTitle:'About us',
-        aboutP1:'The Latvian choir in Estonia “Ziemeļu Balsis” was founded in 2012. Today, the choir unites singers from ten different countries. Ziemeļu Balsis is special not only for its international membership but also for its ability to bring together people from two Estonian cities — Tartu and Tallinn. Thanks to regular joint rehearsals, the choir has grown into a truly harmonious and united collective.',
-        aboutP2:'We are proud to be the first choir to take part in all three Baltic Song Festivals: the Latvian Song Festival (2013, 2018, 2023), the Lithuanian Song Festival (2024), and the Estonian Song Festival (2025). This achievement reflects our dedication to carrying Baltic choral traditions across borders.',
-        aboutP3:'Our musical direction is led by two inspiring conductors — Matīss Briedis and Rihards Zariņš.',
-        aboutP4:'Matīss Briedis graduated from the Heino Eller Music School in 2017 and completed his Master’s degree in conducting at the Estonian Academy of Music and Theatre in 2026. A member of Ziemeļu Balsis since 2013, he has served as one of the choir’s conductors since 2017. Over the years, Matīss has led several choirs in Tartu and Tallinn, preparing them for national song festivals across the Baltic countries.',
-        aboutP5:'Rihards Zariņš began his musical journey in 1998 at the Riga Cathedral Choir School and continued at the Jāzeps Vītols Academy of Music in Latvia. Over the years, he has conducted choirs in Latvia, Estonia, and Finland, including in Helsinki, and has been actively involved in organizing choir events since 2013. His education also includes studies at the Estonian Academy of Music and Theatre, strengthening his ties with the Baltic choral tradition.',
-        aboutP6:'Together, Matīss and Rihards shape the sound and spirit of Ziemeļu Balsis, guiding the choir to new heights while keeping alive the joy of singing that unites us all.',
-        rehearsalsTitle:'Rehearsals', rehearsalTime:'Wednesdays, 18:00', tartuAddress:'Juhan Liivi 2d (Tartu International School)', tallinnAddress:'Tõnismägi 10, 15190 Tallinn',
-        mediaTitle:'Media', readArticle:'Read →', mediaShowMore:'Show more', mediaShowLess:'Show less',
-        article1:'Estonian Latvian Choir concert “Three Little Suns Rising”',
-        article2:'From Beijing to Tartu: how voices from different worlds meet in Latvian song',
-        article3:'Three Baltic Song Festivals in a row — the special story of “Ziemeļu Balsis”',
-        article4:'Three years, three song festivals — how “Ziemeļu Balsis” completed a special challenge',
-        article5:'On the road to a Baltic Song Festival “hat trick”',
-        article6:'LR2: Midsummer singing with the Estonian Latvian choir “Ziemeļu Balsis”',
-        article7:'How the Estonian Latvian choir “Ziemeļu Balsis” strengthens Baltic unity through song',
-        article8:"It’s an honor: 3 expats on why they’re taking part in Estonia’s Song Festival",
-        article9:'Latvian-Estonian choir conductor: I really hope the power of song drives the rain away',
-        article10:'Lithuania celebrates the centenary of its Song Festival',
-        article11:'Song Festival — this is lipstick',
-        galleryTitle:'Gallery', openGallery:'Open full gallery →', closeGallery:'Close gallery', prevImage:'Previous image', nextImage:'Next image',
-        contactsTitle:'Contacts', getInTouch:'Get in touch', contactUs:'Contact us', emailLabel:'Email:', phoneLabel:'Phone:', namePlaceholder:'Your name', emailPlaceholder:'Your email', messagePlaceholder:'Your message…', sendMessage:'Send message', formNote:'We’ll reply to the email you provide.', formSuccess:'Thank you! Your message has been sent.', formError:'Could not send. Please try again.', networkError:'Network error. Please try again.'
-      },
-      lv: {
-        pageTitle:'Ziemeļu Balsis — Latvijas jauktais koris Igaunijā',
-        metaDescription:'Latviešu jauktais koris Igaunijā. Mēģinājumi Tartu un Tallinā. Diriģenti Matīss Briedis un Rihards Zariņš.',
-        navAbout:'Par mums', navRehearsals:'Mēģinājumi', navMedia:'Mediji', navGallery:'Galerija', navContacts:'Kontakti', register:'Pievienojies',
-        eventLabel:'Gaidāmais koncerts', eventTitle:'Kordiriģēšanas specialitātes koncerteksāmens „Trīs saulītes uzlecami”', eventSubtitle:'Trīs saulītes uzlecami', eventDate:'24.05.2026., 14.00', eventPlace:'EMTA lielā zāle — Igaunijas Mūzikas un teātra akadēmijas lielā zāle', eventButton:'Skatīt Facebook notikumu →',
-        whenLabel:'Kad:', whereLabel:'Kur:', addressLabel:'Adrese:', maps:'Atvērt Google Maps',
-        aboutTitle:'Par mums',
-        aboutP1:'Latviešu koris Igaunijā “Ziemeļu Balsis” tika dibināts 2012. gadā. Šodien koris apvieno dziedātājus no desmit dažādām valstīm. “Ziemeļu Balsis” ir īpašs ne tikai ar savu starptautisko sastāvu, bet arī ar spēju pulcēt cilvēkus no divām Igaunijas pilsētām — Tartu un Tallinas. Pateicoties regulāriem kopmēģinājumiem, koris ir izaudzis par saskanīgu un vienotu kolektīvu.',
-        aboutP2:'Mēs lepojamies, ka esam pirmais koris, kas piedalījies visos trīs Baltijas Dziesmu svētkos: Latvijas Dziesmu svētkos (2013, 2018, 2023), Lietuvas Dziesmu svētkos (2024) un Igaunijas Dziesmu svētkos (2025). Šis sasniegums apliecina mūsu uzticību Baltijas kordziedāšanas tradīciju kopšanai pāri robežām.',
-        aboutP3:'Mūsu muzikālo virzienu veido divi iedvesmojoši diriģenti — Matīss Briedis un Rihards Zariņš.',
-        aboutP4:'Matīss Briedis 2017. gadā absolvēja Heino Ellera Mūzikas skolu un 2026. gadā ieguva maģistra grādu diriģēšanā Igaunijas Mūzikas un teātra akadēmijā. Kopš 2013. gada Matīss ir “Ziemeļu Balsu” dalībnieks, bet kopš 2017. gada — viens no kora diriģentiem. Gadu gaitā viņš vadījis vairākus korus Tartu un Tallinā, sagatavojot tos nacionālajiem dziesmu svētkiem Baltijas valstīs.',
-        aboutP5:'Rihards Zariņš savu muzikālo ceļu sāka 1998. gadā Rīgas Doma kora skolā un turpināja Jāzepa Vītola Latvijas Mūzikas akadēmijā. Gadu gaitā viņš diriģējis korus Latvijā, Igaunijā un Somijā, tostarp Helsinkos, un kopš 2013. gada aktīvi iesaistījies koru pasākumu organizēšanā. Viņa izglītībā ietilpst arī studijas Igaunijas Mūzikas un teātra akadēmijā, kas vēl vairāk nostiprina saikni ar Baltijas kordziedāšanas tradīciju.',
-        aboutP6:'Kopā Matīss un Rihards veido “Ziemeļu Balsu” skanējumu un garu, vedot kori uz jauniem mērķiem un saglabājot dzīvu dziedāšanas prieku, kas mūs visus vieno.',
-        rehearsalsTitle:'Mēģinājumi', rehearsalTime:'Trešdienās, 18.00', tartuAddress:'Juhan Liivi 2d (Tartu Starptautiskā skola)', tallinnAddress:'Tõnismägi 10, 15190 Tallina',
-        mediaTitle:'Mediji', readArticle:'Lasīt →', mediaShowMore:'Rādīt vairāk', mediaShowLess:'Rādīt mazāk',
-        article1:'Igaunijas latviešu kora koncerts “Trīs saulītes uzlecami”',
-        article2:'No Pekinas līdz Tartu: kā dažādas pasaules balsis satiekas latviešu dziesmā',
-        article3:'Trīs Baltijas Dziesmu svētki pēc kārtas – kora “Ziemeļu Balsis” īpašais stāsts',
-        article4:'Trīs gadi, trīs dziesmusvētki — kā korim “Ziemeļu Balsis” izdevās paveikt īpašu izaicinājumu',
-        article5:'Ceļā uz Baltijas Dziesmu svētku “hat trick”',
-        article6:'LR2: Ielīgošana ar Igaunijas latviešu kori “Ziemeļu Balsis”',
-        article7:'Kā Igaunijas latviešu koris “Ziemeļu Balsis” ar dziesmu stiprina Baltijas vienotību',
-        article8:'Tas ir gods: trīs ārvalstnieki par dalību Igaunijas Dziesmu svētkos',
-        article9:'Latviešu-igauņu kora diriģents: ļoti ceru, ka dziesmas spēks aizdzīs lietu',
-        article10:'Lietuva svin Dziesmu svētku simtgadi',
-        article11:'Dziesmu svētki — tā ir lūpukrāsa',
-        galleryTitle:'Galerija', openGallery:'Atvērt pilno galeriju →', closeGallery:'Aizvērt galeriju', prevImage:'Iepriekšējais attēls', nextImage:'Nākamais attēls',
-        contactsTitle:'Kontakti', getInTouch:'Sazinies', contactUs:'Raksti mums', emailLabel:'E-pasts:', phoneLabel:'Tālrunis:', namePlaceholder:'Tavs vārds', emailPlaceholder:'Tavs e-pasts', messagePlaceholder:'Tava ziņa…', sendMessage:'Nosūtīt ziņu', formNote:'Mēs atbildēsim uz norādīto e-pastu.', formSuccess:'Paldies! Tava ziņa ir nosūtīta.', formError:'Neizdevās nosūtīt. Lūdzu, mēģini vēlreiz.', networkError:'Tīkla kļūda. Lūdzu, mēģini vēlreiz.'
-      },
-      ee: {
-        pageTitle:'Ziemeļu Balsis — Läti segakoor Eestis',
-        metaDescription:'Läti segakoor Eestis. Proovid Tartus ja Tallinnas. Dirigendid Matīss Briedis ja Rihards Zariņš.',
-        navAbout:'Meist', navRehearsals:'Proovid', navMedia:'Meedia', navGallery:'Galerii', navContacts:'Kontaktid', register:'Liitu kooriga',
-        eventLabel:'Tulevane kontsert', eventTitle:'Kooridirigeerimise eriala kontserteksam „Kolme päikest tõusemassa“', eventSubtitle:'Kolme päikest tõusemassa', eventDate:'24.05.2026, 14.00', eventPlace:'EMTA suur saal — Eesti Muusika- ja Teatriakadeemia suur saal', eventButton:'Vaata Facebooki üritust →',
-        whenLabel:'Millal:', whereLabel:'Kus:', addressLabel:'Aadress:', maps:'Ava Google Mapsis',
-        aboutTitle:'Meist',
-        aboutP1:'Eesti Läti koor “Ziemeļu Balsis” asutati 2012. aastal. Täna ühendab koor lauljaid kümnest eri riigist. “Ziemeļu Balsis” on eriline mitte ainult oma rahvusvahelise koosseisu, vaid ka selle poolest, et toob kokku inimesed kahest Eesti linnast — Tartust ja Tallinnast. Tänu regulaarsetele ühisproovidele on koor kasvanud tõeliselt ühtseks ja harmooniliseks kollektiiviks.',
-        aboutP2:'Oleme uhked, et oleme esimene koor, kes on osalenud kõigil kolmel Balti laulupeol: Läti laulupeol (2013, 2018, 2023), Leedu laulupeol (2024) ja Eesti laulupeol (2025). See saavutus näitab meie pühendumust Balti koorilaulu traditsioonide hoidmisele üle riigipiiride.',
-        aboutP3:'Meie muusikalist suunda juhivad kaks inspireerivat dirigenti — Matīss Briedis ja Rihards Zariņš.',
-        aboutP4:'Matīss Briedis lõpetas Heino Elleri Muusikakooli 2017. aastal ja omandas 2026. aastal Eesti Muusika- ja Teatriakadeemias magistrikraadi dirigeerimise erialal. Ta on olnud “Ziemeļu Balsise” liige alates 2013. aastast ning üks koori dirigentidest alates 2017. aastast. Aastate jooksul on Matīss juhatanud mitmeid koore Tartus ja Tallinnas, valmistades neid ette Baltimaade üleriigilisteks laulupidudeks.',
-        aboutP5:'Rihards Zariņš alustas oma muusikateed 1998. aastal Riia Toomkiriku koorikoolis ja jätkas õpinguid Jāzeps Vītolsi Läti Muusikaakadeemias. Aastate jooksul on ta juhatanud koore Lätis, Eestis ja Soomes, sealhulgas Helsingis, ning on alates 2013. aastast aktiivselt osalenud koorisündmuste korraldamises. Tema haridustee hulka kuuluvad ka õpingud Eesti Muusika- ja Teatriakadeemias, mis tugevdavad tema sidet Balti kooritraditsiooniga.',
-        aboutP6:'Matīss ja Rihards kujundavad koos “Ziemeļu Balsise” kõla ja vaimu, juhtides koori uute eesmärkide poole ning hoides elus laulurõõmu, mis meid kõiki ühendab.',
-        rehearsalsTitle:'Proovid', rehearsalTime:'Kolmapäeviti, 18.00', tartuAddress:'Juhan Liivi 2d (Tartu Rahvusvaheline Kool)', tallinnAddress:'Tõnismägi 10, 15190 Tallinn',
-        mediaTitle:'Meedia', readArticle:'Loe →', mediaShowMore:'Näita rohkem', mediaShowLess:'Näita vähem',
-        article1:'Eesti Läti koori kontsert “Kolm päikest tõusevad”',
-        article2:'Pekingist Tartusse: kuidas eri maailma hääled kohtuvad läti laulus',
-        article3:'Kolm Balti laulupidu järjest — “Ziemeļu Balsise” eriline lugu',
-        article4:'Kolm aastat, kolm laulupidu — kuidas “Ziemeļu Balsis” erilise väljakutsega hakkama sai',
-        article5:'Teel Balti laulupidude “hat trick’i” poole',
-        article6:'LR2: Jaaniõhtu laulmine Eesti Läti kooriga “Ziemeļu Balsis”',
-        article7:'Kuidas Eesti Läti koor “Ziemeļu Balsis” tugevdab lauluga Balti ühtsust',
-        article8:'See on au: kolm välismaalast räägivad, miks nad osalevad Eesti laulupeol',
-        article9:'Läti-Eesti koori dirigent: ootan väga, et laulu vägi ajaks vihma minema',
-        article10:'Leedu tähistab laulupeo sajandat sünnipäeva',
-        article11:'Laulupidu — see on huulepulk',
-        galleryTitle:'Galerii', openGallery:'Ava kogu galerii →', closeGallery:'Sulge galerii', prevImage:'Eelmine pilt', nextImage:'Järgmine pilt',
-        contactsTitle:'Kontaktid', getInTouch:'Võta ühendust', contactUs:'Kirjuta meile', emailLabel:'E-post:', phoneLabel:'Telefon:', namePlaceholder:'Sinu nimi', emailPlaceholder:'Sinu e-post', messagePlaceholder:'Sinu sõnum…', sendMessage:'Saada sõnum', formNote:'Vastame sinu sisestatud e-posti aadressile.', formSuccess:'Aitäh! Sinu sõnum on saadetud.', formError:'Saatmine ebaõnnestus. Palun proovi uuesti.', networkError:'Võrguviga. Palun proovi uuesti.'
+        const rows = table.rows.map(row => {
+          const obj = {};
+          row.c.forEach((cell,index)=>{
+            const header = headers[index];
+            if(!header) return;
+
+            const raw = cell ? cell.v : "";
+            const formatted = cell && cell.f != null ? cell.f : raw;
+
+            obj[header] = formatted ?? "";
+
+            if(header === "Date of event"){
+              obj.__rawDateOfEvent = raw;
+            }
+          });
+          return obj;
+        });
+
+        render(rows);
+      }catch(err){
+        console.error(err);
+        document.getElementById("app").innerHTML = `
+          <div class="error">
+            Neizdevās nolasīt Google Sheet datus.<br><br>
+            ${escapeHtml(err.message)}
+          </div>
+        `;
       }
     };
 
-    window.currentLang = localStorage.getItem('zbLang') || 'en';
-    window.t = function(key){ return (translations[window.currentLang] && translations[window.currentLang][key]) || translations.en[key] || key; };
-
-    window.applyLanguage = function(lang){
-      window.currentLang = translations[lang] ? lang : 'en';
-      localStorage.setItem('zbLang', window.currentLang);
-      document.documentElement.lang = window.currentLang === 'ee' ? 'et' : window.currentLang;
-      document.title = window.t('pageTitle');
-      const meta = document.querySelector('meta[name="description"]');
-      if(meta) meta.setAttribute('content', window.t('metaDescription'));
-      document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = window.t(el.getAttribute('data-i18n')); });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.setAttribute('placeholder', window.t(el.getAttribute('data-i18n-placeholder'))); });
-      document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', window.t(el.getAttribute('data-i18n-aria'))); });
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => { btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === window.currentLang); });
-      const mediaToggle = document.getElementById('mediaToggle');
-      if(mediaToggle){
-        const hiddenCards = Array.from(document.querySelectorAll('#news .news-card')).some(card => card.style.display === 'none');
-        mediaToggle.textContent = hiddenCards ? window.t('mediaShowMore') : window.t('mediaShowLess');
-      }
+    window.handleSheetLoadError = function(){
+      document.getElementById("app").innerHTML = `
+        <div class="error">
+          Neizdevās pieslēgties Google Sheet. Pārbaudi, vai fails ir pieejams
+          skatīšanai ar saiti (“Anyone with the link — Viewer”).
+        </div>
+      `;
     };
 
-    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-      btn.addEventListener('click', () => window.applyLanguage(btn.getAttribute('data-lang-btn')));
-    });
-
-    window.applyLanguage(window.currentLang);
-  })();
+    // JSONP-style script loading avoids the need for Apps Script or an API key.
+    const script = document.createElement("script");
+    script.src =
+      `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq` +
+      `?gid=${encodeURIComponent(SHEET_GID)}` +
+      `&headers=1` +
+      `&tqx=responseHandler:handleSheetData`;
+    script.onerror = window.handleSheetLoadError;
+    document.body.appendChild(script);
   </script>
-
 </body>
 </html>
