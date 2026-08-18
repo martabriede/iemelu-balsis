@@ -217,13 +217,20 @@
       color:var(--text);
     }
 
+    .location-line{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:wrap;
+    }
+
     .map-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:.3rem;
-      margin-top:.28rem;
-      padding:.34rem .58rem;
+      margin-top:0;
+      padding:.3rem .55rem;
       border-radius:999px;
       background:var(--tint);
       border:1px solid var(--border);
@@ -572,8 +579,10 @@ function hero(i){
           <div class="meta-icon">📍</div>
           <div class="meta-copy">
             <span class="meta-label">Location</span>
-            <div class="meta-value">${esc(i["Location"])}</div>
-            ${mapButton(i["Google Maps"])}
+            <div class="location-line">
+              <div class="meta-value">${esc(i["Location"])}</div>
+              ${mapButton(i["Google Maps"])}
+            </div>
           </div>
         </div>
       ` : ""}
