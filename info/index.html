@@ -455,14 +455,14 @@ function esc(v){
 
 function linkify(v){
   return esc(v).replace(
-    /(https?:\\/\\/[^\\s<]+)/g,
+    /(https?:\/\/[^\s<]+)/g,
     '<a href="$1" target="_blank" rel="noopener">$1</a>'
   );
 }
 
 function safeUrl(v){
   const s=String(v??"").trim();
-  return /^https?:\\/\\//i.test(s) ? s : "";
+  return /^https?:\/\//i.test(s) ? s : "";
 }
 
 function mapButton(url,small=false){
@@ -478,12 +478,12 @@ function parseDate(raw,formatted){
   if(raw instanceof Date)return raw;
 
   const s=String(raw??"").trim();
-  const m=s.match(/^Date\\((\\d{4}),(\\d{1,2}),(\\d{1,2})/);
+  const m=s.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})/);
 
   if(m)return new Date(+m[1],+m[2],+m[3],12);
 
   const t=s||String(formatted??"").trim();
-  const iso=t.match(/^(\\d{4})-(\\d{2})-(\\d{2})$/);
+  const iso=t.match(/^(\d{4})-(\d{2})-(\d{2})$/);
 
   if(iso)return new Date(+iso[1],+iso[2]-1,+iso[3],12);
 
