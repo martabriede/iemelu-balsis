@@ -5,45 +5,71 @@
   <link rel="icon" type="image/png" href="../images/choir-app-icon.png">
   <meta name="apple-mobile-web-app-title" content="Ziemeļu Balsis">
   <meta name="application-name" content="Ziemeļu Balsis">
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#8F1730">
   <title>Ziemeļu Balsis — Choir Info</title>
+
   <style>
     :root{--bg:#FFFBFC;--text:#182033;--muted:#5f6b7d;--brand:#8F1730;--card:#fff;--border:#F0DDE2;--tint:#FFF3F6;--shadow-soft:0 10px 28px rgba(112,20,39,.08),0 2px 8px rgba(15,23,42,.05);--radius:24px;--maxw:820px}
-    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
     body{min-height:100dvh;background:radial-gradient(circle at 85% 8%,rgba(143,23,48,.08),transparent 28rem),linear-gradient(180deg,#fff 0%,#fff7f9 100%)}
     .topbar{background-color:var(--brand);color:#fff;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px),repeating-linear-gradient(-45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px);background-size:16px 16px}
     .topbar-inner{max-width:var(--maxw);margin:auto;padding:1rem 1.1rem;display:flex;align-items:center;gap:.75rem}
     .logo{width:46px;height:46px;object-fit:contain;border-radius:12px}.brand-title{font-weight:850}.brand-subtitle{font-size:.82rem;opacity:.86}
     main{max-width:var(--maxw);margin:auto;padding:1.35rem 1rem 4rem}
     .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1rem}
-    h1{margin:0;font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.15} h1::after{content:"";display:block;width:64px;height:5px;margin-top:.55rem;border-radius:999px;background:var(--brand)}
-    .updated{color:var(--muted);font-size:.82rem}
+    h1{margin:0;font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.15}
+    h1::after{content:"";display:block;width:64px;height:5px;margin-top:.55rem;border-radius:999px;background:var(--brand)}
+    .page-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}
+    .updated{color:var(--muted);font-size:.82rem;white-space:nowrap}
+    .refresh-btn{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border);border-radius:999px;padding:.42rem .72rem;background:#fff;color:var(--brand);font:inherit;font-size:.82rem;font-weight:800;cursor:pointer;box-shadow:var(--shadow-soft)}
     .hero-card,.feed-card{background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
     .hero-card{padding:1.25rem;margin-bottom:1.3rem;position:relative;overflow:hidden}.hero-card::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--brand)}
-    .eyebrow{color:var(--brand);font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}.hero-card h2{margin:.1rem 0 .7rem;font-size:1.55rem}.date-main{color:var(--brand);font-weight:850}
-    .details{display:grid;gap:.65rem;margin-top:.85rem}.detail{border-top:1px solid var(--border);padding-top:.65rem}.detail:first-child{border-top:0;padding-top:0}.detail-label{display:block;color:var(--muted);font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+    .eyebrow{color:var(--brand);font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    .new-badge{display:inline-flex;align-items:center;justify-content:center;padding:.18rem .48rem;border-radius:999px;background:var(--brand);color:#fff;font-size:.68rem;line-height:1;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .hero-card h2{margin:.1rem 0 .7rem;font-size:1.55rem}.date-main{color:var(--brand);font-weight:850}
+    .details{display:grid;gap:.65rem;margin-top:.85rem}.detail{border-top:1px solid var(--border);padding-top:.65rem}.detail:first-child{border-top:0;padding-top:0}
+    .detail-label{display:block;color:var(--muted);font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
     .description{margin-top:.9rem;padding:.9rem 1rem;background:var(--tint);border:1px solid var(--border);border-radius:18px;white-space:pre-wrap}
-    .section-heading{display:flex;justify-content:space-between;align-items:center;margin:1.55rem 0 .75rem}.section-heading h2{font-size:1.12rem;margin:0}.count{color:var(--muted);border:1px solid var(--border);background:#fff;border-radius:999px;padding:.18rem .55rem;font-size:.8rem}
+    .section-heading{display:flex;justify-content:space-between;align-items:center;margin:1.55rem 0 .75rem}.section-heading h2{font-size:1.12rem;margin:0}
+    .count{color:var(--muted);border:1px solid var(--border);background:#fff;border-radius:999px;padding:.18rem .55rem;font-size:.8rem}
     .feed{display:grid;gap:.85rem}.feed-card{padding:1rem}.feed-card h3{margin:.08rem 0 .4rem}.feed-date{color:var(--brand);font-weight:850;font-size:.88rem}.compact{color:var(--muted);font-size:.89rem}
-    details{margin-top:.7rem}summary{cursor:pointer;color:var(--brand);font-weight:800}.archive-toggle{width:100%;text-align:left;padding:.9rem 1rem;border:1px solid var(--border);border-radius:18px;background:#fff;color:var(--brand);font:inherit;font-weight:800;cursor:pointer}.archive{display:none;margin-top:.8rem}.archive.open{display:grid}
-    .status{text-align:center;color:var(--muted);padding:2.5rem 1rem}.error{padding:1rem;border:1px solid #fecaca;background:#fff5f5;color:#991B1B;border-radius:18px}a{color:var(--brand);overflow-wrap:anywhere}.posted{color:var(--muted);font-size:.75rem;margin-top:.9rem}
-    @media(max-width:560px){.intro{flex-direction:column;align-items:flex-start}.hero-card{padding:1.05rem}}
+    .feed-card-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.7rem}
+    details{margin-top:.7rem}summary{cursor:pointer;color:var(--brand);font-weight:800}
+    .archive-toggle{width:100%;text-align:left;padding:.9rem 1rem;border:1px solid var(--border);border-radius:18px;background:#fff;color:var(--brand);font:inherit;font-weight:800;cursor:pointer}
+    .archive{display:none;margin-top:.8rem}.archive.open{display:grid}
+    .status{text-align:center;color:var(--muted);padding:2.5rem 1rem}.error{padding:1rem;border:1px solid #fecaca;background:#fff5f5;color:#991B1B;border-radius:18px}
+    a{color:var(--brand);overflow-wrap:anywhere}.posted{color:var(--muted);font-size:.75rem;margin-top:.9rem}
+    @media(max-width:560px){.intro{flex-direction:column;align-items:flex-start}.page-actions{justify-content:flex-start}.hero-card{padding:1.05rem}}
   </style>
 </head>
 <body>
-  <header class="topbar"><div class="topbar-inner"><img class="logo" src="../images/logo.png" alt="Ziemeļu Balsis logo"><div><div class="brand-title">Ziemeļu Balsis</div><div class="brand-subtitle">Choir member information</div></div></div></header>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <img class="logo" src="../images/logo.png" alt="Ziemeļu Balsis logo">
+      <div><div class="brand-title">Ziemeļu Balsis</div><div class="brand-subtitle">Choir member information</div></div>
+    </div>
+  </header>
+
   <main>
-    <div class="intro"><h1>What's happening?</h1><div class="updated" id="updated"></div></div>
+    <div class="intro">
+      <h1>What's happening?</h1>
+      <div class="page-actions">
+        <div class="updated" id="updated"></div>
+        <button class="refresh-btn" id="refreshBtn" type="button">↻ Refresh</button>
+      </div>
+    </div>
     <div id="app"><div class="status">Loading choir information…</div></div>
   </main>
+
 <script>
 const SPREADSHEET_ID="1TsUo-NbYTQhAajWZ0jHDjds1dHozQ7HJMs_E4S7Sz2E";
 const SHEET_GID="0";
 const REQUIRED_HEADERS=["Date of posting","Title","Date of event","Time of event","Location","Description","Dresscode","Useful links","Notes from org/conductors"];
+const SEEN_STORAGE_KEY="zbInfoSeenV2";
 
 function esc(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
 function linkify(v){return esc(v).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>')}
@@ -53,39 +79,134 @@ function parseDate(raw,formatted){
   if(m)return new Date(+m[1],+m[2],+m[3],12);
   const t=s||String(formatted??"").trim(),iso=t.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if(iso)return new Date(+iso[1],+iso[2]-1,+iso[3],12);
-  const d=new Date(t); return Number.isNaN(d.getTime())?null:d;
+  const d=new Date(t);return Number.isNaN(d.getTime())?null:d;
 }
 function dateLabel(d,f){return d?new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"long",year:"numeric"}).format(d):(f||"")}
 function today(){const d=new Date();d.setHours(0,0,0,0);return d}
 function detail(label,value){if(!String(value??"").trim())return"";return `<div class="detail"><span class="detail-label">${esc(label)}</span><div>${linkify(value)}</div></div>`}
-function hero(i){return `<article class="hero-card"><div class="eyebrow">🎵 Next event</div><h2>${esc(i["Title"]||"Choir event")}</h2><div class="date-main">${esc(dateLabel(i._eventDate,i["Date of event"]))}${i["Time of event"]?" · "+esc(i["Time of event"]):""}</div><div class="details">${detail("Location",i["Location"])}</div>${i["Description"]?`<div class="description">${linkify(i["Description"])}</div>`:""}<div class="details">${detail("Dresscode",i["Dresscode"])}${detail("Useful links",i["Useful links"])}${detail("Notes from organisers / conductors",i["Notes from org/conductors"])}</div>${i["Date of posting"]?`<div class="posted">Posted: ${esc(i["Date of posting"])}</div>`:""}</article>`}
-function card(i){const more=i["Description"]||i["Dresscode"]||i["Useful links"]||i["Notes from org/conductors"];return `<article class="feed-card"><div class="feed-date">${esc(dateLabel(i._eventDate,i["Date of event"]))}${i["Time of event"]?" · "+esc(i["Time of event"]):""}</div><h3>${esc(i["Title"]||"Choir event")}</h3>${i["Location"]?`<div class="compact">📍 ${esc(i["Location"])}</div>`:""}${more?`<details><summary>Show details</summary>${i["Description"]?`<div class="description">${linkify(i["Description"])}</div>`:""}<div class="details">${detail("Dresscode",i["Dresscode"])}${detail("Useful links",i["Useful links"])}${detail("Notes from organisers / conductors",i["Notes from org/conductors"])}</div>${i["Date of posting"]?`<div class="posted">Posted: ${esc(i["Date of posting"])}</div>`:""}</details>`:""}</article>`}
+
+function hashString(str){
+  let hash=2166136261;
+  for(let i=0;i<str.length;i++){hash^=str.charCodeAt(i);hash=Math.imul(hash,16777619)}
+  return (hash>>>0).toString(36);
+}
+function signature(item){
+  return hashString(REQUIRED_HEADERS.map(h=>h+":"+String(item[h]??"").trim()).join("|"));
+}
+function getSeen(){
+  try{return new Set(JSON.parse(localStorage.getItem(SEEN_STORAGE_KEY)||"[]"))}
+  catch{return new Set()}
+}
+function saveSeen(set){
+  try{localStorage.setItem(SEEN_STORAGE_KEY,JSON.stringify([...set]))}catch{}
+}
+function badge(i){return i._isNew?'<span class="new-badge">New</span>':""}
+
+function hero(i){
+  return `<article class="hero-card track-seen" data-signature="${esc(i._signature)}">
+    <div class="eyebrow"><span>🎵 Next event</span>${badge(i)}</div>
+    <h2>${esc(i["Title"]||"Choir event")}</h2>
+    <div class="date-main">${esc(dateLabel(i._eventDate,i["Date of event"]))}${i["Time of event"]?" · "+esc(i["Time of event"]):""}</div>
+    <div class="details">${detail("Location",i["Location"])}</div>
+    ${i["Description"]?`<div class="description">${linkify(i["Description"])}</div>`:""}
+    <div class="details">${detail("Dresscode",i["Dresscode"])}${detail("Useful links",i["Useful links"])}${detail("Notes from organisers / conductors",i["Notes from org/conductors"])}</div>
+    ${i["Date of posting"]?`<div class="posted">Posted: ${esc(i["Date of posting"])}</div>`:""}
+  </article>`;
+}
+function card(i){
+  const more=i["Description"]||i["Dresscode"]||i["Useful links"]||i["Notes from org/conductors"];
+  return `<article class="feed-card track-seen" data-signature="${esc(i._signature)}">
+    <div class="feed-date">${esc(dateLabel(i._eventDate,i["Date of event"]))}${i["Time of event"]?" · "+esc(i["Time of event"]):""}</div>
+    <div class="feed-card-title-row"><h3>${esc(i["Title"]||"Choir event")}</h3>${badge(i)}</div>
+    ${i["Location"]?`<div class="compact">📍 ${esc(i["Location"])}</div>`:""}
+    ${more?`<details><summary>Show details</summary>
+      ${i["Description"]?`<div class="description">${linkify(i["Description"])}</div>`:""}
+      <div class="details">${detail("Dresscode",i["Dresscode"])}${detail("Useful links",i["Useful links"])}${detail("Notes from organisers / conductors",i["Notes from org/conductors"])}</div>
+      ${i["Date of posting"]?`<div class="posted">Posted: ${esc(i["Date of posting"])}</div>`:""}
+    </details>`:""}
+  </article>`;
+}
+
+function observeSeen(seen){
+  if(!("IntersectionObserver" in window))return;
+  const observer=new IntersectionObserver(entries=>{
+    let changed=false;
+    entries.forEach(entry=>{
+      if(entry.isIntersecting&&entry.intersectionRatio>=0.5){
+        const sig=entry.target.dataset.signature;
+        if(sig&&!seen.has(sig)){seen.add(sig);changed=true}
+        observer.unobserve(entry.target);
+      }
+    });
+    if(changed)saveSeen(seen);
+  },{threshold:[0.5]});
+  document.querySelectorAll(".track-seen").forEach(el=>observer.observe(el));
+}
+
 function render(items){
   const t=today();
   const rows=items.filter(i=>String(i["Title"]??"").trim()!=="").map(i=>({...i,_eventDate:parseDate(i.__rawDateOfEvent,i["Date of event"])}));
+  rows.forEach(i=>i._signature=signature(i));
+
+  let seen=getSeen();
+  const hasHistory=localStorage.getItem(SEEN_STORAGE_KEY)!==null;
+
+  if(!hasHistory){
+    rows.forEach(i=>seen.add(i._signature));
+    saveSeen(seen);
+  }
+
+  rows.forEach(i=>i._isNew=hasHistory&&!seen.has(i._signature));
+
   const future=rows.filter(i=>i._eventDate&&i._eventDate>=t).sort((a,b)=>a._eventDate-b._eventDate);
   const undated=rows.filter(i=>!i._eventDate);
   const past=rows.filter(i=>i._eventDate&&i._eventDate<t).sort((a,b)=>b._eventDate-a._eventDate);
   const main=future[0]||undated[0]||null;
   const upcoming=main?[...future.slice(main===future[0]?1:0),...undated.filter(x=>x!==main)]:[...future,...undated];
-  let h=main?hero(main):`<div class="status">There are currently no upcoming events.</div>`;
-  if(upcoming.length)h+=`<div class="section-heading"><h2>Upcoming events</h2><span class="count">${upcoming.length}</span></div><div class="feed">${upcoming.map(card).join("")}</div>`;
-  if(past.length)h+=`<div class="section-heading"><h2>Past events</h2></div><button class="archive-toggle" id="archiveToggle">Show past events (${past.length})</button><div class="feed archive" id="archive">${past.map(card).join("")}</div>`;
+
+  let h=main?hero(main):'<div class="status">There are currently no upcoming events.</div>';
+
+  if(upcoming.length){
+    h+=`<div class="section-heading"><h2>Upcoming events</h2><span class="count">${upcoming.length}</span></div><div class="feed">${upcoming.map(card).join("")}</div>`;
+  }
+
+  if(past.length){
+    h+=`<div class="section-heading"><h2>Past events</h2></div>
+      <button class="archive-toggle" id="archiveToggle" type="button">Show past events (${past.length})</button>
+      <div class="feed archive" id="archive">${past.map(card).join("")}</div>`;
+  }
+
   document.getElementById("app").innerHTML=h;
-  const b=document.getElementById("archiveToggle"),a=document.getElementById("archive"); if(b&&a)b.onclick=()=>{const o=a.classList.toggle("open");b.textContent=o?"Hide past events":`Show past events (${past.length})`};
+
+  const b=document.getElementById("archiveToggle"),a=document.getElementById("archive");
+  if(b&&a)b.onclick=()=>{const open=a.classList.toggle("open");b.textContent=open?"Hide past events":`Show past events (${past.length})`};
+
   document.getElementById("updated").textContent="Loaded at "+new Intl.DateTimeFormat("en-GB",{hour:"2-digit",minute:"2-digit"}).format(new Date());
+  observeSeen(seen);
 }
+
 window.handleSheetData=function(response){
   try{
     if(!response||response.status==="error")throw new Error("Google Sheets returned an error.");
     const table=response.table,headers=table.cols.map(c=>String(c.label||"").trim());
-    const missing=REQUIRED_HEADERS.filter(h=>!headers.includes(h)); if(missing.length)throw new Error("Missing columns: "+missing.join(", "));
+    const missing=REQUIRED_HEADERS.filter(h=>!headers.includes(h));
+    if(missing.length)throw new Error("Missing columns: "+missing.join(", "));
     const rows=table.rows.map(r=>{const o={};r.c.forEach((cell,idx)=>{const h=headers[idx];if(!h)return;const raw=cell?cell.v:"",formatted=cell&&cell.f!=null?cell.f:raw;o[h]=formatted??"";if(h==="Date of event")o.__rawDateOfEvent=raw});return o});
     render(rows);
-  }catch(e){document.getElementById("app").innerHTML=`<div class="error">Could not read the Google Sheet data.<br><br>${esc(e.message)}</div>`}
+  }catch(e){
+    document.getElementById("app").innerHTML=`<div class="error">Could not read the Google Sheet data.<br><br>${esc(e.message)}</div>`;
+  }
 };
+
+document.getElementById("refreshBtn").onclick=()=>{
+  const b=document.getElementById("refreshBtn");
+  b.textContent="↻ Refreshing…";
+  b.disabled=true;
+  window.location.reload();
+};
+
 const s=document.createElement("script");
-s.src=`https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?gid=${SHEET_GID}&headers=1&tqx=responseHandler:handleSheetData`;
+s.src=`https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?gid=${SHEET_GID}&headers=1&tqx=responseHandler:handleSheetData&_=${Date.now()}`;
 s.onerror=()=>document.getElementById("app").innerHTML='<div class="error">Could not connect to the Google Sheet. Check that it is shared as “Anyone with the link — Viewer”.</div>';
 document.body.appendChild(s);
 </script>
