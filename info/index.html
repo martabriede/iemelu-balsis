@@ -15,86 +15,373 @@
     :root{
       --bg:#FFFBFC;
       --text:#182033;
-      --muted:#5f6b7d;
+      --muted:#657086;
       --brand:#8F1730;
+      --brand-dark:#651020;
       --card:#fff;
       --border:#F0DDE2;
-      --tint:#FFF3F6;
+      --tint:#FFF6F8;
       --shadow-soft:0 10px 28px rgba(112,20,39,.08),0 2px 8px rgba(15,23,42,.05);
       --radius:24px;
       --maxw:820px;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-    body{min-height:100dvh;background:radial-gradient(circle at 85% 8%,rgba(143,23,48,.08),transparent 28rem),linear-gradient(180deg,#fff 0%,#fff7f9 100%)}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font:16px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
 
-    .topbar{background-color:var(--brand);color:#fff;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px),repeating-linear-gradient(-45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px);background-size:16px 16px}
-    .topbar-inner{max-width:var(--maxw);margin:auto;padding:1rem 1.1rem;display:flex;align-items:center;gap:.75rem}
+    body{
+      min-height:100dvh;
+      background:
+        radial-gradient(circle at 85% 8%,rgba(143,23,48,.08),transparent 28rem),
+        linear-gradient(180deg,#fff 0%,#fff8fa 100%);
+    }
+
+    .topbar{
+      background-color:var(--brand);
+      color:#fff;
+      background-image:
+        repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px),
+        repeating-linear-gradient(-45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px);
+      background-size:16px 16px;
+    }
+
+    .topbar-inner{
+      max-width:var(--maxw);
+      margin:auto;
+      padding:1rem 1.1rem;
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+
     .logo{width:46px;height:46px;object-fit:contain;border-radius:12px}
-    .brand-title{font-weight:850}
+    .brand-title{font-weight:850;font-size:1.05rem}
     .brand-subtitle{font-size:.82rem;opacity:.86}
 
     main{max-width:var(--maxw);margin:auto;padding:1.35rem 1rem 4rem}
-    .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1rem}
 
-    h1{margin:0;font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.15}
-    h1::after{content:"";display:block;width:64px;height:5px;margin-top:.55rem;border-radius:999px;background:var(--brand)}
+    .intro{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:1rem;
+      margin-bottom:1.15rem;
+    }
 
-    .page-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}
+    h1{
+      margin:0;
+      font-size:clamp(1.75rem,5vw,2.35rem);
+      line-height:1.12;
+    }
+
+    h1::after{
+      content:"";
+      display:block;
+      width:64px;
+      height:5px;
+      margin-top:.55rem;
+      border-radius:999px;
+      background:var(--brand);
+    }
+
+    .page-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
     .updated{color:var(--muted);font-size:.82rem;white-space:nowrap}
-    .refresh-btn{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border);border-radius:999px;padding:.42rem .72rem;background:#fff;color:var(--brand);font:inherit;font-size:.82rem;font-weight:800;cursor:pointer;box-shadow:var(--shadow-soft)}
-    .refresh-btn:hover{background:var(--tint)}
 
-    .hero-card,.feed-card{background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
-    .hero-card{padding:1.25rem;margin-bottom:1.3rem;position:relative;overflow:hidden}
-    .hero-card::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--brand)}
+    .refresh-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:.42rem .72rem;
+      background:#fff;
+      color:var(--brand);
+      font:inherit;
+      font-size:.82rem;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+    }
 
-    .eyebrow{color:var(--brand);font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-    .new-badge{display:inline-flex;align-items:center;justify-content:center;padding:.18rem .48rem;border-radius:999px;background:var(--brand);color:#fff;font-size:.68rem;line-height:1;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .hero-card,.feed-card{
+      background:rgba(255,255,255,.97);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+    }
 
-    .hero-card h2{margin:.1rem 0 .7rem;font-size:1.55rem}
-    .date-main{color:var(--brand);font-weight:850}
+    .hero-card{
+      padding:1.15rem 1.15rem 1rem;
+      margin-bottom:1.4rem;
+      position:relative;
+      overflow:hidden;
+    }
 
-    .details{display:grid;gap:.65rem;margin-top:.85rem}
-    .detail{border-top:1px solid var(--border);padding-top:.65rem}
-    .detail:first-child{border-top:0;padding-top:0}
-    .detail-label{display:block;color:var(--muted);font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      left:0;top:0;bottom:0;
+      width:6px;
+      background:var(--brand);
+    }
+
+    .hero-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.8rem;
+      margin-bottom:.65rem;
+    }
+
+    .eyebrow{
+      color:var(--brand);
+      font-size:.76rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+    }
+
+    .new-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.2rem .5rem;
+      border-radius:999px;
+      background:var(--brand);
+      color:#fff;
+      font-size:.68rem;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      flex:0 0 auto;
+    }
+
+    .hero-card h2{
+      margin:0;
+      font-size:clamp(1.55rem,5vw,2rem);
+      line-height:1.18;
+    }
+
+    .event-meta{
+      display:grid;
+      gap:.55rem;
+      margin-top:1rem;
+    }
+
+    .meta-row{
+      display:flex;
+      align-items:flex-start;
+      gap:.65rem;
+      padding:.65rem 0;
+      border-top:1px solid var(--border);
+    }
+
+    .meta-row:first-child{border-top:0;padding-top:0}
+
+    .meta-icon{
+      width:28px;
+      height:28px;
+      display:grid;
+      place-items:center;
+      border-radius:9px;
+      background:var(--tint);
+      flex:0 0 28px;
+      font-size:.9rem;
+    }
+
+    .meta-copy{min-width:0}
+    .meta-label{
+      display:block;
+      color:var(--muted);
+      font-size:.72rem;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      margin-bottom:.05rem;
+    }
+
+    .meta-value{
+      font-weight:750;
+      color:var(--text);
+    }
 
     .map-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:.4rem;
-      margin-top:.55rem;
-      padding:.62rem .9rem;
-      border-radius:999px;
+      margin-top:.25rem;
+      padding:.58rem .85rem;
+      border-radius:12px;
       background:var(--brand);
       color:#fff;
       text-decoration:none;
       font-weight:800;
-      font-size:.9rem;
-      box-shadow:var(--shadow-soft);
+      font-size:.88rem;
     }
-    .map-btn:hover{filter:brightness(.97);text-decoration:none}
 
-    .description{margin-top:.9rem;padding:.9rem 1rem;background:var(--tint);border:1px solid var(--border);border-radius:18px;white-space:pre-wrap}
+    .map-btn:hover{text-decoration:none;filter:brightness(.97)}
 
-    .section-heading{display:flex;justify-content:space-between;align-items:center;margin:1.55rem 0 .75rem}
+    .description-block{
+      margin-top:1rem;
+      padding:.9rem 1rem;
+      background:var(--tint);
+      border:1px solid var(--border);
+      border-radius:18px;
+    }
+
+    .block-label{
+      display:block;
+      color:var(--brand);
+      font-size:.72rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      margin-bottom:.35rem;
+    }
+
+    .secondary-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:.75rem;
+      margin-top:.85rem;
+    }
+
+    .secondary-card{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:.8rem .85rem;
+      background:#fff;
+    }
+
+    .secondary-card.full{grid-column:1/-1}
+    .secondary-card .block-label{color:var(--muted);margin-bottom:.25rem}
+
+    .section-heading{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin:1.6rem 0 .75rem;
+    }
+
     .section-heading h2{font-size:1.12rem;margin:0}
-    .count{color:var(--muted);border:1px solid var(--border);background:#fff;border-radius:999px;padding:.18rem .55rem;font-size:.8rem}
 
-    .feed{display:grid;gap:.85rem}
-    .feed-card{padding:1rem}
-    .feed-card h3{margin:.08rem 0 .4rem}
-    .feed-date{color:var(--brand);font-weight:850;font-size:.88rem}
-    .compact{color:var(--muted);font-size:.89rem}
-    .feed-card-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.7rem}
+    .count{
+      color:var(--muted);
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:999px;
+      padding:.18rem .55rem;
+      font-size:.8rem;
+    }
 
-    details{margin-top:.7rem}
-    summary{cursor:pointer;color:var(--brand);font-weight:800}
+    .feed{display:grid;gap:.8rem}
 
-    .archive-toggle{width:100%;text-align:left;padding:.9rem 1rem;border:1px solid var(--border);border-radius:18px;background:#fff;color:var(--brand);font:inherit;font-weight:800;cursor:pointer}
+    .feed-card{padding:.95rem 1rem}
+
+    .feed-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:.7rem;
+    }
+
+    .feed-date{
+      color:var(--brand);
+      font-weight:850;
+      font-size:.84rem;
+      margin-bottom:.18rem;
+    }
+
+    .feed-card h3{
+      margin:.05rem 0 .25rem;
+      font-size:1.05rem;
+      line-height:1.3;
+    }
+
+    .compact{
+      color:var(--muted);
+      font-size:.88rem;
+      margin-top:.1rem;
+    }
+
+    .feed-actions{
+      display:flex;
+      gap:.45rem;
+      flex-wrap:wrap;
+      margin-top:.55rem;
+    }
+
+    .small-map-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      padding:.42rem .65rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--tint);
+      color:var(--brand);
+      text-decoration:none;
+      font-size:.82rem;
+      font-weight:800;
+    }
+
+    details{margin-top:.65rem}
+    summary{cursor:pointer;color:var(--brand);font-weight:800;font-size:.88rem}
+
+    .detail-list{
+      display:grid;
+      gap:.55rem;
+      margin-top:.65rem;
+    }
+
+    .detail-item{
+      padding:.65rem .75rem;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .detail-item strong{
+      display:block;
+      color:var(--muted);
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      margin-bottom:.15rem;
+    }
+
+    .posted{
+      color:var(--muted);
+      font-size:.73rem;
+      margin-top:.8rem;
+    }
+
+    .archive-toggle{
+      width:100%;
+      text-align:left;
+      padding:.9rem 1rem;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:#fff;
+      color:var(--brand);
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+    }
+
     .archive{display:none;margin-top:.8rem}
     .archive.open{display:grid}
 
@@ -102,12 +389,12 @@
     .error{padding:1rem;border:1px solid #fecaca;background:#fff5f5;color:#991B1B;border-radius:18px}
 
     a{color:var(--brand);overflow-wrap:anywhere}
-    .posted{color:var(--muted);font-size:.75rem;margin-top:.9rem}
 
     @media(max-width:560px){
       .intro{flex-direction:column;align-items:flex-start}
       .page-actions{justify-content:flex-start}
-      .hero-card{padding:1.05rem}
+      .secondary-grid{grid-template-columns:1fr}
+      .secondary-card.full{grid-column:auto}
     }
   </style>
 </head>
@@ -126,6 +413,7 @@
   <main>
     <div class="intro">
       <h1>What's happening?</h1>
+
       <div class="page-actions">
         <div class="updated" id="updated"></div>
         <button class="refresh-btn" id="refreshBtn" type="button">↻ Refresh</button>
@@ -154,7 +442,7 @@ const REQUIRED_HEADERS=[
   "Notes from org/conductors"
 ];
 
-const SEEN_STORAGE_KEY="zbInfoSeenV3";
+const SEEN_STORAGE_KEY="zbInfoSeenV4";
 
 function esc(v){
   return String(v??"")
@@ -167,32 +455,35 @@ function esc(v){
 
 function linkify(v){
   return esc(v).replace(
-    /(https?:\/\/[^\s<]+)/g,
+    /(https?:\\/\\/[^\\s<]+)/g,
     '<a href="$1" target="_blank" rel="noopener">$1</a>'
   );
 }
 
 function safeUrl(v){
   const s=String(v??"").trim();
-  return /^https?:\/\//i.test(s) ? s : "";
+  return /^https?:\\/\\//i.test(s) ? s : "";
 }
 
-function mapButton(url){
+function mapButton(url,small=false){
   const safe=safeUrl(url);
-  if(!safe) return "";
-  return `<a class="map-btn" href="${esc(safe)}" target="_blank" rel="noopener">📍 Open in Google Maps</a>`;
+  if(!safe)return"";
+
+  return `<a class="${small?"small-map-btn":"map-btn"}" href="${esc(safe)}" target="_blank" rel="noopener">
+    📍 Open in Google Maps
+  </a>`;
 }
 
 function parseDate(raw,formatted){
   if(raw instanceof Date)return raw;
 
   const s=String(raw??"").trim();
-  const m=s.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})/);
+  const m=s.match(/^Date\\((\\d{4}),(\\d{1,2}),(\\d{1,2})/);
 
   if(m)return new Date(+m[1],+m[2],+m[3],12);
 
   const t=s||String(formatted??"").trim();
-  const iso=t.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const iso=t.match(/^(\\d{4})-(\\d{2})-(\\d{2})$/);
 
   if(iso)return new Date(+iso[1],+iso[2]-1,+iso[3],12);
 
@@ -212,11 +503,6 @@ function today(){
   return d;
 }
 
-function detail(label,value){
-  if(!String(value??"").trim())return"";
-  return `<div class="detail"><span class="detail-label">${esc(label)}</span><div>${linkify(value)}</div></div>`;
-}
-
 function hashString(str){
   let hash=2166136261;
   for(let i=0;i<str.length;i++){
@@ -228,9 +514,7 @@ function hashString(str){
 
 function signature(item){
   return hashString(
-    REQUIRED_HEADERS
-      .map(h=>h+":"+String(item[h]??"").trim())
-      .join("|")
+    REQUIRED_HEADERS.map(h=>h+":"+String(item[h]??"").trim()).join("|")
   );
 }
 
@@ -252,39 +536,68 @@ function badge(i){
   return i._isNew ? '<span class="new-badge">New</span>' : "";
 }
 
+function secondary(label,value,full=false){
+  if(!String(value??"").trim())return"";
+
+  return `<div class="secondary-card ${full?"full":""}">
+    <span class="block-label">${esc(label)}</span>
+    <div>${linkify(value)}</div>
+  </div>`;
+}
+
 function hero(i){
   return `<article class="hero-card track-seen" data-signature="${esc(i._signature)}">
-    <div class="eyebrow"><span>🎵 Next event</span>${badge(i)}</div>
+    <div class="hero-top">
+      <div class="eyebrow">🎵 Next event</div>
+      ${badge(i)}
+    </div>
 
     <h2>${esc(i["Title"]||"Choir event")}</h2>
 
-    <div class="date-main">
-      ${esc(dateLabel(i._eventDate,i["Date of event"]))}
-      ${i["Time of event"]?" · "+esc(i["Time of event"]):""}
+    <div class="event-meta">
+      <div class="meta-row">
+        <div class="meta-icon">📅</div>
+        <div class="meta-copy">
+          <span class="meta-label">Date & time</span>
+          <div class="meta-value">
+            ${esc(dateLabel(i._eventDate,i["Date of event"]))}
+            ${i["Time of event"]?" · "+esc(i["Time of event"]):""}
+          </div>
+        </div>
+      </div>
+
+      ${i["Location"] ? `
+        <div class="meta-row">
+          <div class="meta-icon">📍</div>
+          <div class="meta-copy">
+            <span class="meta-label">Location</span>
+            <div class="meta-value">${esc(i["Location"])}</div>
+            ${mapButton(i["Google Maps"])}
+          </div>
+        </div>
+      ` : ""}
     </div>
 
-    <div class="details">
-      ${detail("Location",i["Location"])}
+    ${i["Description"] ? `
+      <div class="description-block">
+        <span class="block-label">About this event</span>
+        <div>${linkify(i["Description"])}</div>
+      </div>
+    ` : ""}
+
+    <div class="secondary-grid">
+      ${secondary("Dresscode",i["Dresscode"])}
+      ${secondary("Useful links",i["Useful links"])}
+      ${secondary("Notes from organisers / conductors",i["Notes from org/conductors"],true)}
     </div>
 
-    ${mapButton(i["Google Maps"])}
-
-    ${i["Description"]
-      ? `<div class="description">${linkify(i["Description"])}</div>`
-      : ""
-    }
-
-    <div class="details">
-      ${detail("Dresscode",i["Dresscode"])}
-      ${detail("Useful links",i["Useful links"])}
-      ${detail("Notes from organisers / conductors",i["Notes from org/conductors"])}
-    </div>
-
-    ${i["Date of posting"]
-      ? `<div class="posted">Posted: ${esc(i["Date of posting"])}</div>`
-      : ""
-    }
+    ${i["Date of posting"] ? `<div class="posted">Posted: ${esc(i["Date of posting"])}</div>` : ""}
   </article>`;
+}
+
+function detailItem(label,value){
+  if(!String(value??"").trim())return"";
+  return `<div class="detail-item"><strong>${esc(label)}</strong><div>${linkify(value)}</div></div>`;
 }
 
 function card(i){
@@ -292,49 +605,35 @@ function card(i){
     i["Description"]||
     i["Dresscode"]||
     i["Useful links"]||
-    i["Notes from org/conductors"]||
-    i["Google Maps"];
+    i["Notes from org/conductors"];
 
   return `<article class="feed-card track-seen" data-signature="${esc(i._signature)}">
-    <div class="feed-date">
-      ${esc(dateLabel(i._eventDate,i["Date of event"]))}
-      ${i["Time of event"]?" · "+esc(i["Time of event"]):""}
-    </div>
-
-    <div class="feed-card-title-row">
-      <h3>${esc(i["Title"]||"Choir event")}</h3>
+    <div class="feed-header">
+      <div>
+        <div class="feed-date">
+          ${esc(dateLabel(i._eventDate,i["Date of event"]))}
+          ${i["Time of event"]?" · "+esc(i["Time of event"]):""}
+        </div>
+        <h3>${esc(i["Title"]||"Choir event")}</h3>
+        ${i["Location"] ? `<div class="compact">📍 ${esc(i["Location"])}</div>` : ""}
+      </div>
       ${badge(i)}
     </div>
 
-    ${i["Location"]
-      ? `<div class="compact">📍 ${esc(i["Location"])}</div>`
-      : ""
-    }
+    ${i["Google Maps"] ? `<div class="feed-actions">${mapButton(i["Google Maps"],true)}</div>` : ""}
 
-    ${i["Google Maps"] ? mapButton(i["Google Maps"]) : ""}
-
-    ${more
-      ? `<details>
-          <summary>Show details</summary>
-
-          ${i["Description"]
-            ? `<div class="description">${linkify(i["Description"])}</div>`
-            : ""
-          }
-
-          <div class="details">
-            ${detail("Dresscode",i["Dresscode"])}
-            ${detail("Useful links",i["Useful links"])}
-            ${detail("Notes from organisers / conductors",i["Notes from org/conductors"])}
-          </div>
-
-          ${i["Date of posting"]
-            ? `<div class="posted">Posted: ${esc(i["Date of posting"])}</div>`
-            : ""
-          }
-        </details>`
-      : ""
-    }
+    ${more ? `
+      <details>
+        <summary>Show details</summary>
+        <div class="detail-list">
+          ${detailItem("Description",i["Description"])}
+          ${detailItem("Dresscode",i["Dresscode"])}
+          ${detailItem("Useful links",i["Useful links"])}
+          ${detailItem("Notes from organisers / conductors",i["Notes from org/conductors"])}
+        </div>
+        ${i["Date of posting"] ? `<div class="posted">Posted: ${esc(i["Date of posting"])}</div>` : ""}
+      </details>
+    ` : ""}
   </article>`;
 }
 
@@ -432,9 +731,7 @@ function render(items){
   if(b&&a){
     b.onclick=()=>{
       const open=a.classList.toggle("open");
-      b.textContent=open
-        ?"Hide past events"
-        :`Show past events (${past.length})`;
+      b.textContent=open?"Hide past events":`Show past events (${past.length})`;
     };
   }
 
@@ -453,7 +750,6 @@ window.handleSheetData=function(response){
 
     const table=response.table;
     const headers=table.cols.map(c=>String(c.label||"").trim());
-
     const missing=REQUIRED_HEADERS.filter(h=>!headers.includes(h));
 
     if(missing.length){
